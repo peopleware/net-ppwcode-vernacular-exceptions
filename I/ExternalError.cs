@@ -52,12 +52,24 @@ namespace PPWCode.Vernacular.Exceptions.I
     /// situations. There is no need for internationalization for external errors. If there
     /// is extra information that we can communicate to the administrator, we can add it to
     /// the message.</para>
+    /// <para>Some string class variables are provided, that can be used as <see cref="Exception.Message"/>
+    /// if you wish. Using the same strings might help keep the code in your project
+    /// more consistent. The audience of these strings are system administrators.</para>
     /// </remarks>
     [Serializable]
     public class ExternalError : 
         Error
     {
+        /// <summary>
+        /// A string that can be used, if you wish, as the message to signal that
+        /// the external error was detected through an exception.
+        /// </summary>
         public const string ExceptionWithExternalCauseMessage = "An exception occurred, which appears to be of an external nature.";
+
+        /// <summary>
+        /// A string that can be used, if you wish, as the message to signal that
+        /// we are not able to provide more information as to the cause of the error.
+        /// </summary>
         public const string UnspecifiedExternalErrorMessage = "Could not continue due to an unspecified external error.";
 
         public ExternalError()

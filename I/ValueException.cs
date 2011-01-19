@@ -27,7 +27,7 @@ namespace PPWCode.Vernacular.Exceptions.I
     /// This value can be used to generate sensible end-user messages of the form &quot;Unable to change
     /// {<see cref="PropertyException.PropertyName"/>} for {<see cref="PropertyException.Sender"/>}
     /// from {<see cref="OldValue"/>} to
-    /// {<see cref="NewValue"/>}.
+    /// {<see cref="NewValue"/>}&quot;.
     /// </summary>
     /// <remarks>
     /// <para>This exception is a generalized version of a <see cref="PropertyException"/> that carries

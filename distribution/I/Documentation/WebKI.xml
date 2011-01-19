@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+
+  <HelpKINode Title="AddElement method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_AddElement.htm" />
+  <HelpKINode Title="Close method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Close.htm" />
+  <HelpKINode Title="Closed property" Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Closed.htm" />
+  <HelpKINode Title="CompoundSemanticException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+  <HelpKINode Title="CompoundSemanticException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+  <HelpKINode Title="CompoundSemanticException class">
+    <HelpKINode Title="about CompoundSemanticException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CompoundSemanticException.AddElement method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_AddElement.htm" />
+  <HelpKINode Title="CompoundSemanticException.Close method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Close.htm" />
+  <HelpKINode Title="CompoundSemanticException.Closed property" Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Closed.htm" />
+  <HelpKINode Title="CompoundSemanticException.CompoundSemanticException constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException__ctor.htm" />
+  <HelpKINode Title="CompoundSemanticException.ContainsElement method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_ContainsElement.htm" />
+  <HelpKINode Title="CompoundSemanticException.Count property" Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Count.htm" />
+  <HelpKINode Title="CompoundSemanticException.Elements property" Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Elements.htm" />
+  <HelpKINode Title="CompoundSemanticException.IsEmpty property" Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_IsEmpty.htm" />
+  <HelpKINode Title="CompoundSemanticException.Like method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Like.htm" />
+  <HelpKINode Title="CompoundSemanticException.ToString method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_ToString.htm" />
+  <HelpKINode Title="ContainsElement method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_ContainsElement.htm" />
+  <HelpKINode Title="Count property" Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Count.htm" />
+  <HelpKINode Title="Elements property" Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Elements.htm" />
+  <HelpKINode Title="Error class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+  <HelpKINode Title="Error class" Url="html/T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+  <HelpKINode Title="Error class">
+    <HelpKINode Title="about Error class" Url="html/T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_Error__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Error.Error constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_Error__ctor.htm" />
+  <HelpKINode Title="ExceptionCode property" Url="html/P_PPWCode_Vernacular_Exceptions_I_SemanticException_ExceptionCode.htm" />
+  <HelpKINode Title="ExceptionWithExternalCauseMessage field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ExternalError_ExceptionWithExternalCauseMessage.htm" />
+  <HelpKINode Title="ExceptionWithProgrammingCauseMessage field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ProgrammingError_ExceptionWithProgrammingCauseMessage.htm" />
+  <HelpKINode Title="ExternalError class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+  <HelpKINode Title="ExternalError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+  <HelpKINode Title="ExternalError class">
+    <HelpKINode Title="about ExternalError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ExternalError__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ExternalError.ExceptionWithExternalCauseMessage field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ExternalError_ExceptionWithExternalCauseMessage.htm" />
+  <HelpKINode Title="ExternalError.ExternalError constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ExternalError__ctor.htm" />
+  <HelpKINode Title="ExternalError.UnspecifiedExternalErrorMessage field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ExternalError_UnspecifiedExternalErrorMessage.htm" />
+  <HelpKINode Title="ImmutableException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+  <HelpKINode Title="ImmutableException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+  <HelpKINode Title="ImmutableException class">
+    <HelpKINode Title="about ImmutableException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ImmutableException__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ImmutableException.ImmutableException constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ImmutableException__ctor.htm" />
+  <HelpKINode Title="IsEmpty property" Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_IsEmpty.htm" />
+  <HelpKINode Title="Like method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Like.htm" />
+  <HelpKINode Title="Like method" Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException_Like.htm" />
+  <HelpKINode Title="Like method" Url="html/M_PPWCode_Vernacular_Exceptions_I_SemanticException_Like.htm" />
+  <HelpKINode Title="Like method" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException_Like.htm" />
+  <HelpKINode Title="Message property" Url="html/P_PPWCode_Vernacular_Exceptions_I_SemanticException_Message.htm" />
+  <HelpKINode Title="NewValue property" Url="html/P_PPWCode_Vernacular_Exceptions_I_ValueException_NewValue.htm" />
+  <HelpKINode Title="NoLongerSupportedError class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+  <HelpKINode Title="NoLongerSupportedError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+  <HelpKINode Title="NoLongerSupportedError class">
+    <HelpKINode Title="about NoLongerSupportedError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NoLongerSupportedError.NoLongerSupportedError constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError__ctor.htm" />
+  <HelpKINode Title="OldValue property" Url="html/P_PPWCode_Vernacular_Exceptions_I_ValueException_OldValue.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I namespace" Url="html/N_PPWCode_Vernacular_Exceptions_I.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.CompoundSemanticException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.CompoundSemanticException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.Error class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.Error class" Url="html/T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.ExternalError class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.ExternalError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.ImmutableException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.ImmutableException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.NoLongerSupportedError class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.NoLongerSupportedError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.ProgrammingError class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.ProgrammingError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.PropertyException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.PropertyException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.SecurityException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.SecurityException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.SemanticException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.SemanticException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.ValueException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+  <HelpKINode Title="PPWCode.Vernacular.Exceptions.I.ValueException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+  <HelpKINode Title="ProgrammingError class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+  <HelpKINode Title="ProgrammingError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+  <HelpKINode Title="ProgrammingError class">
+    <HelpKINode Title="about ProgrammingError class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ProgrammingError__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProgrammingError.ExceptionWithProgrammingCauseMessage field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ProgrammingError_ExceptionWithProgrammingCauseMessage.htm" />
+  <HelpKINode Title="ProgrammingError.ProgrammingError constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ProgrammingError__ctor.htm" />
+  <HelpKINode Title="ProgrammingError.UnspecifiedProgrammingErrorMessage field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ProgrammingError_UnspecifiedProgrammingErrorMessage.htm" />
+  <HelpKINode Title="PropertyException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+  <HelpKINode Title="PropertyException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+  <HelpKINode Title="PropertyException class">
+    <HelpKINode Title="about PropertyException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_PropertyException__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PropertyException.Like method" Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException_Like.htm" />
+  <HelpKINode Title="PropertyException.PropertyException constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_PropertyException__ctor.htm" />
+  <HelpKINode Title="PropertyException.PropertyName property" Url="html/P_PPWCode_Vernacular_Exceptions_I_PropertyException_PropertyName.htm" />
+  <HelpKINode Title="PropertyException.Sender property" Url="html/P_PPWCode_Vernacular_Exceptions_I_PropertyException_Sender.htm" />
+  <HelpKINode Title="PropertyException.ToString method" Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException_ToString.htm" />
+  <HelpKINode Title="PropertyName property" Url="html/P_PPWCode_Vernacular_Exceptions_I_PropertyException_PropertyName.htm" />
+  <HelpKINode Title="SecurityException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+  <HelpKINode Title="SecurityException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+  <HelpKINode Title="SecurityException class">
+    <HelpKINode Title="about SecurityException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_SecurityException__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SecurityException.SecurityException constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_SecurityException__ctor.htm" />
+  <HelpKINode Title="SemanticException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+  <HelpKINode Title="SemanticException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+  <HelpKINode Title="SemanticException class">
+    <HelpKINode Title="about SemanticException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_SemanticException__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SemanticException.ExceptionCode property" Url="html/P_PPWCode_Vernacular_Exceptions_I_SemanticException_ExceptionCode.htm" />
+  <HelpKINode Title="SemanticException.Like method" Url="html/M_PPWCode_Vernacular_Exceptions_I_SemanticException_Like.htm" />
+  <HelpKINode Title="SemanticException.Message property" Url="html/P_PPWCode_Vernacular_Exceptions_I_SemanticException_Message.htm" />
+  <HelpKINode Title="SemanticException.SemanticException constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_SemanticException__ctor.htm" />
+  <HelpKINode Title="Sender property" Url="html/P_PPWCode_Vernacular_Exceptions_I_PropertyException_Sender.htm" />
+  <HelpKINode Title="ToString method" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_ToString.htm" />
+  <HelpKINode Title="ToString method" Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException_ToString.htm" />
+  <HelpKINode Title="ToString method" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException_ToString.htm" />
+  <HelpKINode Title="UnspecifiedExternalErrorMessage field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ExternalError_UnspecifiedExternalErrorMessage.htm" />
+  <HelpKINode Title="UnspecifiedProgrammingErrorMessage field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ProgrammingError_UnspecifiedProgrammingErrorMessage.htm" />
+  <HelpKINode Title="ValueException class" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+  <HelpKINode Title="ValueException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+  <HelpKINode Title="ValueException class">
+    <HelpKINode Title="about ValueException class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ValueException__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ValueException.Like method" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException_Like.htm" />
+  <HelpKINode Title="ValueException.NewValue property" Url="html/P_PPWCode_Vernacular_Exceptions_I_ValueException_NewValue.htm" />
+  <HelpKINode Title="ValueException.OldValue property" Url="html/P_PPWCode_Vernacular_Exceptions_I_ValueException_OldValue.htm" />
+  <HelpKINode Title="ValueException.ToString method" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException_ToString.htm" />
+  <HelpKINode Title="ValueException.ValueException constructor" Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ValueException__ctor.htm" />
+</HelpKI>

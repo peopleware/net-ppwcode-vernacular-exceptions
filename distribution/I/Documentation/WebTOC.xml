@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="cfca02c6-1648-4526-964c-2836a3f8220d" Title="PPWCode.Vernacular.Exceptions.I Namespace" Url="html/N_PPWCode_Vernacular_Exceptions_I.htm">
+    <HelpTOCNode Id="ae9e7873-2ef7-4962-b927-329284c1fdd1" Title="CompoundSemanticException Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm">
+      <HelpTOCNode Title="CompoundSemanticException Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm" />
+      <HelpTOCNode Id="0f882ed6-8893-41df-a1ff-607f675e1a7c" Title="CompoundSemanticException Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException__ctor.htm">
+        <HelpTOCNode Title="CompoundSemanticException Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException__ctor.htm" />
+        <HelpTOCNode Title="CompoundSemanticException Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e61ad937-8027-4e08-b3bc-a2ac63bd3a0b" Title="CompoundSemanticException Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm">
+        <HelpTOCNode Title="AddElement Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_AddElement.htm" />
+        <HelpTOCNode Title="Close Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Close.htm" />
+        <HelpTOCNode Title="ContainsElement Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_ContainsElement.htm" />
+        <HelpTOCNode Title="Like Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Like.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="dc129cc2-ccf8-4976-bc5e-45034d0813ea" Title="CompoundSemanticException Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException.htm">
+        <HelpTOCNode Title="Closed Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Closed.htm" />
+        <HelpTOCNode Title="Count Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Count.htm" />
+        <HelpTOCNode Title="Elements Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_Elements.htm" />
+        <HelpTOCNode Title="IsEmpty Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_CompoundSemanticException_IsEmpty.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d2cd53d0-9d5d-4cbf-9796-421340dedb72" Title="Error Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_Error.htm">
+      <HelpTOCNode Title="Error Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+      <HelpTOCNode Id="ea4cc49e-72d8-438b-9a9a-0ee833471856" Title="Error Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_Error__ctor.htm">
+        <HelpTOCNode Title="Error Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_Error__ctor.htm" />
+        <HelpTOCNode Title="Error Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_Error__ctor_2.htm" />
+        <HelpTOCNode Title="Error Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_Error__ctor_1.htm" />
+        <HelpTOCNode Title="Error Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_Error__ctor_3.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Error Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+      <HelpTOCNode Title="Error Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_Error.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="244f0e2b-33df-4fac-aa62-66e544bf9509" Title="ExternalError Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm">
+      <HelpTOCNode Title="ExternalError Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+      <HelpTOCNode Id="57d456d1-ce26-452e-a59a-5d1c25b3f460" Title="ExternalError Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ExternalError__ctor.htm">
+        <HelpTOCNode Title="ExternalError Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_ExternalError__ctor.htm" />
+        <HelpTOCNode Title="ExternalError Constructor (Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ExternalError__ctor_1.htm" />
+        <HelpTOCNode Title="ExternalError Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ExternalError__ctor_3.htm" />
+        <HelpTOCNode Title="ExternalError Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ExternalError__ctor_2.htm" />
+        <HelpTOCNode Title="ExternalError Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ExternalError__ctor_4.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="1f2800cf-ef69-4796-b116-6ffaf158ec97" Title="ExternalError Fields" Url="html/Fields_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm">
+        <HelpTOCNode Title="ExceptionWithExternalCauseMessage Field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ExternalError_ExceptionWithExternalCauseMessage.htm" />
+        <HelpTOCNode Title="UnspecifiedExternalErrorMessage Field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ExternalError_UnspecifiedExternalErrorMessage.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="ExternalError Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+      <HelpTOCNode Title="ExternalError Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_ExternalError.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="dd23825d-fb24-41f4-a7cd-be2ea1c24cc4" Title="ImmutableException Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm">
+      <HelpTOCNode Title="ImmutableException Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+      <HelpTOCNode Id="1b6c850a-796f-482b-8e5a-e50bac3f9b5f" Title="ImmutableException Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ImmutableException__ctor.htm">
+        <HelpTOCNode Title="ImmutableException Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_ImmutableException__ctor.htm" />
+        <HelpTOCNode Title="ImmutableException Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ImmutableException__ctor_2.htm" />
+        <HelpTOCNode Title="ImmutableException Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ImmutableException__ctor_1.htm" />
+        <HelpTOCNode Title="ImmutableException Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ImmutableException__ctor_3.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="ImmutableException Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+      <HelpTOCNode Title="ImmutableException Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_ImmutableException.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="5bc7c154-c836-40aa-978a-eb489753af2b" Title="NoLongerSupportedError Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm">
+      <HelpTOCNode Title="NoLongerSupportedError Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+      <HelpTOCNode Id="7f83823d-9ff3-44b6-8ee8-158b02685871" Title="NoLongerSupportedError Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError__ctor.htm">
+        <HelpTOCNode Title="NoLongerSupportedError Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError__ctor.htm" />
+        <HelpTOCNode Title="NoLongerSupportedError Constructor (Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError__ctor_1.htm" />
+        <HelpTOCNode Title="NoLongerSupportedError Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError__ctor_3.htm" />
+        <HelpTOCNode Title="NoLongerSupportedError Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError__ctor_2.htm" />
+        <HelpTOCNode Title="NoLongerSupportedError Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError__ctor_4.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="NoLongerSupportedError Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+      <HelpTOCNode Title="NoLongerSupportedError Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_NoLongerSupportedError.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="39abacf4-3d4e-4624-b123-26d8b02f0567" Title="ProgrammingError Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm">
+      <HelpTOCNode Title="ProgrammingError Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+      <HelpTOCNode Id="2c64c5f7-43bc-4178-a136-49f8e36a051b" Title="ProgrammingError Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ProgrammingError__ctor.htm">
+        <HelpTOCNode Title="ProgrammingError Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_ProgrammingError__ctor.htm" />
+        <HelpTOCNode Title="ProgrammingError Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ProgrammingError__ctor_2.htm" />
+        <HelpTOCNode Title="ProgrammingError Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ProgrammingError__ctor_1.htm" />
+        <HelpTOCNode Title="ProgrammingError Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ProgrammingError__ctor_3.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="816ac09e-5571-43e7-b568-2625c3d2eaee" Title="ProgrammingError Fields" Url="html/Fields_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm">
+        <HelpTOCNode Title="ExceptionWithProgrammingCauseMessage Field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ProgrammingError_ExceptionWithProgrammingCauseMessage.htm" />
+        <HelpTOCNode Title="UnspecifiedProgrammingErrorMessage Field" Url="html/F_PPWCode_Vernacular_Exceptions_I_ProgrammingError_UnspecifiedProgrammingErrorMessage.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="ProgrammingError Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+      <HelpTOCNode Title="ProgrammingError Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_ProgrammingError.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="7df71517-a102-422f-9762-9328b7224a5f" Title="PropertyException Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm">
+      <HelpTOCNode Title="PropertyException Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm" />
+      <HelpTOCNode Id="ce93b8cd-c6b3-4d24-a580-be3a7a583f10" Title="PropertyException Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_PropertyException__ctor.htm">
+        <HelpTOCNode Title="PropertyException Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException__ctor.htm" />
+        <HelpTOCNode Title="PropertyException Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException__ctor_3.htm" />
+        <HelpTOCNode Title="PropertyException Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException__ctor_2.htm" />
+        <HelpTOCNode Title="PropertyException Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException__ctor_4.htm" />
+        <HelpTOCNode Title="PropertyException Constructor (Object, String, String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="57979e7e-fc37-491b-bb27-346ebdc0d8d4" Title="PropertyException Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm">
+        <HelpTOCNode Title="Like Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException_Like.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_PropertyException_ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d61c4639-b8b0-43a7-898e-fcafd92a3a4f" Title="PropertyException Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_PropertyException.htm">
+        <HelpTOCNode Title="PropertyName Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_PropertyException_PropertyName.htm" />
+        <HelpTOCNode Title="Sender Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_PropertyException_Sender.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="278b02fb-f37d-499f-b0ec-c7db223837c8" Title="SecurityException Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm">
+      <HelpTOCNode Title="SecurityException Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+      <HelpTOCNode Id="3d257a0c-d3fe-43e8-9f75-fdfa54c514f0" Title="SecurityException Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_SecurityException__ctor.htm">
+        <HelpTOCNode Title="SecurityException Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_SecurityException__ctor.htm" />
+        <HelpTOCNode Title="SecurityException Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_SecurityException__ctor_2.htm" />
+        <HelpTOCNode Title="SecurityException Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_SecurityException__ctor_1.htm" />
+        <HelpTOCNode Title="SecurityException Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_SecurityException__ctor_3.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="SecurityException Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+      <HelpTOCNode Title="SecurityException Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_SecurityException.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="a0d03e4f-ea5c-42a1-9f93-4022ff978294" Title="SemanticException Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm">
+      <HelpTOCNode Title="SemanticException Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm" />
+      <HelpTOCNode Id="ac557b21-1317-4f33-a2e7-c9ba4d12e141" Title="SemanticException Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_SemanticException__ctor.htm">
+        <HelpTOCNode Title="SemanticException Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_SemanticException__ctor.htm" />
+        <HelpTOCNode Title="SemanticException Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_SemanticException__ctor_2.htm" />
+        <HelpTOCNode Title="SemanticException Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_SemanticException__ctor_1.htm" />
+        <HelpTOCNode Title="SemanticException Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_SemanticException__ctor_3.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="256d5cf4-9493-4598-9dbb-03e69bfadbb9" Title="SemanticException Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm">
+        <HelpTOCNode Title="Like Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_SemanticException_Like.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8e8dd506-cf19-412f-932a-0e88d929ca4d" Title="SemanticException Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_SemanticException.htm">
+        <HelpTOCNode Title="ExceptionCode Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_SemanticException_ExceptionCode.htm" />
+        <HelpTOCNode Title="Message Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_SemanticException_Message.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b105624a-949a-4678-b377-f7400c7108c1" Title="ValueException Class" Url="html/T_PPWCode_Vernacular_Exceptions_I_ValueException.htm">
+      <HelpTOCNode Title="ValueException Members" Url="html/AllMembers_T_PPWCode_Vernacular_Exceptions_I_ValueException.htm" />
+      <HelpTOCNode Id="424a8061-b8e8-4348-bb8f-645c74dc64ce" Title="ValueException Constructor " Url="html/Overload_PPWCode_Vernacular_Exceptions_I_ValueException__ctor.htm">
+        <HelpTOCNode Title="ValueException Constructor " Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException__ctor.htm" />
+        <HelpTOCNode Title="ValueException Constructor (String)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException__ctor_4.htm" />
+        <HelpTOCNode Title="ValueException Constructor (SerializationInfo, StreamingContext)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException__ctor_3.htm" />
+        <HelpTOCNode Title="ValueException Constructor (String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException__ctor_5.htm" />
+        <HelpTOCNode Title="ValueException Constructor (Object, String, String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException__ctor_2.htm" />
+        <HelpTOCNode Title="ValueException Constructor (Object, String, Object, Object, String, Exception)" Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ffebfb8c-25c8-42ff-96fc-efa8689dd9b0" Title="ValueException Methods" Url="html/Methods_T_PPWCode_Vernacular_Exceptions_I_ValueException.htm">
+        <HelpTOCNode Title="Like Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException_Like.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M_PPWCode_Vernacular_Exceptions_I_ValueException_ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="2bd09d02-81b8-41f9-b247-11d7e362bdd3" Title="ValueException Properties" Url="html/Properties_T_PPWCode_Vernacular_Exceptions_I_ValueException.htm">
+        <HelpTOCNode Title="NewValue Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_ValueException_NewValue.htm" />
+        <HelpTOCNode Title="OldValue Property " Url="html/P_PPWCode_Vernacular_Exceptions_I_ValueException_OldValue.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

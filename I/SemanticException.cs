@@ -51,10 +51,30 @@ namespace PPWCode.Vernacular.Exceptions.I
         {
         }
 
+        /// <summary>
+        /// The <see cref="Exception.Message"/> can not be overriden
+        /// in this hierarchy. This property is sealed.
+        /// </summary>
+        [Pure]
+        public override sealed string Message
+        {
+            get
+            {
+                return base.Message; 
+            }
+        }
+
+        /// <summary>
+        /// Deprecated. Use <see cref="Message"/> instead.
+        /// </summary>
+        [Pure]
+        [Obsolete("ExceptionCode is deprecated. Use Message instead.")]
         public virtual string ExceptionCode
         {
             get
             {
+                Contract.Ensures(Contract.Result<string>() == Message);
+
                 return Message;
             }
         }

@@ -140,6 +140,8 @@ namespace PPWCode.Vernacular.Exceptions.I
         /// <summary>
         /// No more <see cref="Elements">element exceptions</see>
         /// can be added if this is <c>Closed</c>.
+        /// <para>The setter is deprecated. Use <see cref="Close"/>
+        /// instead.</para>
         /// </summary>
         public bool Closed
         {
@@ -150,10 +152,21 @@ namespace PPWCode.Vernacular.Exceptions.I
             set
             {
                 Contract.Requires(!Closed);
+                Contract.Requires(value == true);
                 Contract.Ensures(Closed);
 
                 Data["Closed"] = value;
             }
+        }
+
+        /// <summary>
+        /// Close the exception for the addition of <see cref="Elements"/>.
+        /// </summary>
+        public void Close()
+        {
+            Contract.Ensures(Closed);
+
+            Closed = true;
         }
 
         #endregion

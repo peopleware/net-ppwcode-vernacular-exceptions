@@ -45,6 +45,12 @@ namespace PPWCode.Vernacular.Exceptions.I
     public class PropertyException :
         SemanticException
     {
+        /// <summary>
+        /// A string that can be used, if you wish, as the message to signal that
+        /// the property is mandatory, but was not filled out.
+        /// </summary>
+        public const string MandatoryMessage = "MANDATORY";
+
         public PropertyException()
         {
         }

@@ -4,6 +4,43 @@
         <name>PPWCode.Vernacular.Exceptions.I</name>
     </assembly>
     <members>
+        <member name="T:PPWCode.Vernacular.Exceptions.I.SemanticException">
+            <summary>
+            Supertype for exceptions related to semantics: the nominal effect of a method could
+            not be reached, because doing so under the given circumstances would violate semantics
+            (often type invariants).
+            </summary>
+        </member>
+        <member name="M:PPWCode.Vernacular.Exceptions.I.SemanticException.Like(PPWCode.Vernacular.Exceptions.I.SemanticException)">
+            <summary>
+            This most be override and strengtenth to include extra properties in subclasses
+            </summary>
+        </member>
+        <member name="P:PPWCode.Vernacular.Exceptions.I.SemanticException.Message">
+            <summary>
+            The <see cref="P:System.Exception.Message"/> can not be overriden
+            in this hierarchy. This property is sealed.
+            </summary>
+        </member>
+        <member name="P:PPWCode.Vernacular.Exceptions.I.SemanticException.ExceptionCode">
+            <summary>
+            Deprecated. Use <see cref="P:PPWCode.Vernacular.Exceptions.I.SemanticException.Message"/> instead.
+            </summary>
+        </member>
+        <member name="T:PPWCode.Vernacular.Exceptions.I.SecurityException">
+            <summary>
+            Exception that signals a refusal to perform
+            the nominal effect by a method, because of
+            security reasons.
+            </summary>
+        </member>
+        <member name="T:PPWCode.Vernacular.Exceptions.I.ImmutableException">
+            <summary>
+            The method that throws this error is a mutating method,
+            flagged not to be used, because the instance is flagged
+            as immutable.
+            </summary>
+        </member>
         <member name="T:PPWCode.Vernacular.Exceptions.I.ProgrammingError">
             <summary>
             This error is thrown when a programming condition occurs, which we know can happen
@@ -33,72 +70,6 @@
             fail gracefully, and, in the best of cases, shut
             down the application, after warning the appropriate
             people.
-            </summary>
-        </member>
-        <member name="T:PPWCode.Vernacular.Exceptions.I.ValueException">
-            <summary>
-            In many cases, a property exception is needed that reports the original value of the property.
-            This value can be used to generate sensible end-user messages of the form "Unable to change
-            {<see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.PropertyName"/>} for {<see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender"/>}
-            from {<see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.OldValue"/>} to
-            {<see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.NewValue"/>}".
-            </summary>
-            <remarks>
-            <para>This exception is a generalized version of a <see cref="T:PPWCode.Vernacular.Exceptions.I.PropertyException"/> that carries
-            information about the <see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.OldValue"/> and the
-            <see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.NewValue"/>.
-            It is a bore to create separate exceptions for each of those specific cases. It would
-            be nice to use generics for the type of the property value, but that is something for a later
-            version.</para>
-            <para>This exception can be used for simple properties of all kinds: simple properties of reference type,
-            as well as simple properties of value types, both of mutable types and immutable types.
-            Values should be considered read-only, also if they are or reference type.</para>
-            <para>This kind of exception cannot be thrown in a constructor, since there is no
-            original value then.</para>
-            </remarks>
-        </member>
-        <member name="T:PPWCode.Vernacular.Exceptions.I.PropertyException">
-            <summary>
-            <c>PropertyExceptions</c> are exceptions that carry with them information about the property for which they
-            occurred. They are usually thrown by a property setter during validation.
-            </summary>
-            <remarks>
-            <para>If the <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.PropertyName"/> is <c>null</c>,
-            it means that the exception could not be attributed to a specific property of <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender"/>.</para>
-            <para>The <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender"/>
-            should not be <c>null</c>, except when the exception is thrown during
-            construction of an object, that could not be completed. Carrying
-            the reference to the object would expose an incompletely initialized object,
-            as the exception signals a failure to complete the initialization. 
-            TODO: add type property for that case.</para>
-            <para>
-            A <c>PropertyException</c> reports on an issue with one object. If there is a need to communicate
-            an issue over more than one issue, use a <see cref="T:PPWCode.Vernacular.Exceptions.I.CompoundSemanticException"/>.</para>
-            <para>Specific property exception subtypes will
-            make these advises binding in most cases.</para>
-            </remarks>
-        </member>
-        <member name="T:PPWCode.Vernacular.Exceptions.I.SemanticException">
-            <summary>
-            Supertype for exceptions related to semantics: the nominal effect of a method could
-            not be reached, because doing so under the given circumstances would violate semantics
-            (often type invariants).
-            </summary>
-        </member>
-        <member name="M:PPWCode.Vernacular.Exceptions.I.SemanticException.Like(PPWCode.Vernacular.Exceptions.I.SemanticException)">
-            <summary>
-            This most be override and strengtenth to include extra properties in subclasses
-            </summary>
-        </member>
-        <member name="P:PPWCode.Vernacular.Exceptions.I.SemanticException.Message">
-            <summary>
-            The <see cref="P:System.Exception.Message"/> can not be overriden
-            in this hierarchy. This property is sealed.
-            </summary>
-        </member>
-        <member name="P:PPWCode.Vernacular.Exceptions.I.SemanticException.ExceptionCode">
-            <summary>
-            Deprecated. Use <see cref="P:PPWCode.Vernacular.Exceptions.I.SemanticException.Message"/> instead.
             </summary>
         </member>
         <member name="T:PPWCode.Vernacular.Exceptions.I.ExternalError">
@@ -153,19 +124,81 @@
             we are not able to provide more information as to the cause of the error.
             </summary>
         </member>
-        <member name="T:PPWCode.Vernacular.Exceptions.I.SecurityException">
+        <member name="T:PPWCode.Vernacular.Exceptions.I.NoLongerSupportedError">
             <summary>
-            Exception that signals a refusal to perform
-            the nominal effect by a method, because of
-            security reasons.
+            This exception is thrown by a method defined in an API,
+            in a later version of the API, if the method that was
+            defined in an earlier version is no longer supported in
+            new versions.
+            </summary>
+            <remarks>
+            <para>That the exception can be thrown is implicit for all
+            API methods.</para>
+            <para>Normally, when a new version of an API is created,
+            it is kept backward compatible with older versions. This
+            is often a non-trivial endeavour. Although, if it is
+            decided to keep backward compatibility with older versions,
+            all possible effort should be made to make the backward
+            compatibility complete, in some cases this is logically
+            not feasible or too costly. It than often happens that
+            backward compatibility can be attained for all but a limited
+            number of methods, possibly for all but a limited number
+            of cases. It may then be interesting to ship this new
+            not-completely-backward-compatible version, if a lot
+            of clients do not use the not-backward-compatible part.</para>
+            <para>This exception allows the developers of the new version
+            to signal which method, in which circumstances, is no
+            longer supported.</para>
+            </remarks>
+        </member>
+        <member name="T:PPWCode.Vernacular.Exceptions.I.PropertyException">
+            <summary>
+            <c>PropertyExceptions</c> are exceptions that carry with them information about the property for which they
+            occurred. They are usually thrown by a property setter during validation.
+            </summary>
+            <remarks>
+            <para>If the <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.PropertyName"/> is <c>null</c>,
+            it means that the exception could not be attributed to a specific property of <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender"/>.</para>
+            <para>The <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender"/>
+            should not be <c>null</c>, except when the exception is thrown during
+            construction of an object, that could not be completed. Carrying
+            the reference to the object would expose an incompletely initialized object,
+            as the exception signals a failure to complete the initialization. 
+            TODO: add type property for that case.</para>
+            <para>
+            A <c>PropertyException</c> reports on an issue with one object. If there is a need to communicate
+            an issue over more than one issue, use a <see cref="T:PPWCode.Vernacular.Exceptions.I.CompoundSemanticException"/>.</para>
+            <para>Specific property exception subtypes will
+            make these advises binding in most cases.</para>
+            </remarks>
+        </member>
+        <member name="F:PPWCode.Vernacular.Exceptions.I.PropertyException.MandatoryMessage">
+            <summary>
+            A string that can be used, if you wish, as the message to signal that
+            the property is mandatory, but was not filled out.
             </summary>
         </member>
-        <member name="T:PPWCode.Vernacular.Exceptions.I.ImmutableException">
+        <member name="T:PPWCode.Vernacular.Exceptions.I.ValueException">
             <summary>
-            The method that throws this error is a mutating method,
-            flagged not to be used, because the instance is flagged
-            as immutable.
+            In many cases, a property exception is needed that reports the original value of the property.
+            This value can be used to generate sensible end-user messages of the form "Unable to change
+            {<see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.PropertyName"/>} for {<see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender"/>}
+            from {<see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.OldValue"/>} to
+            {<see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.NewValue"/>}".
             </summary>
+            <remarks>
+            <para>This exception is a generalized version of a <see cref="T:PPWCode.Vernacular.Exceptions.I.PropertyException"/> that carries
+            information about the <see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.OldValue"/> and the
+            <see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.NewValue"/>.
+            It is a bore to create separate exceptions for each of those specific cases. It would
+            be nice to use generics for the type of the property value, but that is something for a later
+            version.</para>
+            <para>This exception can be used for simple properties of all kinds: simple properties of reference type,
+            as well as simple properties of value types, both of mutable types and immutable types.
+            Values should be considered read-only, also if they are or reference type.</para>
+            <para>This kind of exception cannot be thrown in a constructor, since there is no
+            original value then.</para>
+            </remarks>
         </member>
         <member name="T:PPWCode.Vernacular.Exceptions.I.CompoundSemanticException">
             <summary>
@@ -246,33 +279,6 @@
             <para>The setter is deprecated. Use <see cref="M:PPWCode.Vernacular.Exceptions.I.CompoundSemanticException.Close"/>
             instead.</para>
             </summary>
-        </member>
-        <member name="T:PPWCode.Vernacular.Exceptions.I.NoLongerSupportedError">
-            <summary>
-            This exception is thrown by a method defined in an API,
-            in a later version of the API, if the method that was
-            defined in an earlier version is no longer supported in
-            new versions.
-            </summary>
-            <remarks>
-            <para>That the exception can be thrown is implicit for all
-            API methods.</para>
-            <para>Normally, when a new version of an API is created,
-            it is kept backward compatible with older versions. This
-            is often a non-trivial endeavour. Although, if it is
-            decided to keep backward compatibility with older versions,
-            all possible effort should be made to make the backward
-            compatibility complete, in some cases this is logically
-            not feasible or too costly. It than often happens that
-            backward compatibility can be attained for all but a limited
-            number of methods, possibly for all but a limited number
-            of cases. It may then be interesting to ship this new
-            not-completely-backward-compatible version, if a lot
-            of clients do not use the not-backward-compatible part.</para>
-            <para>This exception allows the developers of the new version
-            to signal which method, in which circumstances, is no
-            longer supported.</para>
-            </remarks>
         </member>
     </members>
 </doc>

@@ -4,80 +4,6 @@
     <name>PPWCode.Vernacular.Exceptions.I</name>
   </assembly>
   <members>
-    <member name="T:PPWCode.Vernacular.Exceptions.I.ProgrammingError">
-      <summary>
-            This error is thrown when a programming condition occurs, which we know can happen
-            (however unlikely), which we do not want to deal with in our application.
-            <inheritdoc cref="T:PPWCode.Vernacular.Exceptions.I.Error" /></summary>
-      <remarks>
-        <para>
-          <c>ProgrammingError</c> instances are used to signal programming errors,
-            when we become aware of them in the code. Examples are branches of if-statements
-            or switch-statement, or catch-branches, where from reasoning we assume execution
-            would never reach. Instead of merely writing a comment, throwing a
-            <c>ProgrammingError</c> is better.</para>
-        <para>The audience of <c>ProgrammingErrors</c> are developers. To help in debugging,
-            it makes sense to include a message that is as descriptive as possible.
-            If you become aware of the external condition you do not want to deal
-            with through an <see cref="T:System.Exception" />, it should be carried
-            by an instance of this class as its <see cref="P:System.Exception.InnerException" />.</para>
-        <para>Administrators should be aware of the errors too. They need to be aware
-            of the state of the application, and are probably on the path of communication
-            to the developers.</para>
-      </remarks>
-    </member>
-    <member name="T:PPWCode.Vernacular.Exceptions.I.Error">
-      <summary>
-            Exceptions that are not semantically relevant.
-            When an exception of this type occurs, code should
-            fail gracefully, and, in the best of cases, shut
-            down the application, after warning the appropriate
-            people.
-            </summary>
-    </member>
-    <member name="T:PPWCode.Vernacular.Exceptions.I.ValueException">
-      <summary>
-            In many cases, a property exception is needed that reports the original value of the property.
-            This value can be used to generate sensible end-user messages of the form "Unable to change
-            {<see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.PropertyName" />} for {<see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender" />}
-            from {<see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.OldValue" />} to
-            {<see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.NewValue" />}".
-            </summary>
-      <remarks>
-        <para>This exception is a generalized version of a <see cref="T:PPWCode.Vernacular.Exceptions.I.PropertyException" /> that carries
-            information about the <see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.OldValue" /> and the
-            <see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.NewValue" />.
-            It is a bore to create separate exceptions for each of those specific cases. It would
-            be nice to use generics for the type of the property value, but that is something for a later
-            version.</para>
-        <para>This exception can be used for simple properties of all kinds: simple properties of reference type,
-            as well as simple properties of value types, both of mutable types and immutable types.
-            Values should be considered read-only, also if they are or reference type.</para>
-        <para>This kind of exception cannot be thrown in a constructor, since there is no
-            original value then.</para>
-      </remarks>
-    </member>
-    <member name="T:PPWCode.Vernacular.Exceptions.I.PropertyException">
-      <summary>
-        <c>PropertyExceptions</c> are exceptions that carry with them information about the property for which they
-            occurred. They are usually thrown by a property setter during validation.
-            </summary>
-      <remarks>
-        <para>If the <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.PropertyName" /> is <c>null</c>,
-            it means that the exception could not be attributed to a specific property of <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender" />.</para>
-        <para>The <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender" />
-            should not be <c>null</c>, except when the exception is thrown during
-            construction of an object, that could not be completed. Carrying
-            the reference to the object would expose an incompletely initialized object,
-            as the exception signals a failure to complete the initialization. 
-            TODO: add type property for that case.</para>
-        <para>
-            A <c>PropertyException</c> reports on an issue with one object. If there is a need to communicate
-            an issue over more than one issue, use a <see cref="T:PPWCode.Vernacular.Exceptions.I.CompoundSemanticException" />.</para>
-        <para>Specific property exception subtypes will
-            make these advises binding in most cases.</para>
-      </remarks>
-    </member>
     <member name="T:PPWCode.Vernacular.Exceptions.I.SemanticException">
       <summary>
             Supertype for exceptions related to semantics: the nominal effect of a method could
@@ -110,6 +36,51 @@
       <getter>
         <ensures>Contract.Result&lt;string&gt;() == Message</ensures>
       </getter>
+    </member>
+    <member name="T:PPWCode.Vernacular.Exceptions.I.SecurityException">
+      <summary>
+            Exception that signals a refusal to perform
+            the nominal effect by a method, because of
+            security reasons.
+            </summary>
+    </member>
+    <member name="T:PPWCode.Vernacular.Exceptions.I.ImmutableException">
+      <summary>
+            The method that throws this error is a mutating method,
+            flagged not to be used, because the instance is flagged
+            as immutable.
+            </summary>
+    </member>
+    <member name="T:PPWCode.Vernacular.Exceptions.I.ProgrammingError">
+      <summary>
+            This error is thrown when a programming condition occurs, which we know can happen
+            (however unlikely), which we do not want to deal with in our application.
+            <inheritdoc cref="T:PPWCode.Vernacular.Exceptions.I.Error" /></summary>
+      <remarks>
+        <para>
+          <c>ProgrammingError</c> instances are used to signal programming errors,
+            when we become aware of them in the code. Examples are branches of if-statements
+            or switch-statement, or catch-branches, where from reasoning we assume execution
+            would never reach. Instead of merely writing a comment, throwing a
+            <c>ProgrammingError</c> is better.</para>
+        <para>The audience of <c>ProgrammingErrors</c> are developers. To help in debugging,
+            it makes sense to include a message that is as descriptive as possible.
+            If you become aware of the external condition you do not want to deal
+            with through an <see cref="T:System.Exception" />, it should be carried
+            by an instance of this class as its <see cref="P:System.Exception.InnerException" />.</para>
+        <para>Administrators should be aware of the errors too. They need to be aware
+            of the state of the application, and are probably on the path of communication
+            to the developers.</para>
+      </remarks>
+    </member>
+    <member name="T:PPWCode.Vernacular.Exceptions.I.Error">
+      <summary>
+            Exceptions that are not semantically relevant.
+            When an exception of this type occurs, code should
+            fail gracefully, and, in the best of cases, shut
+            down the application, after warning the appropriate
+            people.
+            </summary>
     </member>
     <member name="T:PPWCode.Vernacular.Exceptions.I.ExternalError">
       <summary>
@@ -162,19 +133,81 @@
             we are not able to provide more information as to the cause of the error.
             </summary>
     </member>
-    <member name="T:PPWCode.Vernacular.Exceptions.I.SecurityException">
+    <member name="T:PPWCode.Vernacular.Exceptions.I.NoLongerSupportedError">
       <summary>
-            Exception that signals a refusal to perform
-            the nominal effect by a method, because of
-            security reasons.
+            This exception is thrown by a method defined in an API,
+            in a later version of the API, if the method that was
+            defined in an earlier version is no longer supported in
+            new versions.
+            </summary>
+      <remarks>
+        <para>That the exception can be thrown is implicit for all
+            API methods.</para>
+        <para>Normally, when a new version of an API is created,
+            it is kept backward compatible with older versions. This
+            is often a non-trivial endeavour. Although, if it is
+            decided to keep backward compatibility with older versions,
+            all possible effort should be made to make the backward
+            compatibility complete, in some cases this is logically
+            not feasible or too costly. It than often happens that
+            backward compatibility can be attained for all but a limited
+            number of methods, possibly for all but a limited number
+            of cases. It may then be interesting to ship this new
+            not-completely-backward-compatible version, if a lot
+            of clients do not use the not-backward-compatible part.</para>
+        <para>This exception allows the developers of the new version
+            to signal which method, in which circumstances, is no
+            longer supported.</para>
+      </remarks>
+    </member>
+    <member name="T:PPWCode.Vernacular.Exceptions.I.PropertyException">
+      <summary>
+        <c>PropertyExceptions</c> are exceptions that carry with them information about the property for which they
+            occurred. They are usually thrown by a property setter during validation.
+            </summary>
+      <remarks>
+        <para>If the <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.PropertyName" /> is <c>null</c>,
+            it means that the exception could not be attributed to a specific property of <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender" />.</para>
+        <para>The <see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender" />
+            should not be <c>null</c>, except when the exception is thrown during
+            construction of an object, that could not be completed. Carrying
+            the reference to the object would expose an incompletely initialized object,
+            as the exception signals a failure to complete the initialization. 
+            TODO: add type property for that case.</para>
+        <para>
+            A <c>PropertyException</c> reports on an issue with one object. If there is a need to communicate
+            an issue over more than one issue, use a <see cref="T:PPWCode.Vernacular.Exceptions.I.CompoundSemanticException" />.</para>
+        <para>Specific property exception subtypes will
+            make these advises binding in most cases.</para>
+      </remarks>
+    </member>
+    <member name="F:PPWCode.Vernacular.Exceptions.I.PropertyException.MandatoryMessage">
+      <summary>
+            A string that can be used, if you wish, as the message to signal that
+            the property is mandatory, but was not filled out.
             </summary>
     </member>
-    <member name="T:PPWCode.Vernacular.Exceptions.I.ImmutableException">
+    <member name="T:PPWCode.Vernacular.Exceptions.I.ValueException">
       <summary>
-            The method that throws this error is a mutating method,
-            flagged not to be used, because the instance is flagged
-            as immutable.
+            In many cases, a property exception is needed that reports the original value of the property.
+            This value can be used to generate sensible end-user messages of the form "Unable to change
+            {<see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.PropertyName" />} for {<see cref="P:PPWCode.Vernacular.Exceptions.I.PropertyException.Sender" />}
+            from {<see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.OldValue" />} to
+            {<see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.NewValue" />}".
             </summary>
+      <remarks>
+        <para>This exception is a generalized version of a <see cref="T:PPWCode.Vernacular.Exceptions.I.PropertyException" /> that carries
+            information about the <see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.OldValue" /> and the
+            <see cref="P:PPWCode.Vernacular.Exceptions.I.ValueException.NewValue" />.
+            It is a bore to create separate exceptions for each of those specific cases. It would
+            be nice to use generics for the type of the property value, but that is something for a later
+            version.</para>
+        <para>This exception can be used for simple properties of all kinds: simple properties of reference type,
+            as well as simple properties of value types, both of mutable types and immutable types.
+            Values should be considered read-only, also if they are or reference type.</para>
+        <para>This kind of exception cannot be thrown in a constructor, since there is no
+            original value then.</para>
+      </remarks>
     </member>
     <member name="T:PPWCode.Vernacular.Exceptions.I.CompoundSemanticException">
       <summary>
@@ -279,32 +312,8 @@
         <ensures>Closed</ensures>
       </setter>
     </member>
-    <member name="T:PPWCode.Vernacular.Exceptions.I.NoLongerSupportedError">
-      <summary>
-            This exception is thrown by a method defined in an API,
-            in a later version of the API, if the method that was
-            defined in an earlier version is no longer supported in
-            new versions.
-            </summary>
-      <remarks>
-        <para>That the exception can be thrown is implicit for all
-            API methods.</para>
-        <para>Normally, when a new version of an API is created,
-            it is kept backward compatible with older versions. This
-            is often a non-trivial endeavour. Although, if it is
-            decided to keep backward compatibility with older versions,
-            all possible effort should be made to make the backward
-            compatibility complete, in some cases this is logically
-            not feasible or too costly. It than often happens that
-            backward compatibility can be attained for all but a limited
-            number of methods, possibly for all but a limited number
-            of cases. It may then be interesting to ship this new
-            not-completely-backward-compatible version, if a lot
-            of clients do not use the not-backward-compatible part.</para>
-        <para>This exception allows the developers of the new version
-            to signal which method, in which circumstances, is no
-            longer supported.</para>
-      </remarks>
+    <member name="M:PPWCode.Vernacular.Exceptions.I.ImmutableException.#ctor">
+      <ensures>(Message == UnspecifiedProgrammingErrorMessage) &amp;&amp; (InnerException == null)</ensures>
     </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.ImmutableException.#ctor(System.String)">
       <ensures>(message != null ? Message == message : Message == UnspecifiedProgrammingErrorMessage)
@@ -316,8 +325,8 @@
                     : Message == (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage))
                 &amp;&amp; (InnerException == innerException)</ensures>
     </member>
-    <member name="M:PPWCode.Vernacular.Exceptions.I.ImmutableException.#ctor">
-      <ensures>(Message == UnspecifiedProgrammingErrorMessage) &amp;&amp; (InnerException == null)</ensures>
+    <member name="M:PPWCode.Vernacular.Exceptions.I.PropertyException.ToString">
+      <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object">Contract.Result&lt;string&gt;() != null</ensures>
     </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.PropertyException.#ctor(System.Object,System.String,System.String,System.Exception)">
       <requires>sender != null</requires>
@@ -325,9 +334,6 @@
       <ensures>PropertyName == propertyName</ensures>
       <ensures>Message == message</ensures>
       <ensures>InnerException == innerException</ensures>
-    </member>
-    <member name="M:PPWCode.Vernacular.Exceptions.I.PropertyException.ToString">
-      <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object">Contract.Result&lt;string&gt;() != null</ensures>
     </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.PropertyException.Like(PPWCode.Vernacular.Exceptions.I.SemanticException)">
       <pure />
@@ -339,12 +345,6 @@
     ? Contract.Result&lt;bool&gt;() == false
     : true</ensures>
     </member>
-    <member name="M:PPWCode.Vernacular.Exceptions.I.ProgrammingError.#ctor(System.String,System.Exception)">
-      <ensures>(message != null
-                    ? Message == message
-                    : Message == (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage))
-                &amp;&amp; (InnerException == innerException)</ensures>
-    </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.ProgrammingError.#ctor">
       <ensures>(Message == UnspecifiedProgrammingErrorMessage) &amp;&amp; (InnerException == null)</ensures>
     </member>
@@ -352,8 +352,17 @@
       <ensures>(message != null ? Message == message : Message == UnspecifiedProgrammingErrorMessage)
                 &amp;&amp; (InnerException == null)</ensures>
     </member>
+    <member name="M:PPWCode.Vernacular.Exceptions.I.ProgrammingError.#ctor(System.String,System.Exception)">
+      <ensures>(message != null
+                    ? Message == message
+                    : Message == (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage))
+                &amp;&amp; (InnerException == innerException)</ensures>
+    </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.SemanticException.#ctor(System.String)">
       <ensures>Message == message</ensures>
+    </member>
+    <member name="M:PPWCode.Vernacular.Exceptions.I.ValueException.ToString">
+      <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object">Contract.Result&lt;string&gt;() != null</ensures>
     </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.ValueException.#ctor(System.Object,System.String,System.Object,System.Object,System.String,System.Exception)">
       <requires>propertyName != null</requires>
@@ -363,9 +372,6 @@
       <ensures>InnerException == innerException</ensures>
       <ensures>OldValue == oldValue</ensures>
       <ensures>NewValue == newValue</ensures>
-    </member>
-    <member name="M:PPWCode.Vernacular.Exceptions.I.ValueException.ToString">
-      <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object">Contract.Result&lt;string&gt;() != null</ensures>
     </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.ValueException.Like(PPWCode.Vernacular.Exceptions.I.SemanticException)">
       <pure />
@@ -387,17 +393,17 @@
     <member name="M:PPWCode.Vernacular.Exceptions.I.CompoundSemanticException.ToString">
       <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object">Contract.Result&lt;string&gt;() != null</ensures>
     </member>
+    <member name="M:PPWCode.Vernacular.Exceptions.I.Error.#ctor">
+      <ensures>(Message == null) &amp;&amp; (InnerException == null)</ensures>
+    </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.Error.#ctor(System.String)">
       <ensures>(Message == message) &amp;&amp; (InnerException == null)</ensures>
     </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.Error.#ctor(System.String,System.Exception)">
       <ensures>(Message == message) &amp;&amp; (InnerException == innerException)</ensures>
     </member>
-    <member name="M:PPWCode.Vernacular.Exceptions.I.Error.#ctor">
-      <ensures>(Message == null) &amp;&amp; (InnerException == null)</ensures>
-    </member>
-    <member name="M:PPWCode.Vernacular.Exceptions.I.ExternalError.#ctor(System.Exception)">
-      <ensures>(Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage)) &amp;&amp; (InnerException == innerException)</ensures>
+    <member name="M:PPWCode.Vernacular.Exceptions.I.ExternalError.#ctor">
+      <ensures>(Message == UnspecifiedExternalErrorMessage) &amp;&amp; (InnerException == null)</ensures>
     </member>
     <member name="M:PPWCode.Vernacular.Exceptions.I.ExternalError.#ctor(System.String)">
       <ensures>(message != null ? Message == message : Message == UnspecifiedExternalErrorMessage)
@@ -409,8 +415,8 @@
                     : Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage))
                 &amp;&amp; (InnerException == innerException)</ensures>
     </member>
-    <member name="M:PPWCode.Vernacular.Exceptions.I.ExternalError.#ctor">
-      <ensures>(Message == UnspecifiedExternalErrorMessage) &amp;&amp; (InnerException == null)</ensures>
+    <member name="M:PPWCode.Vernacular.Exceptions.I.ExternalError.#ctor(System.Exception)">
+      <ensures>(Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage)) &amp;&amp; (InnerException == innerException)</ensures>
     </member>
   </members>
 </doc>

@@ -58,10 +58,7 @@ namespace PPWCode.Vernacular.Exceptions.I
         [Pure]
         public override sealed string Message
         {
-            get
-            {
-                return base.Message; 
-            }
+            get { return base.Message; }
         }
 
         /// <summary>
@@ -89,10 +86,10 @@ namespace PPWCode.Vernacular.Exceptions.I
                                  ? Contract.Result<bool>() == false
                                  : true);
             Contract.Ensures(other == this
-                                 ? Contract.Result<bool>() == true
+                                 ? Contract.Result<bool>()
                                  : true);
 #if EXTRA_CONTRACTS
-// pragma to avoid warning, not an error: GetType() isn't Pure
+    // pragma to avoid warning, not an error: GetType() isn't Pure
             Contract.Ensures(other != null && GetType() != other.GetType()
                                  ? Contract.Result<bool>() == false
                                  : true);

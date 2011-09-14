@@ -119,6 +119,7 @@
     </Compile>
     <Compile Include="CompoundSemanticException.cs" />
     <Compile Include="ImmutableException.cs" />
+    <Compile Include="ObjectAlreadyDisposedError.cs" />
     <Compile Include="PropertyException.cs" />
     <Compile Include="SecurityException.cs" />
     <Compile Include="NoLongerSupportedError.cs" />

@@ -2,7 +2,10 @@ name: PPWCode.Vernacular.Exceptions
 build: msbuild;
   project=src\I\PPWCode.Vernacular.Exceptions.I.csproj;
   profile=net35;
+build: files; 
+  file=. -> LICENSE; 
+  file=. -> NOTICE; 
+use-symlinks: false
 depends: openwrap = 2.0 anchored content
 depends: Microsoft.Contracts >= 1.0 < 2.0
 depends: Microsoft.StyleCop-PPWStyle >= 1.0 < 2.0
-use-symlinks: false

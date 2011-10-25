@@ -5,7 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPWCode.Vernacular.Exceptio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{788185DD-7404-47DF-AFF3-698298A6F934}"
 	ProjectSection(SolutionItems) = preProject
+		..\PPWCode.Vernacular.Exceptions.wrapdesc = ..\PPWCode.Vernacular.Exceptions.wrapdesc
 		Solution Items\SolutionInfo.cs = Solution Items\SolutionInfo.cs
+		..\version = ..\version
 	EndProjectSection
 EndProject
 Global

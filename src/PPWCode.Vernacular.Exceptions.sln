@@ -1,14 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPWCode.Vernacular.Exceptions.I", "I\PPWCode.Vernacular.Exceptions.I.csproj", "{89296D3A-1CA1-4995-9393-A1F1106EFC40}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{788185DD-7404-47DF-AFF3-698298A6F934}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{92BE80A7-9616-422A-A704-DD2C09F9E058}"
 	ProjectSection(SolutionItems) = preProject
 		..\PPWCode.Vernacular.Exceptions.wrapdesc = ..\PPWCode.Vernacular.Exceptions.wrapdesc
 		Solution Items\SolutionInfo.cs = Solution Items\SolutionInfo.cs
 		..\version = ..\version
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPWCode.Vernacular.Exceptions.I", "I\PPWCode.Vernacular.Exceptions.I.csproj", "{89296D3A-1CA1-4995-9393-A1F1106EFC40}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -27,8 +27,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityAddIns) = postSolution
-		OpenWrap.VisualStudioIntegration2008 = 1;Ensures OpenWrap initialization when a solution is opened.;OpenWrap Visual Studio Solution Add-in
 	EndGlobalSection
 EndGlobal

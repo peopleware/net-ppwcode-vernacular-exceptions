@@ -17,11 +17,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DebugNoInvariants|Any CPU = DebugNoInvariants|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{89296D3A-1CA1-4995-9393-A1F1106EFC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89296D3A-1CA1-4995-9393-A1F1106EFC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89296D3A-1CA1-4995-9393-A1F1106EFC40}.DebugNoInvariants|Any CPU.ActiveCfg = DebugNoInvariants|Any CPU
+		{89296D3A-1CA1-4995-9393-A1F1106EFC40}.DebugNoInvariants|Any CPU.Build.0 = DebugNoInvariants|Any CPU
 		{89296D3A-1CA1-4995-9393-A1F1106EFC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89296D3A-1CA1-4995-9393-A1F1106EFC40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

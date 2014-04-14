@@ -66,7 +66,6 @@
     <CodeContractsSQLServerOption />
     <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
-    <DocumentationFile>..\..\scratch\bin\PPWCode.Vernacular.Exceptions.I-Debug-AnyCPU\PPWCode.Vernacular.Exceptions.I.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -119,7 +118,6 @@
     <CodeContractsCacheAnalysisResults>True</CodeContractsCacheAnalysisResults>
     <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
-    <DocumentationFile>..\..\scratch\bin\PPWCode.Vernacular.Exceptions.I-Release-AnyCPU\PPWCode.Vernacular.Exceptions.I.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugNoInvariants|AnyCPU'">
@@ -165,12 +163,12 @@
     <CodeContractsRuntimeCheckingLevel>Pre and Post</CodeContractsRuntimeCheckingLevel>
     <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
-    <DocumentationFile>..\..\scratch\bin\PPWCode.Vernacular.Exceptions.I-DebugNoInvariants-AnyCPU\PPWCode.Vernacular.Exceptions.I.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OutputPath Condition="'$(OutputPath)' == ''">..\..\scratch\bin\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</OutputPath>
     <IntermediateOutputPath Condition="'$(IntermediateOutputPath)' == ''">..\..\scratch\obj\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</IntermediateOutputPath>
+    <DocumentationFile Condition="'$(DocumentationFile)' == ''">..\..\scratch\bin\$(MSBuildProjectName)-$(Configuration)-$(Platform)\$(MSBuildProjectName).XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

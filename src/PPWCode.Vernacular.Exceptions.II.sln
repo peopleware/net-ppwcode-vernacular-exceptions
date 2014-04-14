@@ -6,7 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Solution Items\SolutionInfo.cs = Solution Items\SolutionInfo.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPWCode.Vernacular.Exceptions.I", "I\PPWCode.Vernacular.Exceptions.I.csproj", "{89296D3A-1CA1-4995-9393-A1F1106EFC40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPWCode.Vernacular.Exceptions.II", "II\PPWCode.Vernacular.Exceptions.II.csproj", "{89296D3A-1CA1-4995-9393-A1F1106EFC40}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution

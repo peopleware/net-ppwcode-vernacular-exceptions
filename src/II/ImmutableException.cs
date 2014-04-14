@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 #endregion
 
-namespace PPWCode.Vernacular.Exceptions.I
+namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
     /// The method that throws this error is a mutating method,

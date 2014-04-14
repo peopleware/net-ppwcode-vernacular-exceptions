@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 
 #endregion
 
-namespace PPWCode.Vernacular.Exceptions.I
+namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
     /// This error is thrown when a programming condition occurs, which we know can happen

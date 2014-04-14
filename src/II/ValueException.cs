@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 
 #endregion
 
-namespace PPWCode.Vernacular.Exceptions.I
+namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
     /// In many cases, a property exception is needed that reports the original value of the property.

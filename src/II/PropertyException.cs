@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 
 #endregion
 
-namespace PPWCode.Vernacular.Exceptions.I
+namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
     /// <c>PropertyExceptions</c> are exceptions that carry with them information about the property for which they

@@ -20,7 +20,7 @@ using System.Runtime.Serialization;
 
 #endregion
 
-namespace PPWCode.Vernacular.Exceptions.I
+namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
     /// <see cref="ObjectDisposedException"/>

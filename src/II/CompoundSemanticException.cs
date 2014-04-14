@@ -23,7 +23,7 @@ using System.Text;
 
 #endregion
 
-namespace PPWCode.Vernacular.Exceptions.I
+namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
     /// Vehicle for communicating more than one <see cref="SemanticException"/>

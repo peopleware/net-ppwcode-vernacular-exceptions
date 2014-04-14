@@ -15,7 +15,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.I
+namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
     /// This exception is thrown by a method defined in an API,

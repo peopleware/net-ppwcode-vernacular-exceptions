@@ -8,11 +8,12 @@
     <ProjectGuid>{89296D3A-1CA1-4995-9393-A1F1106EFC40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PPWCode.Vernacular.Exceptions.I</RootNamespace>
-    <AssemblyName>PPWCode.Vernacular.Exceptions.I</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>PPWCode.Vernacular.Exceptions.II</RootNamespace>
+    <AssemblyName>PPWCode.Vernacular.Exceptions.II</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <CodeContractsAssemblyMode>1</CodeContractsAssemblyMode>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,6 +67,7 @@
     <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
     <DocumentationFile>..\..\scratch\bin\PPWCode.Vernacular.Exceptions.I-Debug-AnyCPU\PPWCode.Vernacular.Exceptions.I.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -118,6 +120,7 @@
     <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
     <DocumentationFile>..\..\scratch\bin\PPWCode.Vernacular.Exceptions.I-Release-AnyCPU\PPWCode.Vernacular.Exceptions.I.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugNoInvariants|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -163,15 +166,13 @@
     <CodeContractsReferenceAssembly>Build</CodeContractsReferenceAssembly>
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
     <DocumentationFile>..\..\scratch\bin\PPWCode.Vernacular.Exceptions.I-DebugNoInvariants-AnyCPU\PPWCode.Vernacular.Exceptions.I.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OutputPath Condition="'$(OutputPath)' == ''">..\..\scratch\bin\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</OutputPath>
     <IntermediateOutputPath Condition="'$(IntermediateOutputPath)' == ''">..\..\scratch\obj\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=736440c9b414ea16, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Contracts.1.0.3\lib\net35\Microsoft.Contracts.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>

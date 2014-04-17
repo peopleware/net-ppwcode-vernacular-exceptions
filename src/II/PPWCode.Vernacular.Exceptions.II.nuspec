@@ -16,7 +16,7 @@
     <tags>PPWCode</tags>
     
     <dependencies>
-      <dependency id="Microsoft.StyleCop.PPWStyle" version="[1,2)" />
+      <!--<dependency id="Microsoft.StyleCop.PPWStyle" version="[1,2)" />-->
     </dependencies>
     
     <references>

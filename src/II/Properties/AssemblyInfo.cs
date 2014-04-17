@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 #endregion
 
-[assembly: AssemblyTitle("PPWCode.Vernacular.Exceptions.I")]
+[assembly: AssemblyTitle("PPWCode.Vernacular.Exceptions.II")]
 [assembly: AssemblyDescription("Main code of the PPWCode Exceptions Vernacular")]
 [assembly: AssemblyConfiguration("")]
 [assembly: ComVisible(false)]

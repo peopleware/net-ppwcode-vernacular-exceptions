@@ -85,26 +85,14 @@ namespace PPWCode.Vernacular.Exceptions.II
 
         public object Sender
         {
-            get
-            {
-                return Data["Sender"];
-            }
-            private set
-            {
-                Data["Sender"] = value;
-            }
+            get { return Data["Sender"]; }
+            private set { Data["Sender"] = value; }
         }
 
         public string PropertyName
         {
-            get
-            {
-                return Data["PropertyName"] as string;
-            }
-            private set
-            {
-                Data["PropertyName"] = value;
-            }
+            get { return Data["PropertyName"] as string; }
+            private set { Data["PropertyName"] = value; }
         }
 
         [Pure]
@@ -112,8 +100,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         {
             Contract.Ensures((base.Like(other)
                               && ((PropertyException)other).Sender == Sender
-                              && ((PropertyException)other).PropertyName == PropertyName)
-                                 == Contract.Result<bool>());
+                              && ((PropertyException)other).PropertyName == PropertyName) == Contract.Result<bool>());
 
             if (!base.Like(other))
             {

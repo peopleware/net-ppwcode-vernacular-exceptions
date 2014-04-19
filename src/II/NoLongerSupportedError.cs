@@ -43,7 +43,7 @@ namespace PPWCode.Vernacular.Exceptions.II
     /// longer supported.</para>
     /// </remarks>
     [Serializable]
-    public class NoLongerSupportedError : 
+    public class NoLongerSupportedError :
         ExternalError
     {
         public NoLongerSupportedError()
@@ -55,15 +55,16 @@ namespace PPWCode.Vernacular.Exceptions.II
         {
         }
 
-        public NoLongerSupportedError(string message, System.Exception innerException)
+        public NoLongerSupportedError(string message, Exception innerException)
             : base(message, innerException)
         {
         }
 
-        public NoLongerSupportedError(System.Exception innerException)
+        public NoLongerSupportedError(Exception innerException)
             : base(innerException)
         {
         }
+
         protected NoLongerSupportedError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

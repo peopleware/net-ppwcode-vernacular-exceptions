@@ -26,8 +26,8 @@ namespace PPWCode.Vernacular.Exceptions.II
     /// people.
     /// </summary>
     [Serializable]
-    public class Error : 
-        System.Exception
+    public class Error :
+        Exception
     {
         public Error()
             : base()
@@ -41,7 +41,7 @@ namespace PPWCode.Vernacular.Exceptions.II
             Contract.Ensures((Message == message) && (InnerException == null));
         }
 
-        public Error(string message, System.Exception innerException)
+        public Error(string message, Exception innerException)
             : base(message, innerException)
         {
             Contract.Ensures((Message == message) && (InnerException == innerException));

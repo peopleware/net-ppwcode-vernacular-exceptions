@@ -24,7 +24,7 @@ namespace PPWCode.Vernacular.Exceptions.II
     /// security reasons.
     /// </summary>
     [Serializable]
-    public class SecurityException : 
+    public class SecurityException :
         ApplicationException
     {
         public SecurityException()
@@ -37,7 +37,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         {
         }
 
-        public SecurityException(string message, System.Exception innerException)
+        public SecurityException(string message, Exception innerException)
             : base(message, innerException)
         {
             Contract.Ensures(Message == message && InnerException == innerException);

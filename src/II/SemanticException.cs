@@ -82,24 +82,13 @@ namespace PPWCode.Vernacular.Exceptions.II
         [Pure]
         public virtual bool Like(SemanticException other)
         {
-            Contract.Ensures(other == null
-                                 ? Contract.Result<bool>() == false
-                                 : true);
-            Contract.Ensures(other == this
-                                 ? Contract.Result<bool>()
-                                 : true);
+            Contract.Ensures(other != null || Contract.Result<bool>() == false);
+            Contract.Ensures(other != this || Contract.Result<bool>());
 #if EXTRA_CONTRACTS
-    // pragma to avoid warning, not an error: GetType() isn't Pure
-            Contract.Ensures(other != null && GetType() != other.GetType()
-                                 ? Contract.Result<bool>() == false
-                                 : true);
+            Contract.Ensures(other == null || GetType() == other.GetType() || Contract.Result<bool>() == false);
 #endif
-            Contract.Ensures(other != null && other.Message != Message
-                                 ? Contract.Result<bool>() == false
-                                 : true);
-            Contract.Ensures(other != null && other.InnerException != InnerException
-                                 ? Contract.Result<bool>() == false
-                                 : true);
+            Contract.Ensures(other == null || other.Message == Message || Contract.Result<bool>() == false);
+            Contract.Ensures(other == null || other.InnerException == InnerException || Contract.Result<bool>() == false);
 
             if (other == null || GetType() != other.GetType())
             {

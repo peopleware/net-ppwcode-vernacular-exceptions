@@ -57,7 +57,7 @@ namespace PPWCode.Vernacular.Exceptions.II
     /// more consistent. The audience of these strings are system administrators.</para>
     /// </remarks>
     [Serializable]
-    public class ExternalError : 
+    public class ExternalError :
         Error
     {
         /// <summary>
@@ -82,23 +82,24 @@ namespace PPWCode.Vernacular.Exceptions.II
             : base(message ?? UnspecifiedExternalErrorMessage)
         {
             Contract.Ensures((message != null ? Message == message : Message == UnspecifiedExternalErrorMessage)
-                && (InnerException == null));
+                             && (InnerException == null));
         }
 
-        public ExternalError(string message, System.Exception innerException)
+        public ExternalError(string message, Exception innerException)
             : base(message ?? (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage), innerException)
         {
             Contract.Ensures((message != null
-                    ? Message == message
-                    : Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage))
-                && (InnerException == innerException));
+                                  ? Message == message
+                                  : Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage))
+                             && (InnerException == innerException));
         }
 
-        public ExternalError(System.Exception innerException)
+        public ExternalError(Exception innerException)
             : base((innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage), innerException)
         {
             Contract.Ensures((Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage)) && (InnerException == innerException));
         }
+
         protected ExternalError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

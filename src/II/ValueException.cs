@@ -88,35 +88,23 @@ namespace PPWCode.Vernacular.Exceptions.II
 
         public object OldValue
         {
-            get
-            {
-                return Data["OldValue"];
-            }
-            private set
-            {
-                Data["OldValue"] = value;
-            }
+            get { return Data["OldValue"]; }
+            private set { Data["OldValue"] = value; }
         }
 
         public object NewValue
         {
-            get
-            {
-                return Data["NewValue"];
-            }
-            private set
-            {
-                Data["NewValue"] = value;
-            }
+            get { return Data["NewValue"]; }
+            private set { Data["NewValue"] = value; }
         }
 
         [Pure]
         public override bool Like(SemanticException other)
         {
             Contract.Ensures((base.Like(other)
-                              && object.Equals(((ValueException)other).OldValue, OldValue)
-                              && object.Equals(((ValueException)other).NewValue, NewValue))
-                                 == Contract.Result<bool>());
+                              && Equals(((ValueException)other).OldValue, OldValue)
+                              && Equals(((ValueException)other).NewValue, NewValue))
+                             == Contract.Result<bool>());
 
             if (!base.Like(other))
             {
@@ -124,7 +112,7 @@ namespace PPWCode.Vernacular.Exceptions.II
             }
 
             ValueException ve = (ValueException)other;
-            return object.Equals(ve.OldValue, OldValue) && object.Equals(ve.NewValue, NewValue);
+            return Equals(ve.OldValue, OldValue) && Equals(ve.NewValue, NewValue);
         }
 
         public override string ToString()

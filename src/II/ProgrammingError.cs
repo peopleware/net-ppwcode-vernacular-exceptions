@@ -52,29 +52,23 @@ namespace PPWCode.Vernacular.Exceptions.II
         public ProgrammingError()
             : base(UnspecifiedProgrammingErrorMessage)
         {
-            // ReSharper disable DoNotCallOverridableMethodsInConstructor
             Contract.Ensures((Message == UnspecifiedProgrammingErrorMessage) && (InnerException == null));
-            // ReSharper restore DoNotCallOverridableMethodsInConstructor
         }
 
         public ProgrammingError(string message)
             : base(message ?? UnspecifiedProgrammingErrorMessage)
         {
-            // ReSharper disable DoNotCallOverridableMethodsInConstructor
             Contract.Ensures((message != null ? Message == message : Message == UnspecifiedProgrammingErrorMessage)
-                && (InnerException == null));
-            // ReSharper restore DoNotCallOverridableMethodsInConstructor
+                             && (InnerException == null));
         }
 
         public ProgrammingError(string message, Exception innerException)
             : base(message ?? (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage), innerException)
         {
-            // ReSharper disable DoNotCallOverridableMethodsInConstructor
             Contract.Ensures((message != null
-                    ? Message == message
-                    : Message == (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage))
-                && (InnerException == innerException));
-            // ReSharper restore DoNotCallOverridableMethodsInConstructor
+                                  ? Message == message
+                                  : Message == (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage))
+                             && (InnerException == innerException));
         }
 
         protected ProgrammingError(SerializationInfo info, StreamingContext context)

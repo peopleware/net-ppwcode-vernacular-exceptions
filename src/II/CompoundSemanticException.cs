@@ -56,12 +56,6 @@ namespace PPWCode.Vernacular.Exceptions.II
             Set = new HashSet<SemanticException>();
         }
 
-        //public CompoundSemanticException(string message, Exception innerException)
-        //    : base(message, innerException)
-        //{
-        //    Set = new HashSet<SemanticException>();
-        //}
-
         private CompoundSemanticException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
@@ -83,14 +77,8 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// </remarks>
         private HashSet<SemanticException> Set
         {
-            get
-            {
-                return Data["Set"] as HashSet<SemanticException>;
-            }
-            set
-            {
-                Data["Set"] = value;
-            }
+            get { return Data["Set"] as HashSet<SemanticException>; }
+            set { Data["Set"] = value; }
         }
 
         /// <summary>
@@ -118,10 +106,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// </remarks>
         public ICollection<SemanticException> Elements
         {
-            get
-            {
-                return Set.ToArray();
-            }
+            get { return Set.ToArray(); }
         }
 
         /// <summary>
@@ -145,14 +130,11 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// </summary>
         public bool Closed
         {
-            get
-            {
-                return (Data["Closed"] as bool?).GetValueOrDefault();
-            }
+            get { return (Data["Closed"] as bool?).GetValueOrDefault(); }
             set
             {
                 Contract.Requires(!Closed);
-                Contract.Requires(value == true);
+                Contract.Requires(value);
                 Contract.Ensures(Closed);
 
                 Data["Closed"] = value;

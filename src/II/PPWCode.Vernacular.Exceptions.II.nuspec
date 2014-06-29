@@ -19,17 +19,21 @@
     </dependencies>
     
     <references>
-      <reference file="$MSBuildProjectName$.dll" />
+      <reference file="$AssemblyName$.dll" />
     </references>
     
   </metadata>
 
   <!-- explicit file inclusion -->
   <files>
-    <file src="$OutputPath$CodeContracts\$MSBuildProjectName$.Contracts.dll" target="lib\net45\CodeContracts" />
-    <file src="$OutputPath$CodeContracts\$MSBuildProjectName$.Contracts.pdb" target="lib\net45\CodeContracts" />
-    <file src="..\..\LICENSE" target="doc\LICENSE" />
-    <file src="..\..\NOTICE" target="doc\NOTICE" />
+    <file src="$OutputPath$$AssemblyName$.dll" target="lib\net45" />
+    <file src="$OutputPath$$AssemblyName$.pdb" target="lib\net45" />
+    <file src="$OutputPath$$AssemblyName$.xml" target="lib\net45" />
+    <file src="$OutputPath$**\$AssemblyName$.resources.dll" target="lib\net45" />
+    <file src="$OutputPath$**\$AssemblyName$.Contracts.dll" target="lib\net45" />
+    <file src="$OutputPath$**\$AssemblyName$.Contracts.pdb" target="lib\net45" />
+    <file src="..\..\LICENSE" target="LICENSE" />
+    <file src="..\..\NOTICE" target="NOTICE" />
   </files>
   
 </package>

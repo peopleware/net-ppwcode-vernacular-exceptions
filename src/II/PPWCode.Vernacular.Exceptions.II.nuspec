@@ -5,17 +5,26 @@
     <version>$version$</version>
     <title>$title$</title>
     <authors>$author$</authors>
-    <owners>$author$</owners>
+    <owners>PeopleWare n.v.</owners>
+
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
-    <projectUrl>http://www.ppwcode.org/</projectUrl>
+    <projectUrl>https://github.com/peopleware/net-ppwcode-vernacular-exceptions</projectUrl>
     <iconUrl>http://www.ppwcode.org/img/logo.jpg</iconUrl>
+	
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+ 
     <description>$description$</description>
+
     <releaseNotes>NuGet packaging.</releaseNotes>
-    <copyright>Copyright 2014</copyright>
+
+    <copyright>Copyright 2010 by PeopleWare n.v.</copyright>
+
     <tags>PPWCode</tags>
     
+	<developmentDependency>false</developmentDependency>
+
     <dependencies>
+      <!-- no dependencies -->
     </dependencies>
     
     <references>

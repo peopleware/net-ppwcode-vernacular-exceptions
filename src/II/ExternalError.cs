@@ -95,7 +95,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         public ExternalError(Exception innerException)
-            : base((innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage), innerException)
+            : base(innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage, innerException)
         {
             Contract.Ensures((Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage)) && (InnerException == innerException));
         }

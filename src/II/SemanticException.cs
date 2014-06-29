@@ -23,7 +23,7 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// Supertype for exceptions related to semantics: the nominal effect of a method could
+    /// Super type for exceptions related to semantics: the nominal effect of a method could
     /// not be reached, because doing so under the given circumstances would violate semantics
     /// (often type invariants).
     /// </summary>
@@ -52,7 +52,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// The <see cref="Exception.Message"/> can not be overriden
+        /// The <see cref="Exception.Message"/> can not be overridden
         /// in this hierarchy. This property is sealed.
         /// </summary>
         [Pure]
@@ -77,7 +77,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// This most be override and strengtenth to include extra properties in subclasses
+        /// This must be overridden and strengthened to include extra properties in subclasses.
         /// </summary>
         [Pure]
         public virtual bool Like(SemanticException other)

@@ -71,7 +71,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// <remarks>
         /// <para><see cref="Count"/> provides a little expensive
         /// way to find out how many exceptions there are in the set.
-        /// <see cref="IsEmpty"/> provices a little expensive
+        /// <see cref="IsEmpty"/> provides a little expensive
         /// way to find out if there are any elements in the
         /// set.</para>
         /// </remarks>
@@ -100,7 +100,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// <remarks>
         /// <para><see cref="Count"/> provides a little expensive
         /// way to find out how many exceptions there are in the set.
-        /// <see cref="IsEmpty"/> provices a little expensive
+        /// <see cref="IsEmpty"/> provides a little expensive
         /// way to find out if there are any elements in the
         /// set.</para>
         /// </remarks>

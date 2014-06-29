@@ -1,17 +1,17 @@
 # PPWCode.Vernacular.Exceptions
 
-This library encapsulates the vernacular on exceptions in PPWCode.
+Welcome to the PPWCode project.
+
+This library is part of PPWCode and encapsulates the vernacular on exceptions.
+
 
 ## PPWCode.Vernacular.Exceptions II
 
 This is version II of the library, which is designed to work with Microsoft
 .NET 4.5.
 
-### Installing
-
-This library is available as the [Nuget] package **PPWCode.Vernacular.Exceptions.II**.
-
-Adding the library as a dependency can be done using the Nuget package manager from inside Visual Studio.
+The library is available as the [Nuget] package **PPWCode.Vernacular.Exceptions.II**.
+It can be installed using the Nuget package manager from inside Visual Studio.
 
 
 ## PPWCode.Vernacular.Exceptions I

@@ -59,7 +59,9 @@ Task PackageRestore -depends PackageClean {
         $solution = Get-Item '*.sln' | Select-Object -First 1
         $reposources = ""
         $repos | ForEach-Object { $reposources="$reposources -source $_" } 
-        Exec { nuget restore "$solution.sln" $reposources }
+        #Exec { & nuget "restore $solution $reposources" }
+        $args="restore $solution $reposources"
+        Start-Process -Wait -FilePath nuget -ArgumentList $args -NoNewWindow
     }
     finally
     {

@@ -31,3 +31,4 @@ _ReSharper*/
 /src/packages/*
 /src/*.nupkg
 /scratch/doc/**
+*.nupkg

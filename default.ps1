@@ -21,6 +21,7 @@ Framework "4.0"
 Properties {
     $configuration = "Debug"
     $repos = @("local", "nuget")
+    $publishrepo = "local"
 }
 
 Task Default -depends ?
@@ -29,6 +30,24 @@ Task ? {
     WriteDocumentation
 }
 
+# Clean packages folder
+Task PackageClean {
+    Push-Location
+
+    try
+    {
+        Write-Host "Clean package dependencies." -ForegroundColor Green
+
+        # clean up packages folder
+        Remove-Item -Path 'src\packages\*' -Exclude 'repositories.config' -Recurse -Force -ErrorAction Ignore
+    }
+    finally
+    {
+        Pop-Location
+    }
+}
+
+# Restore packages
 Task PackageRestore -depends PackageClean {
     Push-Location
 
@@ -48,24 +67,7 @@ Task PackageRestore -depends PackageClean {
     }
 }
 
-Task PackageClean {
-    Push-Location
-
-    try
-    {
-        Write-Host "Clean package dependencies." -ForegroundColor Green
-
-        # clean up packages folder
-        Remove-Item -Path 'src\packages\*' -Exclude 'repositories.config' -Recurse -Force -ErrorAction Ignore
-    }
-    finally
-    {
-        Pop-Location
-    }
-}
-
-Task FullBuild -depends PackageRestore,Build
-
+# Build the solution
 Task Build -depends Clean {
     Push-Location
 
@@ -82,6 +84,7 @@ Task Build -depends Clean {
     }
 }
 
+# Clean build artifacts and temporary files
 Task Clean {
     Push-Location
 
@@ -115,4 +118,34 @@ Task Clean {
     }
 }
 
+# Full clean
 Task RealClean -depends Clean,PackageClean
+
+# Full build
+Task FullBuild -depends PackageRestore,Build
+
+# Create Nuget package
+Task Package -depends FullBuild {
+    Push-Location
+
+    try
+    {
+        Write-Host "Packaging." -ForegroundColor Green
+
+        Set-Location 'src'
+        $solution = Get-Item '*.sln' | Select-Object -First
+
+        # build
+        $nuspecfiles = Get-ChildItem -Directory | Where-Object { $_.Name -ne 'packages'  } |  Get-ChildItem -Filter '*.nuspec' -recurse
+        $nuspecfiles | ForEach-Object {
+            Set-Location $_.DirectoryName
+            Exec { nuget pack "$($_.BaseName).csproj" -Build -Properties "Configuration=$configuration" }
+            $nupkgfiles = Get-ChildItem -File -Filter "*.nupkg"
+            Exec { nuget push "$($nupkgfiles[0].Name)" -source $publishrepo }
+        }
+    }
+    finally
+    {
+        Pop-Location
+    }
+}

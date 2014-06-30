@@ -56,7 +56,7 @@ Task PackageRestore -depends PackageClean {
         Write-Host "Restoring package dependencies." -ForegroundColor Green
 
         Set-Location 'src'
-        $solution = Get-Item '*.sln' | Select-Object -First
+        $solution = Get-Item '*.sln' | Select-Object -First 1
         $reposources = ""
         $repos | ForEach-Object { $reposources="$reposources -source $_" } 
         Exec { nuget restore "$solution.sln" $reposources }
@@ -75,7 +75,7 @@ Task Build -depends Clean {
     {
         Set-Location 'src'
         Write-Host "Compiling." -ForegroundColor Green
-        $solution = Get-Item '*.sln' | Select-Object -First
+        $solution = Get-Item '*.sln' | Select-Object -First 1
         Exec { msbuild "$($solution.Name)" /t:Build /m /p:Configuration=$configuration /v:quiet }
     }
     finally
@@ -95,7 +95,7 @@ Task Clean {
         # msbuild clean
         Write-Host "Cleaning solution" -ForegroundColor Green
         Set-Location 'src'
-        $solution = Get-Item '*.sln' | Select-Object -First
+        $solution = Get-Item '*.sln' | Select-Object -First 1
         Exec { msbuild "$($solution.Name)" /t:Clean /m /p:Configuration=$configuration /v:quiet }
         Set-Location '..'
 
@@ -133,7 +133,7 @@ Task Package -depends FullBuild {
         Write-Host "Packaging." -ForegroundColor Green
 
         Set-Location 'src'
-        $solution = Get-Item '*.sln' | Select-Object -First
+        $solution = Get-Item '*.sln' | Select-Object -First 1
 
         # build
         $nuspecfiles = Get-ChildItem -Directory | Where-Object { $_.Name -ne 'packages'  } |  Get-ChildItem -Filter '*.nuspec' -recurse

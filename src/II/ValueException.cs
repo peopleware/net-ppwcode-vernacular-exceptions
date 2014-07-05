@@ -82,12 +82,18 @@ namespace PPWCode.Vernacular.Exceptions.II
         {
         }
 
+        /// <summary>
+        /// Contains the original value of the property.
+        /// </summary>
         public object OldValue
         {
             get { return Data["OldValue"]; }
             private set { Data["OldValue"] = value; }
         }
 
+        /// <summary>
+        /// Contains the value that could not be stored in the property.
+        /// </summary>
         public object NewValue
         {
             get { return Data["NewValue"]; }

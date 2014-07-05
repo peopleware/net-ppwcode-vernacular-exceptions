@@ -13,6 +13,7 @@
 // limitations under the License.
 
 using System.Reflection;
+
 [assembly: AssemblyCompany("Peopleware n.v.")]
 [assembly: AssemblyProduct("PPWCode Vernacular Exceptions")]
 [assembly: AssemblyCopyright("Copyright © PeopleWare n.v. 2010-2014")]

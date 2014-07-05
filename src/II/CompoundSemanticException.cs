@@ -12,16 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#region Using
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-
-#endregion
 
 namespace PPWCode.Vernacular.Exceptions.II
 {
@@ -42,8 +38,6 @@ namespace PPWCode.Vernacular.Exceptions.II
     public sealed class CompoundSemanticException :
         SemanticException
     {
-        #region Constructors
-
         public CompoundSemanticException()
             : base(null, null)
         {
@@ -60,10 +54,6 @@ namespace PPWCode.Vernacular.Exceptions.II
             : base(info, context)
         {
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// The element exceptions of this compound exception.
@@ -151,8 +141,6 @@ namespace PPWCode.Vernacular.Exceptions.II
             Closed = true;
         }
 
-        #endregion
-
         /// <summary>
         /// Add an element exception to <see cref="Elements"/>.
         /// </summary>
@@ -218,6 +206,7 @@ namespace PPWCode.Vernacular.Exceptions.II
                 {
                     sb.AppendLine(se.ToString());
                 }
+
                 return sb.Length == 0 ? Message : sb.ToString();
             }
             catch

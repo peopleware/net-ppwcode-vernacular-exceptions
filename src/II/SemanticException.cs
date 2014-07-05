@@ -90,10 +90,12 @@ namespace PPWCode.Vernacular.Exceptions.II
             {
                 return false;
             }
+
             if (other == this)
             {
                 return true;
             }
+            
             return (other.Message == Message) && (other.InnerException == InnerException);
         }
     }

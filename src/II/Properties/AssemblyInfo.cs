@@ -12,12 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#region Using
-
 using System.Reflection;
 using System.Runtime.InteropServices;
-
-#endregion
 
 [assembly: AssemblyTitle("PPWCode.Vernacular.Exceptions.II")]
 [assembly: AssemblyDescription("PPWCode Vernacular Exceptions")]

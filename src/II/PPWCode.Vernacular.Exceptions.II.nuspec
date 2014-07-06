@@ -44,7 +44,7 @@
     <file src="$OutputPath$**\$AssemblyName$.resources.dll" target="lib\net45" />
     <file src="$OutputPath$**\$AssemblyName$.Contracts.dll" target="lib\net45" />
     <file src="$OutputPath$**\$AssemblyName$.Contracts.pdb" target="lib\net45" />
-    
+
     <!-- license information -->
     <file src="..\..\LICENSE" target="LICENSE" />
     <file src="..\..\NOTICE" target="NOTICE" />

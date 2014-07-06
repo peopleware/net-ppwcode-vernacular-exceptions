@@ -25,7 +25,7 @@
     <CopyrightText>PeopleWare n.v.</CopyrightText>
     <FeedbackEMailAddress>info%2540peopleware.be</FeedbackEMailAddress>
     <HeaderText>PPWCode.Vernacular.Exceptions</HeaderText>
-    <HelpTitle>PensioB Sempera Developer Documentation</HelpTitle>
+    <HelpTitle>PPWCode Developer Documentation</HelpTitle>
     <SyntaxFilters>CSharp</SyntaxFilters>
     <MissingTags>Summary, Parameter, Returns, AutoDocumentCtors, Namespace, TypeParameter, IncludeTargets, AutoDocumentDispose</MissingTags>
     <VisibleItems>Attributes, InheritedMembers, InheritedFrameworkMembers, Protected, ProtectedInternalAsProtected, SealedProtected</VisibleItems>

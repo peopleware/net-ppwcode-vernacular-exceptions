@@ -19,24 +19,30 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// This error is thrown when a programming condition occurs, which we know can happen
-    /// (however unlikely), which we do not want to deal with in our application.
-    /// <inheritdoc cref="Error" />
+    ///     This error is thrown when a programming condition occurs, which we know can happen
+    ///     (however unlikely), which we do not want to deal with in our application.
+    ///     <inheritdoc cref="Error" />
     /// </summary>
     /// <remarks>
-    /// <para><c>ProgrammingError</c> instances are used to signal programming errors,
-    /// when we become aware of them in the code. Examples are branches of if-statements
-    /// or switch-statement, or catch-branches, where from reasoning we assume execution
-    /// would never reach. Instead of merely writing a comment, throwing a
-    /// <c>ProgrammingError</c> is better.</para>
-    /// <para>The audience of <c>ProgrammingErrors</c> are developers. To help in debugging,
-    /// it makes sense to include a message that is as descriptive as possible.
-    /// If you become aware of the external condition you do not want to deal
-    /// with through an <see cref="Exception"/>, it should be carried
-    /// by an instance of this class as its <see cref="Exception.InnerException"/>.</para>
-    /// <para>Administrators should be aware of the errors too. They need to be aware
-    /// of the state of the application, and are probably on the path of communication
-    /// to the developers.</para>
+    ///     <para>
+    ///         <c>ProgrammingError</c> instances are used to signal programming errors,
+    ///         when we become aware of them in the code. Examples are branches of if-statements
+    ///         or switch-statement, or catch-branches, where from reasoning we assume execution
+    ///         would never reach. Instead of merely writing a comment, throwing a
+    ///         <c>ProgrammingError</c> is better.
+    ///     </para>
+    ///     <para>
+    ///         The audience of <c>ProgrammingErrors</c> are developers. To help in debugging,
+    ///         it makes sense to include a message that is as descriptive as possible.
+    ///         If you become aware of the external condition you do not want to deal
+    ///         with through an <see cref="Exception" />, it should be carried
+    ///         by an instance of this class as its <see cref="Exception.InnerException" />.
+    ///     </para>
+    ///     <para>
+    ///         Administrators should be aware of the errors too. They need to be aware
+    ///         of the state of the application, and are probably on the path of communication
+    ///         to the developers.
+    ///     </para>
     /// </remarks>
     [Serializable]
     public class ProgrammingError :

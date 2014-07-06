@@ -19,31 +19,38 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// <c>PropertyExceptions</c> are exceptions that carry with them information about the property for which they
-    /// occurred. They are usually thrown by a property setter during validation.
+    ///     <c>PropertyExceptions</c> are exceptions that carry with them information about the property for which they
+    ///     occurred. They are usually thrown by a property setter during validation.
     /// </summary>
     /// <remarks>
-    /// <para>If the <see cref="PropertyName"/> is <c>null</c>,
-    /// it means that the exception could not be attributed to a specific property of <see cref="Sender"/>.</para>
-    /// <para>The <see cref="Sender"/>
-    /// should not be <c>null</c>, except when the exception is thrown during
-    /// construction of an object, that could not be completed. Carrying
-    /// the reference to the object would expose an incompletely initialized object,
-    /// as the exception signals a failure to complete the initialization. 
-    /// TODO: add type property for that case.</para>
-    /// <para>
-    /// A <c>PropertyException</c> reports on an issue with one object. If there is a need to communicate
-    /// an issue over more than one issue, use a <see cref="CompoundSemanticException"/>.</para>
-    /// <para>Specific property exception subtypes will
-    /// make these advises binding in most cases.</para>
+    ///     <para>
+    ///         If the <see cref="PropertyName" /> is <c>null</c>,
+    ///         it means that the exception could not be attributed to a specific property of <see cref="Sender" />.
+    ///     </para>
+    ///     <para>
+    ///         The <see cref="Sender" />
+    ///         should not be <c>null</c>, except when the exception is thrown during
+    ///         construction of an object, that could not be completed. Carrying
+    ///         the reference to the object would expose an incompletely initialized object,
+    ///         as the exception signals a failure to complete the initialization.
+    ///         TODO: add type property for that case.
+    ///     </para>
+    ///     <para>
+    ///         A <c>PropertyException</c> reports on an issue with one object. If there is a need to communicate
+    ///         an issue over more than one issue, use a <see cref="CompoundSemanticException" />.
+    ///     </para>
+    ///     <para>
+    ///         Specific property exception subtypes will
+    ///         make these advises binding in most cases.
+    ///     </para>
     /// </remarks>
     [Serializable]
     public class PropertyException :
         SemanticException
     {
         /// <summary>
-        /// A string that can be used, if you wish, as the message to signal that
-        /// the property is mandatory, but was not filled out.
+        ///     A string that can be used, if you wish, as the message to signal that
+        ///     the property is mandatory, but was not filled out.
         /// </summary>
         public const string MandatoryMessage = "MANDATORY";
 

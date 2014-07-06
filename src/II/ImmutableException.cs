@@ -19,9 +19,9 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// The method that throws this error is a mutating method,
-    /// flagged not to be used, because the instance is flagged
-    /// as immutable.
+    ///     The method that throws this error is a mutating method,
+    ///     flagged not to be used, because the instance is flagged
+    ///     as immutable.
     /// </summary>
     [Serializable]
     public class ImmutableException :

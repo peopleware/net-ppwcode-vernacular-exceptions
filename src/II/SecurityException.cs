@@ -19,9 +19,9 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// Exception that signals a refusal to perform
-    /// the nominal effect by a method, because of
-    /// security reasons.
+    ///     Exception that signals a refusal to perform
+    ///     the nominal effect by a method, because of
+    ///     security reasons.
     /// </summary>
     [Serializable]
     public class SecurityException :

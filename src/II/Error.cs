@@ -19,11 +19,11 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// Exceptions that are not semantically relevant.
-    /// When an exception of this type occurs, code should
-    /// fail gracefully, and, in the best of cases, shut
-    /// down the application, after warning the appropriate
-    /// people.
+    ///     Exceptions that are not semantically relevant.
+    ///     When an exception of this type occurs, code should
+    ///     fail gracefully, and, in the best of cases, shut
+    ///     down the application, after warning the appropriate
+    ///     people.
     /// </summary>
     [Serializable]
     public class Error :

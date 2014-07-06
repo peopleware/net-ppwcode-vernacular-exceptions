@@ -22,17 +22,21 @@ using System.Text;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// Vehicle for communicating more than one <see cref="SemanticException"/>
-    /// at once.
+    ///     Vehicle for communicating more than one <see cref="SemanticException" />
+    ///     at once.
     /// </summary>
     /// <remarks>
-    /// <para>After creation, element exceptions can be
-    /// <see cref="AddElement">Added</see> to the <see cref="Elements"/>.
-    /// Once the exception is
-    /// <see cref="Closed"/>, no more element exceptions can be
-    /// added.</para>
-    /// <para>The exception should only be thrown if it is not
-    /// <see cref="Empty"/>.</para>
+    ///     <para>
+    ///         After creation, element exceptions can be
+    ///         <see cref="AddElement">Added</see> to the <see cref="Elements" />.
+    ///         Once the exception is
+    ///         <see cref="Closed" />, no more element exceptions can be
+    ///         added.
+    ///     </para>
+    ///     <para>
+    ///         The exception should only be thrown if it is not
+    ///         <see cref="Empty" />.
+    ///     </para>
     /// </remarks>
     [Serializable]
     public sealed class CompoundSemanticException :
@@ -56,14 +60,16 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// The element exceptions of this compound exception.
+        ///     The element exceptions of this compound exception.
         /// </summary>
         /// <remarks>
-        /// <para><see cref="Count"/> provides a little expensive
-        /// way to find out how many exceptions there are in the set.
-        /// <see cref="IsEmpty"/> provides a little expensive
-        /// way to find out if there are any elements in the
-        /// set.</para>
+        ///     <para>
+        ///         <see cref="Count" /> provides a little expensive
+        ///         way to find out how many exceptions there are in the set.
+        ///         <see cref="IsEmpty" /> provides a little expensive
+        ///         way to find out if there are any elements in the
+        ///         set.
+        ///     </para>
         /// </remarks>
         private HashSet<SemanticException> Set
         {
@@ -72,7 +78,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// There are no element exceptions in <see cref="Elements"/>.
+        ///     There are no element exceptions in <see cref="Elements" />.
         /// </summary>
         public bool IsEmpty
         {
@@ -85,14 +91,16 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// The element exceptions of this compound exception.
+        ///     The element exceptions of this compound exception.
         /// </summary>
         /// <remarks>
-        /// <para><see cref="Count"/> provides a little expensive
-        /// way to find out how many exceptions there are in the set.
-        /// <see cref="IsEmpty"/> provides a little expensive
-        /// way to find out if there are any elements in the
-        /// set.</para>
+        ///     <para>
+        ///         <see cref="Count" /> provides a little expensive
+        ///         way to find out how many exceptions there are in the set.
+        ///         <see cref="IsEmpty" /> provides a little expensive
+        ///         way to find out if there are any elements in the
+        ///         set.
+        ///     </para>
         /// </remarks>
         public ICollection<SemanticException> Elements
         {
@@ -100,7 +108,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// The number of <see cref="Elements">element exceptions</see>.
+        ///     The number of <see cref="Elements">element exceptions</see>.
         /// </summary>
         public int Count
         {
@@ -113,10 +121,12 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// No more <see cref="Elements">element exceptions</see>
-        /// can be added if this is <c>Closed</c>.
-        /// <para>The setter is deprecated. Use <see cref="Close"/>
-        /// instead.</para>
+        ///     No more <see cref="Elements">element exceptions</see>
+        ///     can be added if this is <c>Closed</c>.
+        ///     <para>
+        ///         The setter is deprecated. Use <see cref="Close" />
+        ///         instead.
+        ///     </para>
         /// </summary>
         public bool Closed
         {
@@ -132,7 +142,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// Close the exception for the addition of <see cref="Elements"/>.
+        ///     Close the exception for the addition of <see cref="Elements" />.
         /// </summary>
         public void Close()
         {
@@ -142,7 +152,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// Add an element exception to <see cref="Elements"/>.
+        ///     Add an element exception to <see cref="Elements" />.
         /// </summary>
         /// <param name="exception">The exception that must be added.</param>
         public void AddElement(SemanticException exception)
@@ -169,12 +179,14 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// This contains an <see cref="Elements">element</see>
-        /// <see cref="SemanticException.Like"/> <paramref name="exception"/>.
+        ///     This contains an <see cref="Elements">element</see>
+        ///     <see cref="SemanticException.Like" /> <paramref name="exception" />.
         /// </summary>
         /// <param name="exception">The exception to compare with.</param>
-        /// <returns>A boolean indicating whether <see cref="CompoundSemanticException">this</see>
-        /// contains a <see cref="SemanticException"/> like <paramref name="exception"/>.</returns>
+        /// <returns>
+        ///     A boolean indicating whether <see cref="CompoundSemanticException">this</see>
+        ///     contains a <see cref="SemanticException" /> like <paramref name="exception" />.
+        /// </returns>
         [Pure]
         public bool ContainsElement(SemanticException exception)
         {
@@ -184,13 +196,15 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         /// <summary>
-        /// This exception is semantically like the <paramref name="other"/>
-        /// exception, and contains exceptions that are
-        /// <see cref="Like">alike</see>.
+        ///     This exception is semantically like the <paramref name="other" />
+        ///     exception, and contains exceptions that are
+        ///     <see cref="Like">alike</see>.
         /// </summary>
-        /// <param name="other">The <see cref="SemanticException"/> to compare against.</param>
-        /// <returns>A boolean indicating whether <see cref="CompoundSemanticException">this</see>
-        /// and <paramref name="other"/> are alike.</returns>
+        /// <param name="other">The <see cref="SemanticException" /> to compare against.</param>
+        /// <returns>
+        ///     A boolean indicating whether <see cref="CompoundSemanticException">this</see>
+        ///     and <paramref name="other" /> are alike.
+        /// </returns>
         public override bool Like(SemanticException other)
         {
             if (!base.Like(other))

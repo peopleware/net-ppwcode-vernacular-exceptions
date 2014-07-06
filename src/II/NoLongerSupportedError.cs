@@ -18,29 +18,35 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// This exception is thrown by a method defined in an API,
-    /// in a later version of the API, if the method that was
-    /// defined in an earlier version is no longer supported in
-    /// new versions.
+    ///     This exception is thrown by a method defined in an API,
+    ///     in a later version of the API, if the method that was
+    ///     defined in an earlier version is no longer supported in
+    ///     new versions.
     /// </summary>
     /// <remarks>
-    /// <para>That the exception can be thrown is implicit for all
-    /// API methods.</para>
-    /// <para>Normally, when a new version of an API is created,
-    /// it is kept backward compatible with older versions. This
-    /// is often a non-trivial endeavour. Although, if it is
-    /// decided to keep backward compatibility with older versions,
-    /// all possible effort should be made to make the backward
-    /// compatibility complete, in some cases this is logically
-    /// not feasible or too costly. It than often happens that
-    /// backward compatibility can be attained for all but a limited
-    /// number of methods, possibly for all but a limited number
-    /// of cases. It may then be interesting to ship this new
-    /// not-completely-backward-compatible version, if a lot
-    /// of clients do not use the not-backward-compatible part.</para>
-    /// <para>This exception allows the developers of the new version
-    /// to signal which method, in which circumstances, is no
-    /// longer supported.</para>
+    ///     <para>
+    ///         That the exception can be thrown is implicit for all
+    ///         API methods.
+    ///     </para>
+    ///     <para>
+    ///         Normally, when a new version of an API is created,
+    ///         it is kept backward compatible with older versions. This
+    ///         is often a non-trivial endeavour. Although, if it is
+    ///         decided to keep backward compatibility with older versions,
+    ///         all possible effort should be made to make the backward
+    ///         compatibility complete, in some cases this is logically
+    ///         not feasible or too costly. It than often happens that
+    ///         backward compatibility can be attained for all but a limited
+    ///         number of methods, possibly for all but a limited number
+    ///         of cases. It may then be interesting to ship this new
+    ///         not-completely-backward-compatible version, if a lot
+    ///         of clients do not use the not-backward-compatible part.
+    ///     </para>
+    ///     <para>
+    ///         This exception allows the developers of the new version
+    ///         to signal which method, in which circumstances, is no
+    ///         longer supported.
+    ///     </para>
     /// </remarks>
     [Serializable]
     public class NoLongerSupportedError :

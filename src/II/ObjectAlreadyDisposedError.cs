@@ -19,7 +19,7 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.II
 {
     /// <summary>
-    /// <see cref="ObjectDisposedException"/>
+    ///     <see cref="ObjectDisposedException" />
     /// </summary>
     [Serializable]
     public class ObjectAlreadyDisposedError :

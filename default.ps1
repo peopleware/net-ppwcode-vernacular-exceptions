@@ -78,7 +78,7 @@ Task Build -depends Clean {
         Set-Location 'src'
         Write-Host "Compiling." -ForegroundColor Green
         $solution = Get-Item '*.sln' | Select-Object -First 1
-        Exec { msbuild "$($solution.Name)" /t:Build /m /p:Configuration=$configuration /v:quiet }
+        Exec { msbuild "$($solution.Name)" /t:Build /m /p:Configuration=$configuration /v:quiet /nologo }
     }
     finally
     {
@@ -98,7 +98,7 @@ Task Clean {
         Write-Host "Cleaning solution" -ForegroundColor Green
         Set-Location 'src'
         $solution = Get-Item '*.sln' | Select-Object -First 1
-        Exec { msbuild "$($solution.Name)" /t:Clean /m /p:Configuration=$configuration /v:quiet }
+        Exec { msbuild "$($solution.Name)" /t:Clean /m /p:Configuration=$configuration /v:quiet /nologo }
         Set-Location '..'
 
         # clean up scratch folder
@@ -141,7 +141,7 @@ Task Package -depends FullBuild {
         $nuspecfiles = Get-ChildItem -Directory | Where-Object { $_.Name -ne 'packages'  } |  Get-ChildItem -Filter '*.nuspec' -recurse
         $nuspecfiles | ForEach-Object {
             Set-Location $_.DirectoryName
-            Exec { nuget pack "$($_.BaseName).csproj" -Build -Properties "Configuration=$configuration" }
+            Exec { nuget pack "$($_.BaseName).csproj" -Build -Properties "Configuration=$configuration" -Verbosity quiet }
             $nupkgfiles = Get-ChildItem -File -Filter "*.nupkg"
             Exec { nuget push "$($nupkgfiles[0].Name)" -source $publishrepo }
         }

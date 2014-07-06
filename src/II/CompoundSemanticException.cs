@@ -144,6 +144,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// <summary>
         /// Add an element exception to <see cref="Elements"/>.
         /// </summary>
+        /// <param name="exception">The exception that must be added.</param>
         public void AddElement(SemanticException exception)
         {
             Contract.Requires(exception != null);
@@ -171,6 +172,9 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// This contains an <see cref="Elements">element</see>
         /// <see cref="SemanticException.Like"/> <paramref name="exception"/>.
         /// </summary>
+        /// <param name="exception">The exception to compare with.</param>
+        /// <returns>A boolean indicating whether <see cref="CompoundSemanticException">this</see>
+        /// contains a <see cref="SemanticException"/> like <paramref name="exception"/>.</returns>
         [Pure]
         public bool ContainsElement(SemanticException exception)
         {
@@ -184,6 +188,9 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// exception, and contains exceptions that are
         /// <see cref="Like">alike</see>.
         /// </summary>
+        /// <param name="other">The <see cref="SemanticException"/> to compare against.</param>
+        /// <returns>A boolean indicating whether <see cref="CompoundSemanticException">this</see>
+        /// and <paramref name="other"/> are alike.</returns>
         public override bool Like(SemanticException other)
         {
             if (!base.Like(other))

@@ -75,6 +75,9 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// <summary>
         /// This must be overridden and strengthened to include extra properties in subclasses.
         /// </summary>
+        /// <param name="other">The <see cref="SemanticException"/> to compare against.</param>
+        /// <returns>A boolean indicating whether <see cref="SemanticException">this</see>
+        /// and <paramref name="other"/> are alike.</returns>
         [Pure]
         public virtual bool Like(SemanticException other)
         {

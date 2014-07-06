@@ -16,11 +16,11 @@ param([string]$target = "")
 
 try 
 {
-	Set-ExecutionPolicy RemoteSigned
+    Set-ExecutionPolicy RemoteSigned
     $moduleItem = Get-Item  .\src\packages\psake.*\tools\psake.psm1 | 
                     Sort-Object -Property FullName -Descending | 
                     Select-Object -First 1
-	Import-Module $moduleItem.FullName -Force
+    Import-Module $moduleItem.FullName -Force
     if ($target -ne "")
     {
         Invoke-psake $target
@@ -28,6 +28,6 @@ try
 }
 catch 
 {
-	Write-Error $_
-	Write-Host "Error executing psake.ps1"
+    Write-Error $_
+    Write-Host "Error executing psake.ps1"
 }

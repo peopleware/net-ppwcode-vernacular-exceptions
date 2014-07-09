@@ -24,14 +24,26 @@ Properties {
     $publishrepo = "local"
 }
 
+# Properties description
+function PropertyDocumentation() {
+    Write-Host "Properties"
+    Write-Host "----------"
+    Write-Host "`$configuration   The build configuration."
+    Write-Host "`$repos           Array of repositories to use as source repositories."
+    Write-Host "`$publishrepo     The repository to use for publishing generated packages."
+}
+
+
 Task Default -depends ?
 
-Task ? {
+Task ? -description "Show help." {
+    Write-Host
+    PropertyDocumentation 
     WriteDocumentation
 }
 
 # Clean packages folder
-Task PackageClean {
+Task PackageClean -description "Clean packages folder in the solution." {
     Push-Location
 
     try
@@ -48,7 +60,7 @@ Task PackageClean {
 }
 
 # Restore packages
-Task PackageRestore -depends PackageClean {
+Task PackageRestore -description "Restore nuget package dependencies." -depends PackageClean {
     Push-Location
 
     try
@@ -70,7 +82,7 @@ Task PackageRestore -depends PackageClean {
 }
 
 # Build the solution
-Task Build -depends Clean {
+Task Build -description "Build the solution." -depends Clean {
     Push-Location
 
     try
@@ -87,7 +99,7 @@ Task Build -depends Clean {
 }
 
 # Clean build artifacts and temporary files
-Task Clean {
+Task Clean -description "Clean build output and generated packages." {
     Push-Location
 
     try
@@ -121,13 +133,13 @@ Task Clean {
 }
 
 # Full clean
-Task RealClean -depends Clean,PackageClean
+Task RealClean -description "Clean build output, generated packages and packages folder." -depends Clean,PackageClean
 
 # Full build
-Task FullBuild -depends PackageRestore,Build
+Task FullBuild -description "Do a full build starting from a clean solution." -depends PackageRestore,Build
 
 # Create Nuget package
-Task Package -depends FullBuild {
+Task Package -description "Generate the packages from a clean build, and publish the packages." -depends FullBuild {
     Push-Location
 
     try

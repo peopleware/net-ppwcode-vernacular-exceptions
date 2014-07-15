@@ -133,6 +133,7 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="CompoundSemanticException.cs" />
+    <Compile Include="IllegalOperationException.cs" />
     <Compile Include="ImmutableException.cs" />
     <Compile Include="ObjectAlreadyDisposedError.cs" />
     <Compile Include="PropertyException.cs" />

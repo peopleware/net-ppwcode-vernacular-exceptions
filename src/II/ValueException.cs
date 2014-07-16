@@ -68,8 +68,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         }
 
         public ValueException(object sender, string propertyName, object oldValue, object newValue, string message, Exception innerException)
-            :
-                base(sender, propertyName, message, innerException)
+            : base(sender, propertyName, message, innerException)
         {
             Contract.Requires(propertyName != null);
             Contract.Ensures(Sender == sender);

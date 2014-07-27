@@ -48,7 +48,7 @@ This will initialize your environment. Note that the script assumes that the
 [NuGet] commandline client is available on the path.
 
 After the initialization, several [psake] tasks can be executed using the
-PowerShell command `invoke-psake` that is available now. Here are a couple
+PowerShell command `Invoke-psake` that is available now. Here are a couple
 of examples:
 
     Invoke-psake

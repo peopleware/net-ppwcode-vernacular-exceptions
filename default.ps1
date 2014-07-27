@@ -33,22 +33,40 @@ function PropertyDocumentation() {
     Write-Host "`$publishrepo     The repository to use for publishing generated packages."
 }
 
-
+# Default is help
 Task Default -depends ?
 
+# Show help
 Task ? -description "Show help." {
     Write-Host
     PropertyDocumentation 
     WriteDocumentation
 }
 
-# Clean packages folder
-Task PackageClean -description "Clean packages folder in the solution." {
+# Clean ReSharper cache folder
+Task ReSharperClean -description "Clean ReSharper cache folder in the solution." {
     Push-Location
 
     try
     {
-        Write-Host "Clean package dependencies." -ForegroundColor Green
+        #Write-Host "Clean ReSharper cache." -ForegroundColor Green
+
+        # clean up cache folder
+        Remove-Item -Path 'src\_ReSharper*' -Recurse -Force -ErrorAction Ignore
+    }
+    finally
+    {
+        Pop-Location
+    }
+}
+
+# Clean packages folder
+Task PackageClean -description "Clean packages folder in the solution." -depends ReSharperClean {
+    Push-Location
+
+    try
+    {
+        #Write-Host "Clean package dependencies." -ForegroundColor Green
 
         # clean up packages folder
         Remove-Item -Path 'src\packages\*' -Exclude 'repositories.config' -Recurse -Force -ErrorAction Ignore
@@ -65,7 +83,7 @@ Task PackageRestore -description "Restore nuget package dependencies." -depends 
 
     try
     {
-        Write-Host "Restoring package dependencies." -ForegroundColor Green
+        #Write-Host "Restoring package dependencies." -ForegroundColor Green
 
         Set-Location 'src'
         $solution = Get-Item '*.sln' | Select-Object -First 1
@@ -87,8 +105,9 @@ Task Build -description "Build the solution." -depends Clean {
 
     try
     {
+        #Write-Host "Compiling." -ForegroundColor Green
+
         Set-Location 'src'
-        Write-Host "Compiling." -ForegroundColor Green
         $solution = Get-Item '*.sln' | Select-Object -First 1
         Exec { msbuild "$($solution.Name)" /t:Build /m /p:Configuration=$configuration /v:quiet /nologo }
     }
@@ -104,26 +123,22 @@ Task Clean -description "Clean build output and generated packages." {
 
     try
     {
-        Write-Host "Cleaning." -ForegroundColor Green
+        #Write-Host "Cleaning." -ForegroundColor Green
 
         # msbuild clean
-        Write-Host "Cleaning solution" -ForegroundColor Green
         Set-Location 'src'
         $solution = Get-Item '*.sln' | Select-Object -First 1
         Exec { msbuild "$($solution.Name)" /t:Clean /m /p:Configuration=$configuration /v:quiet /nologo }
         Set-Location '..'
 
         # clean up scratch folder
-        Write-Host "Cleaning scratch" -ForegroundColor Green
         Remove-Item -Path 'scratch' -Recurse -Force -ErrorAction Ignore
 
         # clean up bin/obj folders
-        Write-Host "Cleaning bin/obj" -ForegroundColor Green
         Set-Location 'src'
         Remove-Item -Path '*\bin','*\obj' -Recurse -Force -ErrorAction Ignore
 
         # clean up packages folder
-        Write-Host "Cleaning packages" -ForegroundColor Green
         Get-ChildItem -Directory | Where-Object { $_.Name -ne 'packages'  } |  Get-ChildItem -Filter '*.nupkg' -recurse | Remove-Item -Force -ErrorAction Ignore
     }
     finally
@@ -144,7 +159,7 @@ Task Package -description "Generate the packages from a clean build, and publish
 
     try
     {
-        Write-Host "Packaging." -ForegroundColor Green
+        #Write-Host "Packaging." -ForegroundColor Green
 
         Set-Location 'src'
         $solution = Get-Item '*.sln' | Select-Object -First 1

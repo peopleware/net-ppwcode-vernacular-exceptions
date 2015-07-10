@@ -17,7 +17,6 @@
     
     <dependencies>
       <dependency id="Microsoft.Contracts" version="[1,2)" />
-      <dependency id="Microsoft.StyleCop.PPWStyle" version="[1,2)" />
     </dependencies>
     
     <references>

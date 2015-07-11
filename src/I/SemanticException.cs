@@ -1,31 +1,27 @@
-﻿//Copyright 2010 - $Date: 2008-11-15 23:58:07 +0100 (za, 15 nov 2008) $ by PeopleWare n.v..
-
-//Licensed under the Apache License, Version 2.0 (the "License");
-//you may not use this file except in compliance with the License.
-//You may obtain a copy of the License at
-
-//http://www.apache.org/licenses/LICENSE-2.0
-
-//Unless required by applicable law or agreed to in writing, software
-//distributed under the License is distributed on an "AS IS" BASIS,
-//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//See the License for the specific language governing permissions and
-//limitations under the License.
-
-#region Using
+﻿// Copyright 2010-2015 by PeopleWare NV.
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+// http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 using System;
 using System.Diagnostics.Contracts;
 using System.Runtime.Serialization;
 
-#endregion
-
 namespace PPWCode.Vernacular.Exceptions.I
 {
     /// <summary>
-    /// Supertype for exceptions related to semantics: the nominal effect of a method could
-    /// not be reached, because doing so under the given circumstances would violate semantics
-    /// (often type invariants).
+    ///     Super type for exceptions related to semantics: the nominal effect of a method could
+    ///     not be reached, because doing so under the given circumstances would violate semantics
+    ///     (often type invariants).
     /// </summary>
     [Serializable]
     public class SemanticException :
@@ -52,8 +48,8 @@ namespace PPWCode.Vernacular.Exceptions.I
         }
 
         /// <summary>
-        /// The <see cref="Exception.Message"/> can not be overriden
-        /// in this hierarchy. This property is sealed.
+        ///     The <see cref="Exception.Message" /> can not be overridden
+        ///     in this hierarchy. This property is sealed.
         /// </summary>
         [Pure]
         public override sealed string Message
@@ -62,7 +58,7 @@ namespace PPWCode.Vernacular.Exceptions.I
         }
 
         /// <summary>
-        /// Deprecated. Use <see cref="Message"/> instead.
+        ///     Deprecated. Use <see cref="Message" /> instead.
         /// </summary>
         [Pure]
         [Obsolete("ExceptionCode is deprecated. Use Message instead.")]
@@ -77,8 +73,10 @@ namespace PPWCode.Vernacular.Exceptions.I
         }
 
         /// <summary>
-        /// This most be override and strengtenth to include extra properties in subclasses
+        ///     This must be overridden and strengthened to include extra properties in subclasses.
         /// </summary>
+        /// <param name="other">The given <see cref="SemanticException"/>.</param>
+        /// <returns>A <see cref="bool"/> indicating true or false.</returns>
         [Pure]
         public virtual bool Like(SemanticException other)
         {
@@ -105,10 +103,12 @@ namespace PPWCode.Vernacular.Exceptions.I
             {
                 return false;
             }
+
             if (other == this)
             {
                 return true;
             }
+
             return (other.Message == Message) && (other.InnerException == InnerException);
         }
     }

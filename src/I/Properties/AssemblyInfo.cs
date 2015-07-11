@@ -1,9 +1,5 @@
-﻿#region Using
-
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
-
-#endregion
 
 [assembly: AssemblyTitle("PPWCode.Vernacular.Exceptions.I")]
 [assembly: AssemblyDescription("Main code of the PPWCode Exceptions Vernacular")]

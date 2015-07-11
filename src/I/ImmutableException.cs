@@ -1,10 +1,6 @@
-﻿#region Using
-
-using System;
+﻿using System;
 using System.Diagnostics.Contracts;
 using System.Runtime.Serialization;
-
-#endregion
 
 namespace PPWCode.Vernacular.Exceptions.I
 {

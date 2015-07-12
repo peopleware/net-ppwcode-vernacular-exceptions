@@ -5,21 +5,21 @@
     <version>$version$</version>
     <title>$title$</title>
 
-    <!-- Authors and owners fixed on PeopleWare n.v. -->
-    <authors>PeopleWare n.v.</authors>
-    <owners>PeopleWare n.v.</owners>
+    <!-- Authors and owners fixed on PeopleWare NV -->
+    <authors>PeopleWare NV</authors>
+    <owners>PeopleWare NV</owners>
 
     <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
     <projectUrl>https://github.com/peopleware/net-ppwcode-vernacular-exceptions</projectUrl>
-    <iconUrl>http://www.ppwcode.org/img/logo.jpg</iconUrl>
+    <iconUrl>http://peopleware.github.io/net-ppwcode-util-oddsandends/ppwcode_logo.jpg</iconUrl>
 
     <description>$description$</description>
 
     <releaseNotes>
-      1.0.0 Initial release PPWCode.Vernacular.Exceptions.II, built against .NET 4.5.
+1.0.0 Initial release PPWCode.Vernacular.Exceptions.II, built against .NET 4.5.
     </releaseNotes>
 
-    <copyright>Copyright 2014 by PeopleWare n.v.</copyright>
+    <copyright>Copyright 2014-2015 by PeopleWare NV</copyright>
 
     <tags>PPWCode PPWCode.Vernacular PPWCode.Vernacular.Exceptions</tags>
 

@@ -20,6 +20,7 @@
     <releaseNotes>
 2.2.0 First release PPWCode.Vernacular.Exceptions.I on nuget.org.
 2.2.1 StyleCop.MSBuild.PPWCode is a development dependency.
+3.0.0 upgrade to .net 4.5.0
     </releaseNotes>
 
     <copyright>Copyright 2010-2015 by PeopleWare NV</copyright>
@@ -27,7 +28,7 @@
     <tags>PPWCode PPWCode.Vernacular PPWCode.Vernacular.Exceptions</tags>
     
     <dependencies>
-      <dependency id="Microsoft.Contracts" version="[1,2)" />
+     <!-- no dependencies -->
     </dependencies>
     
     <references>
@@ -39,11 +40,11 @@
   <!-- explicit file inclusion -->
   <files>
     <!-- assemblies -->
-    <file src="$OutputPath$$MSBuildProjectName$.dll" target="lib\net35" />
-    <file src="$OutputPath$$MSBuildProjectName$.pdb" target="lib\net35" />
-    <file src="$OutputPath$$MSBuildProjectName$.xml" target="lib\net35" />
-    <file src="$OutputPath$CodeContracts\$MSBuildProjectName$.Contracts.dll" target="lib\net35\CodeContracts" />
-    <file src="$OutputPath$CodeContracts\$MSBuildProjectName$.Contracts.pdb" target="lib\net35\CodeContracts" />
+    <file src="$OutputPath$$MSBuildProjectName$.dll" target="lib\net45" />
+    <file src="$OutputPath$$MSBuildProjectName$.pdb" target="lib\net45" />
+    <file src="$OutputPath$$MSBuildProjectName$.xml" target="lib\net45" />
+    <file src="$OutputPath$CodeContracts\$MSBuildProjectName$.Contracts.dll" target="lib\net45\CodeContracts" />
+    <file src="$OutputPath$CodeContracts\$MSBuildProjectName$.Contracts.pdb" target="lib\net45\CodeContracts" />
 
     <!-- license information -->
     <file src="..\..\LICENSE" target="LICENSE" />

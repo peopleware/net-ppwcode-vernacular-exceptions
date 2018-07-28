@@ -1,11 +1,8 @@
-﻿// Copyright 2014 by PeopleWare n.v..
-// 
+﻿// Copyright 2017 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,7 +13,7 @@ using System;
 using System.Diagnostics.Contracts;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.II
+namespace PPWCode.Vernacular.Exceptions.III
 {
     /// <summary>
     ///     Super type for exceptions related to semantics: the nominal effect of a method could
@@ -24,8 +21,7 @@ namespace PPWCode.Vernacular.Exceptions.II
     ///     (often type invariants).
     /// </summary>
     [Serializable]
-    public class SemanticException :
-        ApplicationException
+    public class SemanticException : ApplicationException
     {
         public SemanticException()
         {
@@ -34,7 +30,6 @@ namespace PPWCode.Vernacular.Exceptions.II
         public SemanticException(string message)
             : base(message)
         {
-            Contract.Ensures(Message == message);
         }
 
         public SemanticException(string message, Exception innerException)
@@ -52,10 +47,8 @@ namespace PPWCode.Vernacular.Exceptions.II
         ///     in this hierarchy. This property is sealed.
         /// </summary>
         [Pure]
-        public override sealed string Message
-        {
-            get { return base.Message; }
-        }
+        public sealed override string Message
+            => base.Message;
 
         /// <summary>
         ///     Deprecated. Use <see cref="Message" /> instead.
@@ -63,14 +56,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         [Pure]
         [Obsolete("ExceptionCode is deprecated. Use Message instead.")]
         public virtual string ExceptionCode
-        {
-            get
-            {
-                Contract.Ensures(Contract.Result<string>() == Message);
-
-                return Message;
-            }
-        }
+            => Message;
 
         /// <summary>
         ///     This must be overridden and strengthened to include extra properties in subclasses.
@@ -83,15 +69,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         [Pure]
         public virtual bool Like(SemanticException other)
         {
-            Contract.Ensures(other != null || Contract.Result<bool>() == false);
-            Contract.Ensures(other != this || Contract.Result<bool>());
-#if EXTRA_CONTRACTS
-            Contract.Ensures(other == null || GetType() == other.GetType() || Contract.Result<bool>() == false);
-#endif
-            Contract.Ensures(other == null || other.Message == Message || Contract.Result<bool>() == false);
-            Contract.Ensures(other == null || other.InnerException == InnerException || Contract.Result<bool>() == false);
-
-            if (other == null || GetType() != other.GetType())
+            if ((other == null) || (GetType() != other.GetType()))
             {
                 return false;
             }

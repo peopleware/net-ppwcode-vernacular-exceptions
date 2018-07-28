@@ -1,11 +1,8 @@
-﻿// Copyright 2014 by PeopleWare n.v..
-// 
+﻿// Copyright 2017 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -13,10 +10,9 @@
 // limitations under the License.
 
 using System;
-using System.Diagnostics.Contracts;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.II
+namespace PPWCode.Vernacular.Exceptions.III
 {
     /// <summary>
     ///     This error is thrown when an external condition occurs, which we know can happen
@@ -67,8 +63,7 @@ namespace PPWCode.Vernacular.Exceptions.II
     ///     </para>
     /// </remarks>
     [Serializable]
-    public class ExternalError :
-        Error
+    public class ExternalError : Error
     {
         /// <summary>
         ///     A string that can be used, if you wish, as the message to signal that
@@ -85,29 +80,21 @@ namespace PPWCode.Vernacular.Exceptions.II
         public ExternalError()
             : base(UnspecifiedExternalErrorMessage)
         {
-            Contract.Ensures((Message == UnspecifiedExternalErrorMessage) && (InnerException == null));
         }
 
         public ExternalError(string message)
             : base(message ?? UnspecifiedExternalErrorMessage)
         {
-            Contract.Ensures((message != null ? Message == message : Message == UnspecifiedExternalErrorMessage)
-                             && (InnerException == null));
         }
 
         public ExternalError(string message, Exception innerException)
             : base(message ?? (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage), innerException)
         {
-            Contract.Ensures((message != null
-                                  ? Message == message
-                                  : Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage))
-                             && (InnerException == innerException));
         }
 
         public ExternalError(Exception innerException)
             : base(innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage, innerException)
         {
-            Contract.Ensures((Message == (innerException == null ? UnspecifiedExternalErrorMessage : ExceptionWithExternalCauseMessage)) && (InnerException == innerException));
         }
 
         protected ExternalError(SerializationInfo info, StreamingContext context)

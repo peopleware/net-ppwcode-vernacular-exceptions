@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <GacVersion>1.0.0.0</GacVersion>
+    <PackageVersion>1.0.0</PackageVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
+  </PropertyGroup>
+</Project>

@@ -1,11 +1,8 @@
-﻿// Copyright 2014 by PeopleWare n.v..
-// 
+﻿// Copyright 2017 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,7 +13,7 @@ using System;
 using System.Diagnostics.Contracts;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.II
+namespace PPWCode.Vernacular.Exceptions.III
 {
     /// <summary>
     ///     <c>PropertyExceptions</c> are exceptions that carry with them information about the property for which they
@@ -45,8 +42,7 @@ namespace PPWCode.Vernacular.Exceptions.II
     ///     </para>
     /// </remarks>
     [Serializable]
-    public class PropertyException :
-        SemanticException
+    public class PropertyException : SemanticException
     {
         /// <summary>
         ///     A string that can be used, if you wish, as the message to signal that
@@ -71,12 +67,6 @@ namespace PPWCode.Vernacular.Exceptions.II
         public PropertyException(object sender, string propertyName, string message, Exception innerException)
             : base(message, innerException)
         {
-            Contract.Requires(sender != null);
-            Contract.Ensures(Sender == sender);
-            Contract.Ensures(PropertyName == propertyName);
-            Contract.Ensures(Message == message);
-            Contract.Ensures(InnerException == innerException);
-
             Sender = sender;
             PropertyName = propertyName;
         }
@@ -88,23 +78,19 @@ namespace PPWCode.Vernacular.Exceptions.II
 
         public object Sender
         {
-            get { return Data["Sender"]; }
-            private set { Data["Sender"] = value; }
+            get => Data["Sender"];
+            private set => Data["Sender"] = value;
         }
 
         public string PropertyName
         {
-            get { return Data["PropertyName"] as string; }
-            private set { Data["PropertyName"] = value; }
+            get => Data["PropertyName"] as string;
+            private set => Data["PropertyName"] = value;
         }
 
         [Pure]
         public override bool Like(SemanticException other)
         {
-            Contract.Ensures((base.Like(other)
-                              && ((PropertyException)other).Sender == Sender
-                              && ((PropertyException)other).PropertyName == PropertyName) == Contract.Result<bool>());
-
             if (!base.Like(other))
             {
                 return false;
@@ -118,7 +104,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         {
             try
             {
-                return string.Format("Fault {0} for {1}.", Message, PropertyName);
+                return $"Fault {Message} for {PropertyName}.";
             }
             catch
             {

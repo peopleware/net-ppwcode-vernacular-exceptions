@@ -1,11 +1,8 @@
-﻿// Copyright 2014 by PeopleWare n.v..
-// 
+﻿// Copyright 2017 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,7 +13,7 @@ using System;
 using System.Diagnostics.Contracts;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.II
+namespace PPWCode.Vernacular.Exceptions.III
 {
     /// <summary>
     ///     In many cases, a property exception is needed that reports the original value of the property.
@@ -45,8 +42,7 @@ namespace PPWCode.Vernacular.Exceptions.II
     ///     </para>
     /// </remarks>
     [Serializable]
-    public class ValueException :
-        PropertyException
+    public class ValueException : PropertyException
     {
         public ValueException()
         {
@@ -70,14 +66,6 @@ namespace PPWCode.Vernacular.Exceptions.II
         public ValueException(object sender, string propertyName, object oldValue, object newValue, string message, Exception innerException)
             : base(sender, propertyName, message, innerException)
         {
-            Contract.Requires(propertyName != null);
-            Contract.Ensures(Sender == sender);
-            Contract.Ensures(PropertyName == propertyName);
-            Contract.Ensures(Message == message);
-            Contract.Ensures(InnerException == innerException);
-            Contract.Ensures(OldValue == oldValue);
-            Contract.Ensures(NewValue == newValue);
-
             OldValue = oldValue;
             NewValue = newValue;
         }
@@ -92,8 +80,8 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// </summary>
         public object OldValue
         {
-            get { return Data["OldValue"]; }
-            private set { Data["OldValue"] = value; }
+            get => Data["OldValue"];
+            private set => Data["OldValue"] = value;
         }
 
         /// <summary>
@@ -101,18 +89,13 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// </summary>
         public object NewValue
         {
-            get { return Data["NewValue"]; }
-            private set { Data["NewValue"] = value; }
+            get => Data["NewValue"];
+            private set => Data["NewValue"] = value;
         }
 
         [Pure]
         public override bool Like(SemanticException other)
         {
-            Contract.Ensures((base.Like(other)
-                              && Equals(((ValueException)other).OldValue, OldValue)
-                              && Equals(((ValueException)other).NewValue, NewValue))
-                             == Contract.Result<bool>());
-
             if (!base.Like(other))
             {
                 return false;
@@ -126,7 +109,7 @@ namespace PPWCode.Vernacular.Exceptions.II
         {
             try
             {
-                return string.Format("Fault {0} for {1} old {2} new {3}.", Message, PropertyName, OldValue, NewValue);
+                return $"Fault {Message} for {PropertyName} old {OldValue} new {NewValue}.";
             }
             catch
             {

@@ -1,11 +1,8 @@
-﻿// Copyright 2014 by PeopleWare n.v..
-// 
+﻿// Copyright 2017 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -13,10 +10,9 @@
 // limitations under the License.
 
 using System;
-using System.Diagnostics.Contracts;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.II
+namespace PPWCode.Vernacular.Exceptions.III
 {
     /// <summary>
     ///     The method that throws this error is a mutating method,
@@ -24,29 +20,21 @@ namespace PPWCode.Vernacular.Exceptions.II
     ///     as immutable.
     /// </summary>
     [Serializable]
-    public class ImmutableException :
-        ProgrammingError
+    public class ImmutableException : ProgrammingError
     {
         public ImmutableException()
             : base(UnspecifiedProgrammingErrorMessage)
         {
-            Contract.Ensures((Message == UnspecifiedProgrammingErrorMessage) && (InnerException == null));
         }
 
         public ImmutableException(string message)
             : base(message ?? UnspecifiedProgrammingErrorMessage)
         {
-            Contract.Ensures((message != null ? Message == message : Message == UnspecifiedProgrammingErrorMessage)
-                             && (InnerException == null));
         }
 
         public ImmutableException(string message, Exception innerException)
             : base(message ?? (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage), innerException)
         {
-            Contract.Ensures((message != null
-                                  ? Message == message
-                                  : Message == (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage))
-                             && (InnerException == innerException));
         }
 
         protected ImmutableException(SerializationInfo info, StreamingContext context)

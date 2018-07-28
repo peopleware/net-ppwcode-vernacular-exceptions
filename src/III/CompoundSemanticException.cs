@@ -1,11 +1,8 @@
-﻿// Copyright 2014 by PeopleWare n.v..
-// 
+﻿// Copyright 2017 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
 // http://www.apache.org/licenses/LICENSE-2.0
-// 
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,7 +16,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace PPWCode.Vernacular.Exceptions.II
+namespace PPWCode.Vernacular.Exceptions.III
 {
     /// <summary>
     ///     Vehicle for communicating more than one <see cref="SemanticException" />
@@ -35,12 +32,11 @@ namespace PPWCode.Vernacular.Exceptions.II
     ///     </para>
     ///     <para>
     ///         The exception should only be thrown if it is not
-    ///         <see cref="Empty" />.
+    ///         <see cref="IsEmpty" />.
     ///     </para>
     /// </remarks>
     [Serializable]
-    public sealed class CompoundSemanticException :
-        SemanticException
+    public sealed class CompoundSemanticException : SemanticException
     {
         public CompoundSemanticException()
             : base(null, null)
@@ -73,22 +69,15 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// </remarks>
         private HashSet<SemanticException> Set
         {
-            get { return Data["Set"] as HashSet<SemanticException>; }
-            set { Data["Set"] = value; }
+            get => Data["Set"] as HashSet<SemanticException>;
+            set => Data["Set"] = value;
         }
 
         /// <summary>
         ///     There are no element exceptions in <see cref="Elements" />.
         /// </summary>
         public bool IsEmpty
-        {
-            get
-            {
-                Contract.Ensures(Contract.Result<bool>() == (Count == 0));
-
-                return !Set.Any();
-            }
-        }
+            => !Set.Any();
 
         /// <summary>
         ///     The element exceptions of this compound exception.
@@ -103,22 +92,13 @@ namespace PPWCode.Vernacular.Exceptions.II
         ///     </para>
         /// </remarks>
         public ICollection<SemanticException> Elements
-        {
-            get { return Set.ToArray(); }
-        }
+            => Set.ToArray();
 
         /// <summary>
         ///     The number of <see cref="Elements">element exceptions</see>.
         /// </summary>
         public int Count
-        {
-            get
-            {
-                Contract.Ensures(Contract.Result<int>() == Elements.Count);
-
-                return Set.Count;
-            }
-        }
+            => Set.Count;
 
         /// <summary>
         ///     No more <see cref="Elements">element exceptions</see>
@@ -130,15 +110,8 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// </summary>
         public bool Closed
         {
-            get { return (Data["Closed"] as bool?).GetValueOrDefault(); }
-            set
-            {
-                Contract.Requires(!Closed);
-                Contract.Requires(value);
-                Contract.Ensures(Closed);
-
-                Data["Closed"] = value;
-            }
+            get => (Data["Closed"] as bool?).GetValueOrDefault();
+            set => Data["Closed"] = value;
         }
 
         /// <summary>
@@ -146,8 +119,6 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// </summary>
         public void Close()
         {
-            Contract.Ensures(Closed);
-
             Closed = true;
         }
 
@@ -157,13 +128,6 @@ namespace PPWCode.Vernacular.Exceptions.II
         /// <param name="exception">The exception that must be added.</param>
         public void AddElement(SemanticException exception)
         {
-            Contract.Requires(exception != null);
-            Contract.Requires(!Closed);
-            Contract.Ensures(
-                exception is CompoundSemanticException
-                    ? ((CompoundSemanticException)exception).Elements.All(ContainsElement)
-                    : Elements.Contains(exception));
-
             CompoundSemanticException cse = exception as CompoundSemanticException;
             if (cse == null)
             {
@@ -190,8 +154,6 @@ namespace PPWCode.Vernacular.Exceptions.II
         [Pure]
         public bool ContainsElement(SemanticException exception)
         {
-            Contract.Ensures(Contract.Result<bool>() == Elements.Any(x => x.Like(exception)));
-
             return Set.Any(x => x.Like(exception));
         }
 

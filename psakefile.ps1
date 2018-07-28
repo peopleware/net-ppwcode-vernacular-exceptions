@@ -48,7 +48,7 @@ Properties {
     $chattercolor = 'Green'
     # used nunit version
     $nunitVersion = '3.8.0'
-    $nunitClrVersion = '4.0'
+    $nUnitFramework = $null
 }
 
 #endregion
@@ -75,7 +75,7 @@ function PropertyDocumentation() {
     Write-Host "`$buildconfig                  Build configuration (Debug, Release), defaults to Debug."
     Write-Host "`$buildPlatformTarget          Build Target Platform (AnyCpu, x86, x64), defaults to AnyCpu."
     Write-Host "`$nunitVersion                 Version of nunit-runner, defaults to 3.8.0"
-    Write-Host "`$nunitClrVersion              Clr version for nunit-runner, defaults to 4.0"
+    Write-Host "`$nUnitFramework               RuntimeFramework for nunit-runner, defaults to $null, If not specified, tests will run under the framework they are compiled with"
 }
 
 ###############################################################################
@@ -199,7 +199,7 @@ Task ShowProperties -description 'Show running properties' {
     Chatter "  buildconfig=$buildconfig" 1
     Chatter "  buildPlatformTarget=$buildPlatformTarget" 1
     Chatter "  nunitVersion=$nunitVersion" 1
-    Chatter "  nunitClrVersion=$nunitClrVersion" 1
+    Chatter "  nUnitFramework=$nUnitFramework" 1
 }
 
 ###############################################################################
@@ -408,12 +408,15 @@ Task Test -description 'Run the unit tests using NUnit console test runner.' -de
             # intialise runner args
             $testrunnerargs = @(
                 "--work:$work"
-                "--framework:v$nunitClrVersion"
                 '--result:nunit-test-results.xml'
                 '--out:nunit-stdout.txt'
                 '--err:nunit-stderr.txt'
                 '--labels:all'
                 )
+
+            if ($null -ne $nUnitFramework) {
+                $testrunnerargs += "--framework:$nUnitFramework"
+            }
 
             # execute runner
             Chatter "$($runner.FullName) $_.FullName $testrunnerargs" 3

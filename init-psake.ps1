@@ -117,7 +117,7 @@ try
     $module = $null
 
     $psakeNugetPackageName = 'psake'
-    $psakeVersion = '4.7.1'
+    $psakeVersion = '4.7.0'
     $psakeNugetVersionedPackageName = "$psakeNugetPackageName.$($psakeVersion)"
 
     # Can we find psake in our traditional packages directory?
@@ -150,7 +150,6 @@ try
             Join-Path -Path 'scratch' -ChildPath $psakeNugetVersionedPackageName | `
             Join-Path -ChildPath 'tools' | `
             Join-Path -ChildPath 'psake'
-
         if (Test-Path $psakeToolsFolder) {
             $modulePath = Join-Path -Path $psakeToolsFolder -ChildPath 'psake.psd1'
             if (Test-Path $modulePath) {

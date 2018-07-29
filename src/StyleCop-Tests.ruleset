@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="StyleCop RuleSet" Description="Code analysis rules for ABVV.New.Phoenix project files." ToolsVersion="15.0">
+<RuleSet Name="StyleCop RuleSet" Description="Code analysis rules for PPWCode project files." ToolsVersion="15.0">
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1001" Action="Warning" />
     <Rule Id="CA1009" Action="Warning" />

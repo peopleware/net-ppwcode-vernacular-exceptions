@@ -366,7 +366,13 @@ Task Pack -description 'Create a nuget-package (new 2017 VS csproj).' -depends F
         try {
             $solution = Get-Item '*.sln' | Select-Object -First 1
             if ($solution) {
-                Invoke-MsBuild -solution $solution.Name -tasks @('Restore','Pack') -configuration $buildconfig
+                if ($buildconfig -eq "Debug") {
+                    $additionalParameters = @(
+                        "/p:IncludeSymbols=True"
+                        "/p:IncludeSource=True"
+                    )
+                }
+                Invoke-MsBuild -solution $solution.Name -tasks @('Restore','Pack') -configuration $buildconfig -additionalParameters $additionalParameters
             }
         }
         finally {

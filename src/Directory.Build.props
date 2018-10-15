@@ -2,6 +2,11 @@
 
   <!-- https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build -->
 
+  <!-- Build only using .net core -->
+  <PropertyGroup>
+    <BuildDotNetCoreOnly Condition="'$(BuildDotNetCoreOnly)'=='' AND '$(OS)'!='Windows_NT'">true</BuildDotNetCoreOnly>
+  </PropertyGroup>
+
   <!-- version number -->
   <Import Project="version.props" />
 

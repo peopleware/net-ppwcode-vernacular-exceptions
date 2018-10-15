@@ -1,8 +1,8 @@
 <Project>
   <PropertyGroup>
     <GacVersion>1.0.0.0</GacVersion>
-    <PackageVersion>1.0.0</PackageVersion>
-    <InformationalVersion>1.0.0</InformationalVersion>
+    <PackageVersion>1.0.1</PackageVersion>
+    <InformationalVersion>1.0.1</InformationalVersion>
     <TeamCityBuild>false</TeamCityBuild>
   </PropertyGroup>
 </Project>

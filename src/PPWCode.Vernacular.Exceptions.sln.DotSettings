@@ -284,6 +284,7 @@ limitations under the License.&#xD;
 	<s:Boolean x:Key="/Default/Environment/GenerateMru/SortByName/=Formatting/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/GenerateMru/SortByName/=Implementations/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/Environment/GenerateMru/SortByName/=Overrides/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/LogMessagesToOutput/@EntryValue">False</s:Boolean>
 	<s:String x:Key="/Default/Environment/Hierarchy/PsiConfigurationSettingsKey/CustomLocation/@EntryValue">C:\Users\danny\AppData\Local\JetBrains\Transient\ReSharperPlatformVs15\v11_4868c381\SolutionCaches</s:String>
 	<s:String x:Key="/Default/Environment/Hierarchy/PsiConfigurationSettingsKey/LocationType/@EntryValue">SOLUTION_FOLDER</s:String>
 	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=D88C5F2B6FB4924181B6AD19455B5F97/@KeyIndexDefined">True</s:Boolean>
@@ -701,4 +702,6 @@ limitations under the License.&#xD;
 	<s:String x:Key="/Default/PatternsAndTemplates/Todo/TodoPatterns/=A474BDD2F8E5D84C8DD6260173CB9F26/Pattern/@EntryValue">(?&lt;=\W|^)(?&lt;TAG&gt;IDEA)(\W|$)(.*)</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/Todo/TodoPatterns/=A474BDD2F8E5D84C8DD6260173CB9F26/TodoIconStyle/@EntryValue">Normal</s:String>
 	<s:Boolean x:Key="/Default/StyleCopOptions/AnalysisEnabled/@EntryValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/UserDictionary/Words/=ABVV/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=ABVV/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=reasonings/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=sandboxed/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

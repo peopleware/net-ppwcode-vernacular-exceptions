@@ -44,6 +44,8 @@ namespace PPWCode.Vernacular.Exceptions.III
     ///         to signal which method, in which circumstances, is no
     ///         longer supported.
     ///     </para>
+    ///  // MUDO this is not an ExternalError; it is an Error; for the calling system, it will be an external error,
+    ///  // but it is not for us.
     /// </remarks>
     [Serializable]
     public class NoLongerSupportedError : ExternalError

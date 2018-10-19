@@ -702,5 +702,6 @@ limitations under the License.&#xD;
 	<s:String x:Key="/Default/PatternsAndTemplates/Todo/TodoPatterns/=A474BDD2F8E5D84C8DD6260173CB9F26/Pattern/@EntryValue">(?&lt;=\W|^)(?&lt;TAG&gt;IDEA)(\W|$)(.*)</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/Todo/TodoPatterns/=A474BDD2F8E5D84C8DD6260173CB9F26/TodoIconStyle/@EntryValue">Normal</s:String>
 	<s:Boolean x:Key="/Default/StyleCopOptions/AnalysisEnabled/@EntryValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=etcetera/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=reasonings/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=sandboxed/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

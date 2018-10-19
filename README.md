@@ -61,6 +61,37 @@ it to the [NuGet] repository with the name 'local'. The [NuGet] repository 'nuge
 is used to locate the dependent [NuGet] packages.
 
 
+## Working in Rider on macOS
+
+On macOS, you can use [Rider] to work on this code. Sadly, 1 small change has to be made for [Rider] to be able to 
+build. We are looking into the issue.
+
+_**//TODO:** make source link work on Rider_
+
+1. Open `src/III/PPWCode.Vernacular.Exceptions.III.csproj` (right-click on the project in the Solution in the Project 
+Explorer, and select **Edit** / **Edit PPWCode.Vernacular.Exceptions.III.csproj** ).
+2. Remove or comment out the section that refers to SourceLink:
+
+        <Project>
+          …
+          <ItemGroup>
+            …
+            <!--
+            <PackageReference Include="Microsoft.SourceLink.GitHub" …>
+              …
+            </PackageReference>
+            -->
+            …
+          </ItemGroup>
+          …
+        </Project>
+
+**!!! Never commit this change !!!**
+
+Build should now work.            
+
+
+
 ## Contributors
 
 See the [GitHub Contributors list].
@@ -130,3 +161,5 @@ limitations under the License.
 [psake]: https://github.com/psake/psake
 
 [GitHub Contributors list]: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/graphs/contributors
+
+[Rider]: https://www.jetbrains.com/rider/

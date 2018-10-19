@@ -18,29 +18,25 @@ namespace PPWCode.Vernacular.Exceptions.III
     /// The method that throws this error is a mutating method, flagged not to be used, because the instance is flagged
     /// as immutable.
     /// </summary>
-    /// <remarks>
-    /// MUDO This class is named wrong. Should be changed to Immutable_Error_. Create a new class, and deprecate this.
-    /// </remarks>
     [Serializable]
-    [Obsolete("Use ImmutableError instead")]
-    public class ImmutableException : ProgrammingError
+    public class ImmutableError : ProgrammingError
     {
-        public ImmutableException()
+        public ImmutableError()
             : base(UnspecifiedProgrammingErrorMessage)
         {
         }
 
-        public ImmutableException(string message)
+        public ImmutableError(string message)
             : base(message ?? UnspecifiedProgrammingErrorMessage)
         {
         }
 
-        public ImmutableException(string message, Exception innerException)
+        public ImmutableError(string message, Exception innerException)
             : base(message ?? (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage), innerException)
         {
         }
 
-        protected ImmutableException(SerializationInfo info, StreamingContext context)
+        protected ImmutableError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }

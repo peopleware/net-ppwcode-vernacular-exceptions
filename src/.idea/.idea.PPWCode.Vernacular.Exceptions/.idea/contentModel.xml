@@ -27,6 +27,7 @@
         <e p="Error.cs" t="Include" />
         <e p="ExternalError.cs" t="Include" />
         <e p="IllegalOperationException.cs" t="Include" />
+        <e p="ImmutableError.cs" t="Include" />
         <e p="ImmutableException.cs" t="Include" />
         <e p="NoLongerSupportedError.cs" t="Include" />
         <e p="ObjectAlreadyDisposedError.cs" t="Include" />

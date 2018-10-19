@@ -20,6 +20,10 @@
       <e p="Directory.Build.props" t="Include" />
       <e p="III" t="IncludeRecursive">
         <e p="CompoundSemanticException.cs" t="Include" />
+        <e p="doc" t="Include">
+          <e p="class_model.png" t="Include" />
+          <e p="class_model.puml" t="Include" />
+        </e>
         <e p="Error.cs" t="Include" />
         <e p="ExternalError.cs" t="Include" />
         <e p="IllegalOperationException.cs" t="Include" />

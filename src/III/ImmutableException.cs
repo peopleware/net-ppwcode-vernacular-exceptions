@@ -15,10 +15,12 @@ using System.Runtime.Serialization;
 namespace PPWCode.Vernacular.Exceptions.III
 {
     /// <summary>
-    ///     The method that throws this error is a mutating method,
-    ///     flagged not to be used, because the instance is flagged
-    ///     as immutable.
+    /// The method that throws this error is a mutating method, flagged not to be used, because the instance is flagged
+    /// as immutable.
     /// </summary>
+    /// <remarks>
+    /// MUDO This class is named wrong. Should be changed to Immutable_Error_. Create a new class, and deprecate this.
+    /// </remarks>
     [Serializable]
     public class ImmutableException : ProgrammingError
     {

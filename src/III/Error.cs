@@ -79,13 +79,13 @@ namespace PPWCode.Vernacular.Exceptions.III
     ///     <para>
     ///     It is possible that in your reasoning about a defined <see cref="Exception"/> you decide its occurence is an
     ///     error in a particular situation. In that case, your handling of the <see cref="Exception"/> could be to
-    ///     translate it into an <c>Error</c>, and to throw the <c>Error</c>. On the other hand, you can also let the
-    ///     original exception fall through your method in the situations where you deem it an error, and not define
-    ///     that type of <see cref="Exception"/> as an expected non-nominal outcome of your method. That is less code,
-    ///     and thus less chance for bugs, and less maintenance. If you do translate the <see cref="Exception"/> into
-    ///     an <c>Error</c>, that code that must be tested like any other code. Since you deem the occurrence of the
-    ///     <see cref="Exception"/> an error in this situation, it will be difficult to produce a test case that covers
-    ///     this code.
+    ///     translate it into an <c>Error</c>, with the <see cref="Exception"/> as an <c>innerException</c>, and to
+    ///     throw the <c>Error</c>. On the other hand, you can also let the original exception fall through your method
+    ///     in the situations where you deem it an error, and not define that type of <see cref="Exception"/> as an
+    ///     expected non-nominal outcome of your method. That is less code, and thus less chance for bugs, and less
+    ///     maintenance. If you do translate the <see cref="Exception"/> into an <c>Error</c>, that code that must be
+    ///     tested like any other code. Since you deem the occurrence of the <see cref="Exception"/> an error in this
+    ///     situation, it will be difficult to produce a test case that covers this code.
     ///     </para>
     /// </remarks>
     [Serializable]

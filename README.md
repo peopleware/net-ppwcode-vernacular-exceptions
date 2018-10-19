@@ -1,31 +1,33 @@
 # PPWCode.Vernacular.Exceptions
 
-This library is part of the PPWCode project and encapsulates the vernacular on exceptions.
+This library is part of the [ppwcode] project and encapsulates the vernacular on exceptions.
 
 
 ## Getting started
 
-### PPWCode.Vernacular.Exceptions II
+### PPWCode.Vernacular.Exceptions III
 
-This is version II of the library, which is designed to work with Microsoft .NET 4.5.
+This is version III of the library, which is designed to work with Microsoft .NET 4.5 and Microsoft .NET Standard 2.0.
 
-The library is available as the [NuGet] package `PPWCode.Vernacular.Exceptions.II`
-in the [NuGet Gallery].  It can be installed using the Nuget package manager from 
-inside Visual Studio.
+The library is available as the [NuGet] package `PPWCode.Vernacular.Exceptions.III` in the [NuGet Gallery].  It can be
+installed using the Nuget package manager from inside Visual Studio.
 
 
-### PPWCode.Vernacular.Exceptions I
+### Earlier versions
 
-Version I of the library is still available in maintenance mode, and is 
-compatible with Microsoft .NET 3.5.
+#### PPWCode.Vernacular.Exceptions I
 
-This version is available on the git branch `stable/I`. It is currently not available
-in the [NuGet Gallery].  One can however build the package oneself and publish it
-on a local repository.
+Version I of the library is still available in maintenance mode, and is compatible with Microsoft .NET 3.5.
 
-We intend to make it available at some point in the future as the [NuGet] 
-package `PPWCode.Vernacular.Exceptions.I`.  From then on, one will be able to install
-it using the Nuget package manager from inside Visual Studio.
+This version is available on the git branch `I/master`. It is currently not available in the [NuGet Gallery].  One can
+however build the package oneself and publish it on a local repository.
+
+#### PPWCode.Vernacular.Exceptions II
+
+Version II of the library is still available in maintenance mode, and is compatible with Microsoft .NET 4.5.
+
+Version II is available on the git branch `II/master` and as the [NuGet] package `PPWCode.Vernacular.Exceptions.II` in
+the [NuGet Gallery].  It can be installed using the Nuget package manager from inside Visual Studio.
 
 
 ## Build your own
@@ -39,8 +41,7 @@ Building your own package of this library is very easy.  A [psake] build script 
 added for this purpose.
 
 Before executing regular [psake] tasks, the environment must first be initialized.
-To do this, open a PowerShell prompt, and execute the following in the root folder
-of the source.
+To do this, open a PowerShell prompt, and execute the following in `src\`.
 
     .\init-psake.ps1
 
@@ -97,39 +98,34 @@ Build should now work.
 See the [GitHub Contributors list].
 
 
-## PPWCode
+## [ppwcode]
 
-This package is part of the PPWCode project, developed by [PeopleWare n.v.].
+This package is part of the [ppwcode] project by [PeopleWare n.v.].
 
 More information can be found in the following locations:
-* [PPWCode project website]
-* [PPWCode Google Code website]
+* [ppwcode] website
+* [GitHub]
 
 Please note that not all information on those sites is up-to-date. We are
 currently in the process of moving the code away from the Google code
 subversion repositories to git repositories on [GitHub].
 
 
-### PPWCode .NET
+### ppwcode .NET
 
-Specifically for the .NET libraries: new development will be done on the
-[PeopleWare GitHub repositories], and all new stable releases will also
+For the .NET libraries, development will be done in the [GitHub] repositories, and all new stable releases will also
 be published as packages on the [NuGet Gallery].
 
-We believe in Design By Contract and have good experience with
-[Microsoft Code Contracts] and the related tooling.  As such, our packages
-always include Contract Reference assemblies.  This allows you to also
-benefit as a user from the contracts that are already included in the
-library code.
+We believe in Design By Contract. Preconditions are enforced with `Assert` statements. Postconditions and invariants
+are tested in unit tests.
 
-The packages also include both the pdb and xml files, for debugging symbols
-and documentation respectively.  In the future we might look into using
-symbol servers.
+The packages include both the `pdb` and `xml` files, for debugging symbols and documentation respectively. In the future
+we might look into using symbol servers.
 
 
 ## License and Copyright
 
-Copyright 2014 by [PeopleWare n.v.].
+Copyright 2014 - 2018 by [PeopleWare n.v.].
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -145,16 +141,15 @@ limitations under the License.
 
 
 
-[PPWCode project website]: http://www.ppwcode.org
-[PPWCode Google Code website]: http://ppwcode.googlecode.com
+[ppwcode]: https://peopleware.atlassian.net/wiki/spaces/PPWCODE/overview
+[GitHub]: https://github.com/peopleware
 
 [PeopleWare n.v.]: http://www.peopleware.be/
 
 [NuGet]: https://www.nuget.org/
 [NuGet Gallery]: https://www.nuget.org/policies/About
 
-[GitHub]: https://github.com
-[PeopleWare GitHub repositories]: https://github.com/peopleware
+[GitHub]: https://github.com/peopleware
 
 [Microsoft Code Contracts]: http://research.microsoft.com/en-us/projects/contracts/
 

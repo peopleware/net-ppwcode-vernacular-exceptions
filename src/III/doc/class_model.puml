@@ -1,162 +1,180 @@
 @startuml
 
-class Exception {
-    + <<readonly>> Data: IDictionary
-    + HelpLink: string
-    + <<readonly>> HResult: int
-    + <<readonly>> InnerException: Exception
-    + <<readonly>> Message: string
-    + Source: string
-    + <<readonly>> StackTrace: string
-    + <<readonly>> TargetSite: MethodBase
-    + Exception()
-    + Exception(info: SerializationInfo, context: StreamingContext)
-    + Exception(message: string)
-    + Exception(message: string, innerException: Exception)
-    + GetBaseException(): Exception
-    + GetObjectData(info: SerializationInfo, context: StreamingContext)
-    + GetType(): Type
-    + Tostring(): string
+package System {
+    package Runtime {
+        package Serialization {
+            interface ISerializable {
+                + GetObjectData(SerializationInfo info, StreamingContext context): void
+            }
+        }
+    }
+
+    ISerializable <|- Exception
+    class Exception {
+        + <<readonly>> Data: IDictionary
+        + HelpLink: string
+        + <<readonly>> HResult: int
+        + <<readonly>> InnerException: Exception
+        + <<readonly>> Message: string
+        + Source: string
+        + <<readonly>> StackTrace: string
+        + <<readonly>> TargetSite: MethodBase
+        + Exception()
+        + Exception(info: SerializationInfo, context: StreamingContext)
+        + Exception(message: string)
+        + Exception(message: string, innerException: Exception)
+        + GetBaseException(): Exception
+        + GetObjectData(info: SerializationInfo, context: StreamingContext)
+        + GetType(): Type
+        + Tostring(): string
+    }
+
+    Exception <|-- ApplicationException
+    class ApplicationException {
+        + ApplicationException()
+        + ApplicationException(info: SerializationInfo, context: StreamingContext)
+        + ApplicationException(message: string)
+        + ApplicationException(message: string, innerException: Exception)
+    }
 }
 
-Exception <|-- ApplicationException
-class ApplicationException {
-    + ApplicationException()
-    + ApplicationException(info: SerializationInfo, context: StreamingContext)
-    + ApplicationException(message: string)
-    + ApplicationException(message: string, innerException: Exception)
-}
+package PPWCode {
+    package Vernacular {
+        package Exceptions {
+            package III {
+                Exception <|-- Error
+                class Error {
+                    + Error()
+                    + Error(info: SerializationInfo, context: StreamingContext)
+                    + Error(message: string)
+                    + Error(message: string, innerException: Exception)
+                }
 
-Exception <|-- Error
-class Error {
-    + Error()
-    + Error(info: SerializationInfo, context: StreamingContext)
-    + Error(message: string)
-    + Error(message: string, innerException: Exception)
-}
+                Error <|-- ExternalError
+                class ExternalError {
+                    + {static} ExceptionWithExternalCauseMessage: string
+                    + {static} UnspecifiedExternalErrorMessage: string
+                    + ExternalError()
+                    + ExternalError(info: SerializationInfo, context: StreamingContext)
+                    + ExternalError(message: string)
+                    + ExternalError(innerException: Exception)
+                    + ExternalError(message: string, innerException: Exception)
+                }
 
-Error <|-- ExternalError
-class ExternalError {
-    + {static} ExceptionWithExternalCauseMessage: string
-    + {static} UnspecifiedExternalErrorMessage: string
-    + ExternalError()
-    + ExternalError(info: SerializationInfo, context: StreamingContext)
-    + ExternalError(message: string)
-    + ExternalError(innerException: Exception)
-    + ExternalError(message: string, innerException: Exception)
-}
+                Error <|-- ProgrammingError
+                class ProgrammingError {
+                    # ExceptionWithProgrammingCauseMessage
+                    # UnspecifiedProgrammingErrorMessage
+                    + ProgrammingError()
+                    + ProgrammingError(info: SerializationInfo, context: StreamingContext)
+                    + ProgrammingError(message: string)
+                    + ProgrammingError(message: string, innerException: Exception)
+                }
 
-Error <|-- ProgrammingError
-class ProgrammingError {
-    # ExceptionWithProgrammingCauseMessage
-    # UnspecifiedProgrammingErrorMessage
-    + ProgrammingError()
-    + ProgrammingError(info: SerializationInfo, context: StreamingContext)
-    + ProgrammingError(message: string)
-    + ProgrammingError(message: string, innerException: Exception)
-}
+                ProgrammingError <|-- ImmutableException
+                class ImmutableException <<deprecated>> {
+                    + ImmutableException()
+                    + ImmutableException(info: SerializationInfo, context: StreamingContext)
+                    + ImmutableException(message: string)
+                    + ImmutableException(message: string, innerException: Exception)
+                }
 
-ProgrammingError <|-- ImmutableException
-class ImmutableException <<deprecated>> {
-    + ImmutableException()
-    + ImmutableException(info: SerializationInfo, context: StreamingContext)
-    + ImmutableException(message: string)
-    + ImmutableException(message: string, innerException: Exception)
-}
+                ExternalError <|- NoLongerSupportedError
+                class NoLongerSupportedError {
+                    + NoLongerSupportedError()
+                    + NoLongerSupportedError(info: SerializationInfo, context: StreamingContext)
+                    + NoLongerSupportedError(message: string)
+                    + NoLongerSupportedError(message: string, innerException: Exception)
+                }
 
-ExternalError <|- NoLongerSupportedError
-class NoLongerSupportedError {
-    + NoLongerSupportedError()
-    + NoLongerSupportedError(info: SerializationInfo, context: StreamingContext)
-    + NoLongerSupportedError(message: string)
-    + NoLongerSupportedError(message: string, innerException: Exception)
-}
+                ProgrammingError <|-- ImmutableError
+                class ImmutableError {
+                    + ImmutableError()
+                    + ImmutableError(info: SerializationInfo, context: StreamingContext)
+                    + ImmutableError(message: string)
+                    + ImmutableError(message: string, innerException: Exception)
+                }
 
-ProgrammingError <|-- ImmutableError
-class ImmutableError {
-    + ImmutableError()
-    + ImmutableError(info: SerializationInfo, context: StreamingContext)
-    + ImmutableError(message: string)
-    + ImmutableError(message: string, innerException: Exception)
-}
+                ProgrammingError <|-- ObjectAlreadyDisposedError
+                class ObjectAlreadyDisposedError {
+                    + ObjectAlreadyDisposedError()
+                    + ObjectAlreadyDisposedError(info: SerializationInfo, context: StreamingContext)
+                    + ObjectAlreadyDisposedError(message: string)
+                    + ObjectAlreadyDisposedError(message: string, innerException: Exception)
+                }
 
-ProgrammingError <|-- ObjectAlreadyDisposedError
-class ObjectAlreadyDisposedError {
-    + ObjectAlreadyDisposedError()
-    + ObjectAlreadyDisposedError(info: SerializationInfo, context: StreamingContext)
-    + ObjectAlreadyDisposedError(message: string)
-    + ObjectAlreadyDisposedError(message: string, innerException: Exception)
-}
+                ApplicationException <|-- SemanticException
+                class SemanticException {
+                    + <<sealed>> Message: string
+                    + SemanticException()
+                    + SemanticException(info: SerializationInfo, context: StreamingContext)
+                    + SemanticException(message: string)
+                    + SemanticException(message: string, innerException: Exception)
+                    + Like(other: SemanticException): bool
+                }
 
-ApplicationException <|-- SemanticException
-class SemanticException {
-    + <<sealed>> Message: string
-    + SemanticException()
-    + SemanticException(info: SerializationInfo, context: StreamingContext)
-    + SemanticException(message: string)
-    + SemanticException(message: string, innerException: Exception)
-    + Like(other: SemanticException): bool
-}
+                SemanticException <|-- CompoundSemanticException
+                class CompoundSemanticException {
+                    + Set: HashSet<SemanticException>
+                    + <<readonly>> isEmpty: bool
+                    + <<readonly>> Elements: ICollection<SemanticException>
+                    + <<readonly>> Count: int
+                    + <<readonly>> Closed: bool
+                    + CompoundSemanticException()
+                    + CompoundSemanticException(info: SerializationInfo, context: StreamingContext)
+                    + CompoundSemanticException(message: string)
+                    + Close()
+                    + AddElement(exception: SemanticException)
+                    + ContainsElement(exception: SemanticException): bool
+                    + Like(other: SemanticException): bool
+                    + ToString(): string
+                }
 
-SemanticException <|-- CompoundSemanticException
-class CompoundSemanticException {
-    + Set: HashSet<SemanticException>
-    + <<readonly>> isEmpty: bool
-    + <<readonly>> Elements: ICollection<SemanticException>
-    + <<readonly>> Count: int
-    + <<readonly>> Closed: bool
-    + CompoundSemanticException()
-    + CompoundSemanticException(info: SerializationInfo, context: StreamingContext)
-    + CompoundSemanticException(message: string)
-    + Close()
-    + AddElement(exception: SemanticException)
-    + ContainsElement(exception: SemanticException): bool
-    + Like(other: SemanticException): bool
-    + ToString(): string
-}
+                SemanticException <|-- IllegalOperationException
+                class IllegalOperationException {
+                    + IllegalOperationException()
+                    + IllegalOperationException(info: SerializationInfo, context: StreamingContext)
+                    + IllegalOperationException(message: string)
+                    + IllegalOperationException(message: string, innerException: Exception)
+                }
 
-SemanticException <|-- IllegalOperationException
-class IllegalOperationException {
-    + IllegalOperationException()
-    + IllegalOperationException(info: SerializationInfo, context: StreamingContext)
-    + IllegalOperationException(message: string)
-    + IllegalOperationException(message: string, innerException: Exception)
-}
+                SemanticException <|-- PropertyException
+                class PropertyException {
+                    + Sender: object
+                    + PropertyName: string
+                    + UnspecifiedExternalErrorMessage: string
+                    + PropertyException()
+                    + PropertyException(info: SerializationInfo, context: StreamingContext)
+                    + PropertyException(message: string)
+                    + PropertyException(message: string, innerException: Exception)
+                    + PropertyException(sender: object, propertyName: string, message: string, innerException: Exception)
+                    + Like(other: SemanticException): bool
+                    + ToString(): string
+                }
 
-SemanticException <|-- PropertyException
-class PropertyException {
-    + Sender: object
-    + PropertyName: string
-    + UnspecifiedExternalErrorMessage: string
-    + PropertyException()
-    + PropertyException(info: SerializationInfo, context: StreamingContext)
-    + PropertyException(message: string)
-    + PropertyException(message: string, innerException: Exception)
-    + PropertyException(sender: object, propertyName: string, message: string, innerException: Exception)
-    + Like(other: SemanticException): bool
-    + ToString(): string
-}
+                PropertyException <|-- ValueException
+                class ValueException {
+                    + OldValue: object
+                    + NewValue: object
+                    + ValueException()
+                    + ValueException(info: SerializationInfo, context: StreamingContext)
+                    + ValueException(message: string)
+                    + ValueException(message: string, innerException: Exception)
+                    + ValueException(sender: object, propertyName: string, message: string, innerException: Exception)
+                    + ValueException(sender: object, propertyName: string, oldValue: object, newValue: object, message: string, innerException: Exception)
+                    + Like(other: SemanticException): bool
+                    + ToString(): string
+                }
 
-PropertyException <|-- ValueException
-class ValueException {
-    + OldValue: object
-    + NewValue: object
-    + ValueException()
-    + ValueException(info: SerializationInfo, context: StreamingContext)
-    + ValueException(message: string)
-    + ValueException(message: string, innerException: Exception)
-    + ValueException(sender: object, propertyName: string, message: string, innerException: Exception)
-    + ValueException(sender: object, propertyName: string, oldValue: object, newValue: object, message: string, innerException: Exception)
-    + Like(other: SemanticException): bool
-    + ToString(): string
+                ApplicationException <|-- SecurityException
+                class SecurityException {
+                    + SecurityException()
+                    + SecurityException(info: SerializationInfo, context: StreamingContext)
+                    + SecurityException(message: string)
+                    + SecurityException(message: string, innerException: Exception)
+                }
+            }
+        }
+    }
 }
-
-ApplicationException <|-- SecurityException
-class SecurityException {
-    + SecurityException()
-    + SecurityException(info: SerializationInfo, context: StreamingContext)
-    + SecurityException(message: string)
-    + SecurityException(message: string, innerException: Exception)
-}
-
 @enduml

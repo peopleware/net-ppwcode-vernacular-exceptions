@@ -1,38 +1,25 @@
-﻿###############################################################################
+###############################################################################
 ###  Bootstrap script for PSAKE                                             ###
 ###############################################################################
-###  Copyright 2015 by PeopleWare n.v..                                     ###
+###  Copyright 2017 by PeopleWare n.v..                                     ###
 ###############################################################################
-###  Authors: Ruben Vandeginste                                             ###
+###  Authors: Ruben Vandeginste, Danny Van den Wouwer                       ###
 ###############################################################################
 ###                                                                         ###
 ###  A script to bootstrap the powershell session for psake.                ###
 ###                                                                         ###
 ###############################################################################
-# 
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-# 
-# http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 
 #region INPUT PARAMATERS
 
 ###############################################################################
-### INPUT PARAMETERS                                                        ### 
+### INPUT PARAMETERS                                                        ###
 ###############################################################################
 
 ###############################################################################
 # input parameters
 #   target: Task to execute
-#   repos:  NuGet repositories to be used when psake is not available yet
-param([string]$target = '', [string[]]$repos = @())
+param([string]$target = '')
 
 #endregion
 
@@ -40,7 +27,7 @@ param([string]$target = '', [string[]]$repos = @())
 #region HELPERS
 
 ###############################################################################
-### HELPERS                                                                 ### 
+### HELPERS                                                                 ###
 ###############################################################################
 
 ###############################################################################
@@ -76,25 +63,39 @@ function Exec {
             {
                 throw $_
             }
-            
+
             if ($retryTriggerErrorPattern -ne $null)
             {
                 $isMatch = [regex]::IsMatch($_.Exception.Message, $retryTriggerErrorPattern)
-                
+
                 if ($isMatch -eq $false)
                 {
                     throw $_
                 }
             }
-            
+
             Write-Host "Try $tryCount failed, retrying again in 1 second..."
-            
+
             $tryCount++
-            
+
             [System.Threading.Thread]::Sleep([System.TimeSpan]::FromSeconds(1))
         }
     }
     while ($true)
+}
+
+###############################################################################
+# Throw an error if the given command is not available
+#
+function CheckCommandAvailability {
+    param(
+        [String]
+        $cmd
+    )
+
+    if (!$(Get-Command "$cmd" -ErrorAction SilentlyContinue)) {
+        throw "'$cmd' not available from the commandline!"
+    }
 }
 
 #endregion
@@ -103,51 +104,75 @@ function Exec {
 #region MAIN
 
 ###############################################################################
-### MAIN                                                                    ### 
+### MAIN                                                                    ###
 ###############################################################################
 
 ###############################################################################
 # Main script to bootstrap psake.
 #
-try 
+
+try
 {
-    # execution policy for scripts
-    Set-ExecutionPolicy RemoteSigned
-
     # find module, if not found, try to download it
-    $modules = Get-Item  .\src\packages\psake.*\tools\psake.psm1
-    if ($modules -eq $null)
-    {
-        Push-Location
-        Set-Location 'src'
-        
-        $reposources = ''
-        $repos | ForEach-Object { $reposources="$reposources -source $_" }
-        Exec { Invoke-Expression "nuget restore $reposources -noninteractive -nocache -verbosity quiet" } 'NuGet not available, or not executing as expected.'
-        
-        Pop-Location
+    $module = $null
 
-        $modules = Get-Item  .\src\packages\psake.*\tools\psake.psm1
-        if ($modules -eq $null)
-        {
-            throw 'Cannot find or fetch psake module.'
+    $psakeNugetPackageName = 'psake'
+    $psakeVersion = '4.7.0'
+    $psakeNugetVersionedPackageName = "$psakeNugetPackageName.$($psakeVersion)"
+
+    # Can we find psake in our traditional packages directory?
+    $psakeToolsFolder = `
+        Join-Path -Path 'src' -ChildPath 'packages' | `
+        Join-Path -ChildPath $psakeNugetVersionedPackageName | `
+        Join-Path -ChildPath 'tools' | `
+        Join-Path -ChildPath 'psake'
+    if (Test-Path $psakeToolsFolder) {
+        $modulePath = Join-Path -Path $psakeToolsFolder -ChildPath 'psake.psd1'
+        if (Test-Path $modulePath) {
+            $module = Get-Item $modulePath
         }
     }
 
-    # take most recent module, if multiple found
-    #   not completely correct, but 'good enough'
-    $module = $modules | Sort-Object -Property FullName -Descending | Select-Object -First 1
+    # If we didn't found it, install psake in our scratch directory
+    if ($null -eq $module) {
+        $scratchPsakePath = '.\scratch'
+
+        $nugetRestoreParams = @(
+            "$psakeNugetPackageName"
+            "-Version '$($psakeVersion)'"
+            "-OutputDirectory ""$scratchPsakePath"""
+            "-NonInteractive"
+            "-Verbosity quiet"
+        )
+        Exec { Invoke-Expression "nuget install $nugetRestoreParams" }
+
+        $psakeToolsFolder = `
+            Join-Path -Path 'scratch' -ChildPath $psakeNugetVersionedPackageName | `
+            Join-Path -ChildPath 'tools' | `
+            Join-Path -ChildPath 'psake'
+        if (Test-Path $psakeToolsFolder) {
+            $modulePath = Join-Path -Path $psakeToolsFolder -ChildPath 'psake.psd1'
+            if (Test-Path $modulePath) {
+                $module = Get-Item $modulePath
+            }
+        }
+    }
+
+    if ($null -eq $module)
+    {
+        throw 'Cannot find or fetch psake module, install psake: choco install psake.'
+    }
 
     # import module, force a reload if already loaded
     Import-Module $module.FullName -Force
-    
+
     # execute the target, if any given
     if ($target -ne '')
     {
         Invoke-psake $target
     }
 }
-catch 
+catch
 {
     Write-Host 'Error executing psake.ps1' -ForegroundColor DarkYellow
     Write-Host

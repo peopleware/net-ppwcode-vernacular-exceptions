@@ -8,7 +8,7 @@ pipelines:
               name: Latest .net Core 2
               image: microsoft/dotnet:sdk
               caches:
-                - dotnet
+                - dotnetcore
               script:
                 - git submodule update --init
                 # call the dotnet test script

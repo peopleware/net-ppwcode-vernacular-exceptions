@@ -276,6 +276,7 @@ paket-files/
 
 # JetBrains Rider
 **/.idea/workspace.xml
+**/.idea/contentModel.xml
 *.sln.iml
 
 # CodeRush

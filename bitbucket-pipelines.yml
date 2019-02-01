@@ -1,0 +1,19 @@
+image: microsoft/dotnet:sdk
+
+pipelines:
+  branches:
+    feature/*:
+      - parallel:
+          - step:
+              name: Latest .net Core 2
+              image: microsoft/dotnet:sdk
+              caches:
+                - dotnet
+              script:
+                - git submodule update --init
+                # call the dotnet test script
+                - export PROJECT_NAME=yourProjectName
+                - export TEST_NAME=yourTestName
+                - dotnet restore
+                - dotnet build $PROJECT_NAME
+                - dotnet test $TEST_NAME

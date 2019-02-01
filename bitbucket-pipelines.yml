@@ -13,8 +13,6 @@ pipelines:
                 - git submodule update --init
                 # call the dotnet test script
                 - cd src
-                - export PROJECT_NAME=yourProjectName
-                - export TEST_NAME=yourTestName
                 - dotnet restore
-                - dotnet build $PROJECT_NAME
-                - dotnet test $TEST_NAME
+                - dotnet build
+                - dotnet test

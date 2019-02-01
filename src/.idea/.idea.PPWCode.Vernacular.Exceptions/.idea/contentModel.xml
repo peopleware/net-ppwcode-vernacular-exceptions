@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/Library/Caches/Rider2018.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
     <e p="$PROJECT_DIR$/../init-psake.ps1" t="Include" />
     <e p="$PROJECT_DIR$/../LICENSE" t="Include" />
     <e p="$PROJECT_DIR$/../NOTICE" t="Include" />
@@ -16,7 +16,7 @@
       <e p="PPWCode.Vernacular.Exceptions.III.AssemblyInfo.cs" t="Include" />
     </e>
     <e p="$PROJECT_DIR$" t="IncludeFlat">
-      <e p="_ReSharper.Caches/ReSharperHost182.PPWCode.Vernacular.Exceptions.00" t="ExcludeRecursive" />
+      <e p="_ReSharper.Caches/ReSharperHost183.PPWCode.Vernacular.Exceptions.00" t="ExcludeRecursive" />
       <e p="Directory.Build.props" t="Include" />
       <e p="III" t="IncludeRecursive">
         <e p="CompoundSemanticException.cs" t="Include" />

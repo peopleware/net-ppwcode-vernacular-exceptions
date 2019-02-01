@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$/../../../LICENSE" />
-    <content url="file://$MODULE_DIR$/../../../NOTICE" />
-    <content url="file://$MODULE_DIR$/../../../README.md" />
-    <content url="file://$MODULE_DIR$/../../../init-psake.ps1" />
-    <content url="file://$MODULE_DIR$/../../../psakefile.ps1" />
-    <content url="file://$MODULE_DIR$/../../../scratch/obj/PPWCode.Vernacular.Exceptions.III-Debug-AnyCPU/net45/PPWCode.Vernacular.Exceptions.III.AssemblyInfo.cs" />
-    <content url="file://$MODULE_DIR$/../../../scratch/obj/PPWCode.Vernacular.Exceptions.III-Debug-AnyCPU/netstandard20/PPWCode.Vernacular.Exceptions.III.AssemblyInfo.cs" />
-    <content url="file://$MODULE_DIR$/../.." />
+    <content url="file://$MODULE_DIR$/../../.." />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

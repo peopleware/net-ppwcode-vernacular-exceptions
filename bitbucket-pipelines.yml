@@ -12,6 +12,7 @@ pipelines:
               script:
                 - git submodule update --init
                 # call the dotnet test script
+                - cd src
                 - export PROJECT_NAME=yourProjectName
                 - export TEST_NAME=yourTestName
                 - dotnet restore

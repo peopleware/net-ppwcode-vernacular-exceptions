@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
-    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.Rider2018.3/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2018.3/extResources" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$/../init-psake.ps1" t="Include" />
     <e p="$PROJECT_DIR$/../LICENSE" t="Include" />
     <e p="$PROJECT_DIR$/../NOTICE" t="Include" />
-    <e p="$PROJECT_DIR$/../README.md" t="Include" />
-    <e p="$PROJECT_DIR$/../init-psake.ps1" t="Include" />
     <e p="$PROJECT_DIR$/../psakefile.ps1" t="Include" />
+    <e p="$PROJECT_DIR$/../README.md" t="Include" />
     <e p="$PROJECT_DIR$/../scratch/bin/PPWCode.Vernacular.Exceptions.III-Debug-AnyCPU/netstandard2.0" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$/../scratch/obj/PPWCode.Vernacular.Exceptions.III-Debug-AnyCPU/netstandard2.0" t="ExcludeRecursive">
       <e p="PPWCode.Vernacular.Exceptions.III.AssemblyInfo.cs" t="Include" />
     </e>
     <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="_ReSharper.Caches/ReSharperHost183.PPWCode.Vernacular.Exceptions.00" t="ExcludeRecursive" />
       <e p="Directory.Build.props" t="Include" />
       <e p="III" t="IncludeRecursive">
         <e p="CompoundSemanticException.cs" t="Include" />
+        <e p="doc" t="Include">
+          <e p="class_model.png" t="Include" />
+          <e p="class_model.puml" t="Include" />
+        </e>
         <e p="Error.cs" t="Include" />
         <e p="ExternalError.cs" t="Include" />
         <e p="IllegalOperationException.cs" t="Include" />
@@ -31,16 +33,11 @@
         <e p="SecurityException.cs" t="Include" />
         <e p="SemanticException.cs" t="Include" />
         <e p="ValueException.cs" t="Include" />
-        <e p="doc" t="Include">
-          <e p="class_model.png" t="Include" />
-          <e p="class_model.puml" t="Include" />
-        </e>
       </e>
-      <e p="PPWCode.Vernacular.Exceptions.sln" t="IncludeFlat" />
-      <e p="SolutionItems" t="Include" />
-      <e p="_ReSharper.Caches/ReSharperHost183.PPWCode.Vernacular.Exceptions.00" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
+      <e p="PPWCode.Vernacular.Exceptions.sln" t="IncludeFlat" />
       <e p="psake" t="Include" />
+      <e p="SolutionItems" t="Include" />
       <e p="version.props" t="Include" />
     </e>
   </component>

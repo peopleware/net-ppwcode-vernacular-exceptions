@@ -38,7 +38,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://bitbucket.org/ppwcode/dotnet-vernacular-exceptions.git</RepositoryUrl>
 
-    <PackageTags>ppwcode vernacular exceptions</PackageTags>
+    <PackageTags>ppwcode vernacular exceptions dotnetcore netcore</PackageTags>
     <PackageProjectUrl>https://bitbucket.org/ppwcode/dotnet-vernacular-exceptions</PackageProjectUrl>
     <PackageIconUrl>http://peopleware.github.io/net-ppwcode-util-oddsandends/ppwcode_logo.jpg</PackageIconUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

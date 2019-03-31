@@ -275,9 +275,7 @@ paket-files/
 .fake/
 
 # JetBrains Rider
-**/.idea/workspace.xml
-**/.idea/contentModel.xml
-*.sln.iml
+.idea
 
 # CodeRush
 .cr/

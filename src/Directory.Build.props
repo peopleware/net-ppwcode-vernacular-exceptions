@@ -42,7 +42,7 @@
     <PackageProjectUrl>https://bitbucket.org/ppwcode/dotnet-vernacular-exceptions</PackageProjectUrl>
     <PackageIconUrl>http://peopleware.github.io/net-ppwcode-util-oddsandends/ppwcode_logo.jpg</PackageIconUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>http://opensource.org/licenses/Apache-2.0</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 
     <PackageReleaseNotes>
       <![CDATA[

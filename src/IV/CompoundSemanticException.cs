@@ -1,4 +1,4 @@
-﻿// Copyright 2017 by PeopleWare n.v..
+﻿// Copyright 2019 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -16,7 +16,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace PPWCode.Vernacular.Exceptions.III
+namespace PPWCode.Vernacular.Exceptions.IV
 {
     /// <summary>
     ///     Vehicle for communicating more than one <see cref="SemanticException" />

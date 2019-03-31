@@ -1,4 +1,4 @@
-﻿// Copyright 2017 by PeopleWare n.v..
+﻿// Copyright 2019 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,7 +12,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.III
+namespace PPWCode.Vernacular.Exceptions.IV
 {
     /// <summary>
     ///     This exception is thrown by a method defined in an API,
@@ -44,8 +44,8 @@ namespace PPWCode.Vernacular.Exceptions.III
     ///         to signal which method, in which circumstances, is no
     ///         longer supported.
     ///     </para>
-    ///  // MUDO this is not an ExternalError; it is an Error; for the calling system, it will be an external error,
-    ///  // but it is not for us.
+    ///     // MUDO this is not an ExternalError; it is an Error; for the calling system, it will be an external error,
+    ///     // but it is not for us.
     /// </remarks>
     [Serializable]
     public class NoLongerSupportedError : ExternalError

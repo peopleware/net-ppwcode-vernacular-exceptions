@@ -1,4 +1,4 @@
-﻿// Copyright 2017 by PeopleWare n.v..
+﻿// Copyright 2019 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,11 +12,11 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.III
+namespace PPWCode.Vernacular.Exceptions.IV
 {
     /// <summary>
-    /// The method that throws this error is a mutating method, flagged not to be used, because the instance is flagged
-    /// as immutable.
+    ///     The method that throws this error is a mutating method, flagged not to be used, because the instance is flagged
+    ///     as immutable.
     /// </summary>
     [Serializable]
     public class ImmutableError : ProgrammingError

@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "psake", "psake", "{90949B3E
 		..\psakefile.ps1 = ..\psakefile.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPWCode.Vernacular.Exceptions.III", "III\PPWCode.Vernacular.Exceptions.III.csproj", "{89296D3A-1CA1-4995-9393-A1F1106EFC40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPWCode.Vernacular.Exceptions.IV", "IV\PPWCode.Vernacular.Exceptions.IV.csproj", "{89296D3A-1CA1-4995-9393-A1F1106EFC40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

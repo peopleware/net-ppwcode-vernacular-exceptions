@@ -1,4 +1,4 @@
-﻿// Copyright 2017 by PeopleWare n.v..
+﻿// Copyright 2019 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,30 +12,31 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace PPWCode.Vernacular.Exceptions.III
+namespace PPWCode.Vernacular.Exceptions.IV
 {
     /// <summary>
     ///     Exception that signals a refusal to perform
-    ///     the nominal effect by a method, because it is not allowed.
+    ///     the nominal effect by a method, because of
+    ///     security reasons.
     /// </summary>
     [Serializable]
-    public class IllegalOperationException : SemanticException
+    public class SecurityException : ApplicationException
     {
-        public IllegalOperationException()
+        public SecurityException()
         {
         }
 
-        public IllegalOperationException(string message)
+        public SecurityException(string message)
             : base(message)
         {
         }
 
-        public IllegalOperationException(string message, Exception innerException)
+        public SecurityException(string message, Exception innerException)
             : base(message, innerException)
         {
         }
 
-        protected IllegalOperationException(SerializationInfo info, StreamingContext context)
+        protected SecurityException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }

@@ -33,7 +33,7 @@
     <Product>PPWCode</Product>
     <Authors>dvdwouwe;rvdginste</Authors>
     <Company>Peopleware NV</Company>
-    <Copyright>Copyright � Peopleware NV 2014-2019</Copyright>
+    <Copyright>Copyright © Peopleware NV 2014-2019</Copyright>
 
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://bitbucket.org/ppwcode/dotnet-vernacular-exceptions.git</RepositoryUrl>

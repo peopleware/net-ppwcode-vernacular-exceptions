@@ -12,7 +12,9 @@ pipelines:
               script:
                 - git submodule update --init
                 - scripts/common/dotnetcore/buildTestPack.sh
-                - scripts/common/git/tagBitbucket.sh
+              # we test on different versions, but the artifact we will publish is built with 2.1
+              artifacts:
+                - scratch/bin/**/*.nupkg
           - step:
               name: Latest .net Core 2.2
               image: mcr.microsoft.com/dotnet/core/sdk:2.2
@@ -21,7 +23,6 @@ pipelines:
               script:
                 - git submodule update --init
                 - scripts/common/dotnetcore/buildTestPack.sh
-                - scripts/common/git/tagBitbucket.sh
           - step:
               name: Latest .net Core 3.0
               image: mcr.microsoft.com/dotnet/core/sdk:3.0
@@ -30,4 +31,9 @@ pipelines:
               script:
                 - git submodule update --init
                 - scripts/common/dotnetcore/buildTestPack.sh
-                - scripts/common/git/tagBitbucket.sh
+      - step:
+          name: Tag
+          image: mcr.microsoft.com/dotnet/core/sdk:2.2
+          script:
+            - git submodule update --init
+            - scripts/common/git/tagBitbucket.sh

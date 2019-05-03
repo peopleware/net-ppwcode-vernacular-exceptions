@@ -15,6 +15,6 @@ pipelines:
                 - dotnet restore
                 - dotnet build
                 - dotnet test
-                - dotnet pack
+                - dotnet pack --configuration Release
                 - ls -al scratch/bin/*/*.nupkg
-                - scripts/common/tagBitbucket.sh
+                - scripts/common/git/tagBitbucket.sh

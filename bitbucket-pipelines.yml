@@ -16,3 +16,4 @@ pipelines:
                 - dotnet restore
                 - dotnet build
                 - dotnet test
+                - scripts/common/tagBitbucket.sh

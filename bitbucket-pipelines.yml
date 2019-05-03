@@ -5,8 +5,26 @@ pipelines:
     feature/*:
       - parallel:
           - step:
-              name: Latest .net Core 2
-              image: microsoft/dotnet:sdk
+              name: Latest .net Core 2.1
+              image: mcr.microsoft.com/dotnet/core/sdk:2.1
+              caches:
+                - dotnetcore
+              script:
+                - git submodule update --init
+                - scripts/common/dotnetcore/buildTestPack.sh
+                - scripts/common/git/tagBitbucket.sh
+          - step:
+              name: Latest .net Core 2.2
+              image: mcr.microsoft.com/dotnet/core/sdk:2.2
+              caches:
+                - dotnetcore
+              script:
+                - git submodule update --init
+                - scripts/common/dotnetcore/buildTestPack.sh
+                - scripts/common/git/tagBitbucket.sh
+          - step:
+              name: Latest .net Core 3.0
+              image: mcr.microsoft.com/dotnet/core/sdk:3.0
               caches:
                 - dotnetcore
               script:

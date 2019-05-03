@@ -12,8 +12,9 @@ pipelines:
               script:
                 - git submodule update --init
                 # call the dotnet test script
-                - cd src
                 - dotnet restore
                 - dotnet build
                 - dotnet test
+                - dotnet pack
+                - ls -al scratch/bin/*/*.nupkg
                 - scripts/common/tagBitbucket.sh

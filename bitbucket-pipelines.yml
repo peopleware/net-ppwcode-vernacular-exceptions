@@ -11,10 +11,5 @@ pipelines:
                 - dotnetcore
               script:
                 - git submodule update --init
-                # call the dotnet test script
-                - dotnet restore
-                - dotnet build
-                - dotnet test
-                - dotnet pack --configuration Release
-                - ls -al scratch/bin/*/*.nupkg
+                - scripts/common/dotnetcore/buildTestPack.sh
                 - scripts/common/git/tagBitbucket.sh

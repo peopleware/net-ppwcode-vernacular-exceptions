@@ -29,5 +29,19 @@ namespace PPWCode.Vernacular.Exceptions.IV.Tests
             // assert
             Assert.That(sum, Is.EqualTo(7));
         }
+
+        [Test]
+        public void FailingTest()
+        {
+            // arrange
+            long x = 1;
+            long y = 2;
+
+            // act
+            long z = x + y;
+
+            // assert
+            Assert.That(z, Is.EqualTo(5));
+        }
     }
 }

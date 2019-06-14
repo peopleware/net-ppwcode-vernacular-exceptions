@@ -31,17 +31,21 @@ namespace PPWCode.Vernacular.Exceptions.IV.Tests
         }
 
         [Test]
-        public void FailingTest()
+        public void TestFibonacci()
         {
             // arrange
-            long x = 1;
-            long y = 2;
+            long fibonacci(long x)
+                => x == 0
+                       ? 0
+                       : x == 1
+                           ? 1
+                           : fibonacci(x - 1) + fibonacci(x - 2);
 
             // act
-            long z = x + y;
+            long z = fibonacci(21);
 
             // assert
-            Assert.That(z, Is.EqualTo(5));
+            Assert.That(z, Is.EqualTo(10946));
         }
     }
 }

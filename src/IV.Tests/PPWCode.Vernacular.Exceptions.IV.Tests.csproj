@@ -22,6 +22,9 @@
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
 
+        <!-- logger for test report in junit format -->
+        <PackageReference Include="JUnitTestLogger" Version="1.1.0" />
+
         <!-- logger for test report in nunit format -->
         <PackageReference Include="NunitXml.TestLogger" Version="2.1.41" />
     </ItemGroup>

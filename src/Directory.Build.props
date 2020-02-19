@@ -64,7 +64,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../../assets/ppwcode_logo.jpg" Pack="true" PackagePath="/" />
+    <None Include="../../assets/ppwcode_logo.jpg" Pack="true" PackagePath="/" Visible="false" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

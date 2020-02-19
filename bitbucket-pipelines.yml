@@ -1,18 +1,38 @@
 image: microsoft/dotnet:sdk
 
+definitions:
+  steps:
+    - step: &buildTestPack
+        name: Latest .net Core X.X
+        image: IMAGE
+        caches:
+          - dotnetcore
+        script:
+          - git submodule update --init
+          - scripts/common/dotnetcore/buildTestPack.sh
+
 pipelines:
   branches:
     feature/*:
       - parallel:
           - step:
-              name: Latest .net Core 2
-              image: microsoft/dotnet:sdk
-              caches:
-                - dotnetcore
-              script:
-                - git submodule update --init
-                # call the dotnet test script
-                - cd src
-                - dotnet restore
-                - dotnet build
-                - dotnet test
+              <<: *buildTestPack
+              name: Latest .net Core 2.1
+              image: mcr.microsoft.com/dotnet/core/sdk:2.1
+              # we test on different versions, but the artifact we will publish is built with 2.1
+              artifacts:
+                - scratch/bin/**/*.nupkg
+          - step:
+              <<: *buildTestPack
+              name: Latest .net Core 2.2
+              image: mcr.microsoft.com/dotnet/core/sdk:2.2
+          - step:
+              <<: *buildTestPack
+              name: Latest .net Core 3.0
+              image: mcr.microsoft.com/dotnet/core/sdk:3.0
+      - step:
+          name: Tag
+          image: mcr.microsoft.com/dotnet/core/sdk:2.2
+          script:
+            - git submodule update --init
+            - scripts/common/git/tagBitbucket.sh

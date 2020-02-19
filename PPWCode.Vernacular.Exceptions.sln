@@ -25,6 +25,14 @@ ProjectSection(SolutionItems) = preProject
 	src\StyleCop.ruleset = src\StyleCop.ruleset
 EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{C999F0FB-DEF3-4A11-A697-4B92C436B14B}"
+ProjectSection(SolutionItems) = preProject
+	LICENSE = LICENSE
+	NOTICE = NOTICE
+	README.md = README.md
+	assets\ppwcode_logo.jpg = assets\ppwcode_logo.jpg
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -11,13 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "psake", "psake", "{90949B3E-8AD7-4771-856E-47D86A5FAD33}"
 	ProjectSection(SolutionItems) = preProject
-		..\init-psake.ps1 = init-psake.ps1
-		..\psakefile.ps1 = psakefile.ps1
+		init-psake.ps1 = init-psake.ps1
+		psakefile.ps1 = psakefile.ps1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPWCode.Vernacular.Exceptions.IV", "src\IV\PPWCode.Vernacular.Exceptions.IV.csproj", "{89296D3A-1CA1-4995-9393-A1F1106EFC40}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPWCode.Vernacular.Exceptions.IV.Tests", "src\IV.Tests\PPWCode.Vernacular.Exceptions.IV.Tests.csproj", "{016238D9-A041-4235-8636-E0BCCCF9E36E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StyleCop", "StyleCop", "{35632FD9-6EDC-466E-8684-703241B4D674}"
+ProjectSection(SolutionItems) = preProject
+	src\StyleCop-Tests.ruleset = src\StyleCop-Tests.ruleset
+	src\StyleCop.ruleset = src\StyleCop.ruleset
+EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

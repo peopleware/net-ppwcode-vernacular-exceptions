@@ -33,16 +33,16 @@
     <Product>PPWCode</Product>
     <Authors>dvdwouwe;rvdginste</Authors>
     <Company>Peopleware NV</Company>
-    <Copyright>Copyright © Peopleware NV 2014-2019</Copyright>
+    <Copyright>Copyright © Peopleware NV 2014-2020</Copyright>
 
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://bitbucket.org/ppwcode/dotnet-vernacular-exceptions.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/peopleware/net-ppwcode-vernacular-exceptions.git</RepositoryUrl>
 
     <PackageTags>ppwcode vernacular exceptions dotnetcore netcore</PackageTags>
-    <PackageProjectUrl>https://bitbucket.org/ppwcode/dotnet-vernacular-exceptions</PackageProjectUrl>
-    <PackageIconUrl>http://peopleware.github.io/net-ppwcode-util-oddsandends/ppwcode_logo.jpg</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/peopleware/net-ppwcode-vernacular-exceptions</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageIcon>ppwcode_logo.jpg</PackageIcon>
 
     <PackageReleaseNotes>
       <![CDATA[
@@ -63,6 +63,9 @@
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="../../assets/ppwcode_logo.jpg" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

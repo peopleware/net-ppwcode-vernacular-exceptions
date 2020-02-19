@@ -23,6 +23,9 @@
 
         <!-- logger for test report in nunit format -->
         <PackageReference Include="NunitXml.TestLogger" Version="2.1.41" />
+
+        <!-- SourceLink for TeamCity -->
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>

@@ -11,14 +11,20 @@
     <Version>$(PackageVersion)</Version>
     <FileVersion>$(InformationalVersion)</FileVersion>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+  </PropertyGroup>
 
-    <!-- build paths -->
-    <OutputPath>..\..\scratch\bin\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</OutputPath>
-    <IntermediateOutputPath>..\..\scratch\obj\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</IntermediateOutputPath>
-    <BaseIntermediateOutputPath>..\..\scratch\bob\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</BaseIntermediateOutputPath>
-    <DocumentationFile>..\..\scratch\bin\$(MSBuildProjectName)-$(Configuration)-$(Platform)\$(MSBuildProjectName).xml</DocumentationFile>
+  <!-- set default for configuration -->
+  <PropertyGroup Condition=" '$(Configuration)' == '' ">
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
 
-    <!-- compiler configuration -->
+  <!-- set default for platform -->
+  <PropertyGroup Condition=" '$(Platform)' == '' ">
+    <Platform>AnyCPU</Platform>
+  </PropertyGroup>
+
+  <!-- compiler configuration -->
+  <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <WarningLevel>4</WarningLevel>
     <NoWarn>1591;1592;1573;1571;1570;1572;1701;1702;1705;</NoWarn>
@@ -27,13 +33,41 @@
     <WarningsAsErrors />
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
 
+  <!-- properties for debug configuration -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <!-- properties for release configuration -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <!-- build paths -->
+  <PropertyGroup>
+    <OutputPath>..\..\scratch\bin\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</OutputPath>
+    <IntermediateOutputPath>..\..\scratch\obj\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</IntermediateOutputPath>
+    <BaseIntermediateOutputPath>..\..\scratch\bob\$(MSBuildProjectName)-$(Configuration)-$(Platform)\</BaseIntermediateOutputPath>
+    <DocumentationFile>..\..\scratch\bin\$(MSBuildProjectName)-$(Configuration)-$(Platform)\$(MSBuildProjectName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <!-- nuget package -->
     <Description>The PPWCode Vernacular Exception library version IV.</Description>
     <Product>PPWCode</Product>
     <Authors>dvdwouwe;rvdginste</Authors>
     <Company>Peopleware NV</Company>
-    <Copyright>Copyright © Peopleware NV 2014-2020</Copyright>
+    <Copyright>Copyright © Peopleware NV 2014-2021</Copyright>
 
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/peopleware/net-ppwcode-vernacular-exceptions.git</RepositoryUrl>
@@ -47,6 +81,7 @@
     <PackageReleaseNotes>
       <![CDATA[
 1.0.0 Initial release
+1.1.0 Upgrading dependencies
       ]]>
     </PackageReleaseNotes>
 
@@ -71,23 +106,7 @@
     <None Include="../../README.md" Pack="true" PackagePath="/" Visible="false" />
   </ItemGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <DefineConstants>TRACE</DefineConstants>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" PrivateAssets="All" />
+    <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" PrivateAssets="All" />
   </ItemGroup>
 </Project>

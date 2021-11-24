@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <!-- target frameworks -->
-        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <TargetFrameworks>netcoreapp3.1;net60</TargetFrameworks>
 
         <!-- nuget package -->
         <IsPackable>false</IsPackable>

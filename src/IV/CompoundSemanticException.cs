@@ -128,17 +128,16 @@ namespace PPWCode.Vernacular.Exceptions.IV
         /// <param name="exception">The exception that must be added.</param>
         public void AddElement(SemanticException exception)
         {
-            CompoundSemanticException cse = exception as CompoundSemanticException;
-            if (cse == null)
-            {
-                Set.Add(exception);
-            }
-            else
+            if (exception is CompoundSemanticException cse)
             {
                 foreach (SemanticException ex in cse.Elements)
                 {
                     AddElement(ex);
                 }
+            }
+            else
+            {
+                Set.Add(exception);
             }
         }
 

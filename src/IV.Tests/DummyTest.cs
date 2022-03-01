@@ -34,7 +34,7 @@ namespace PPWCode.Vernacular.Exceptions.IV.Tests
         public void TestFibonacci()
         {
             // arrange
-            long fibonacci(long x)
+            static long fibonacci(long x)
                 => x == 0
                        ? 0
                        : x == 1

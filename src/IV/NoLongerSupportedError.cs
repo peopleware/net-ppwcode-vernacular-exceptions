@@ -10,7 +10,10 @@
 // limitations under the License.
 
 using System;
+
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -47,7 +50,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///     // MUDO this is not an ExternalError; it is an Error; for the calling system, it will be an external error,
     ///     // but it is not for us.
     /// </remarks>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class NoLongerSupportedError : ExternalError
     {
         public NoLongerSupportedError()
@@ -69,9 +74,11 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
+#if NETSTANDARD2_0
         protected NoLongerSupportedError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
     }
 }

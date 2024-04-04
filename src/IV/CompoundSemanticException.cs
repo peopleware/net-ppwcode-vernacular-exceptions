@@ -9,11 +9,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+
+#if NETSTANDARD2_0
+using System;
 using System.Runtime.Serialization;
+#endif
+
 using System.Text;
 
 namespace PPWCode.Vernacular.Exceptions.IV
@@ -35,7 +39,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         <see cref="IsEmpty" />.
     ///     </para>
     /// </remarks>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public sealed class CompoundSemanticException : SemanticException
     {
         public CompoundSemanticException()
@@ -50,10 +56,12 @@ namespace PPWCode.Vernacular.Exceptions.IV
             Set = new HashSet<SemanticException>();
         }
 
+#if NETSTANDARD2_0
         private CompoundSemanticException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
 
         /// <summary>
         ///     The element exceptions of this compound exception.

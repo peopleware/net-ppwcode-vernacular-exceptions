@@ -10,7 +10,10 @@
 // limitations under the License.
 
 using System;
+
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -40,7 +43,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         to the developers.
     ///     </para>
     /// </remarks>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class ProgrammingError : Error
     {
         protected const string ExceptionWithProgrammingCauseMessage = "An exception occured, which appears to be of a programming nature.";
@@ -61,9 +66,11 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
+#if NETSTANDARD2_0
         protected ProgrammingError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
     }
 }

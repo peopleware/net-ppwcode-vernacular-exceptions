@@ -11,7 +11,10 @@
 
 using System;
 using System.Diagnostics.Contracts;
+
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -41,7 +44,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         make these advises binding in most cases.
     ///     </para>
     /// </remarks>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class PropertyException : SemanticException
     {
         /// <summary>
@@ -71,10 +76,12 @@ namespace PPWCode.Vernacular.Exceptions.IV
             PropertyName = propertyName;
         }
 
+#if NETSTANDARD2_0
         protected PropertyException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
 
         public object Sender
         {

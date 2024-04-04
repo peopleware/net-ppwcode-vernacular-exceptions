@@ -10,9 +10,10 @@
 // limitations under the License.
 
 using System;
-using System.Runtime.Serialization;
 
-using JetBrains.Annotations;
+#if NETSTANDARD2_0
+using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -89,7 +90,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         this code.
     ///     </para>
     /// </remarks>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class Error : Exception
     {
         public Error()
@@ -106,9 +109,11 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
-        protected Error([NotNull] SerializationInfo info, StreamingContext context)
+#if NETSTANDARD2_0
+        protected Error(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
     }
 }

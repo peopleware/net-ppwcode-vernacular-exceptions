@@ -11,7 +11,10 @@
 
 using System;
 using System.Diagnostics.Contracts;
+
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -41,7 +44,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         original value then.
     ///     </para>
     /// </remarks>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class ValueException : PropertyException
     {
         public ValueException()
@@ -70,10 +75,12 @@ namespace PPWCode.Vernacular.Exceptions.IV
             NewValue = newValue;
         }
 
+#if NETSTANDARD2_0
         protected ValueException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
 
         /// <summary>
         ///     Contains the original value of the property.

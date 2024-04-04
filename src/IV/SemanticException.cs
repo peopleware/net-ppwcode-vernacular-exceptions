@@ -11,7 +11,10 @@
 
 using System;
 using System.Diagnostics.Contracts;
+
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -20,7 +23,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///     not be reached, because doing so under the given circumstances would violate semantics
     ///     (often type invariants).
     /// </summary>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class SemanticException : ApplicationException
     {
         public SemanticException()
@@ -37,10 +42,12 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
+#if NETSTANDARD2_0
         protected SemanticException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
 
         /// <summary>
         ///     The <see cref="Exception.Message" /> can not be overridden

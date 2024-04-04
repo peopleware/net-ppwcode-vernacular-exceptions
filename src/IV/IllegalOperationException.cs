@@ -10,7 +10,10 @@
 // limitations under the License.
 
 using System;
+
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -18,7 +21,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///     Exception that signals a refusal to perform
     ///     the nominal effect by a method, because it is not allowed.
     /// </summary>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class IllegalOperationException : SemanticException
     {
         public IllegalOperationException()
@@ -35,9 +40,11 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
+#if NETSTANDARD2_0
         protected IllegalOperationException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
     }
 }

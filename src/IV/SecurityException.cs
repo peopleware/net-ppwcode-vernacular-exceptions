@@ -10,7 +10,10 @@
 // limitations under the License.
 
 using System;
+
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -19,7 +22,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///     the nominal effect by a method, because of
     ///     security reasons.
     /// </summary>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class SecurityException : ApplicationException
     {
         public SecurityException()
@@ -36,9 +41,11 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
+#if NETSTANDARD2_0
         protected SecurityException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
     }
 }

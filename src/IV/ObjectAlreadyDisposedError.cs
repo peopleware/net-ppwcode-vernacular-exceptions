@@ -10,14 +10,19 @@
 // limitations under the License.
 
 using System;
+
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
     /// <summary>
     ///     <see cref="ObjectDisposedException" />
     /// </summary>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class ObjectAlreadyDisposedError : ProgrammingError
     {
         public ObjectAlreadyDisposedError()
@@ -34,9 +39,11 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
+#if NETSTANDARD2_0
         protected ObjectAlreadyDisposedError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
     }
 }

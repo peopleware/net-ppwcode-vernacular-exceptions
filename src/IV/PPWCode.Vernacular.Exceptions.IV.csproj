@@ -11,9 +11,4 @@
     <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
-  </ItemGroup>
-
 </Project>

@@ -82,6 +82,8 @@
       <![CDATA[
 1.0.0 Initial release
 1.1.0 Upgrading dependencies, Target .net core 3.1, .net 5.0, .net 6.0
+1.2.0 Upgrading dependencies, Target .net 6.0, .net 8.0
+      Remove support for .net core 3.1, .net 5.0 
       ]]>
     </PackageReleaseNotes>
 

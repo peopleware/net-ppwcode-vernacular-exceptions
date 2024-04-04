@@ -36,6 +36,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
+#if NET8_0_OR_GREATER
+        [Obsolete(DiagnosticId = "SYSLIB0051")] // add this attribute to the serialization ctor
+#endif
         protected ImmutableError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

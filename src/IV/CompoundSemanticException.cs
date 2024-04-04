@@ -50,6 +50,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
             Set = new HashSet<SemanticException>();
         }
 
+#if NET8_0_OR_GREATER
+        [Obsolete(DiagnosticId = "SYSLIB0051")] // add this attribute to the serialization ctor
+#endif
         private CompoundSemanticException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

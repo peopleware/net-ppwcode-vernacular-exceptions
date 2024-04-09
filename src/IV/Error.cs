@@ -1,4 +1,4 @@
-﻿// Copyright 2019 by PeopleWare n.v..
+﻿// Copyright 2024 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -10,9 +10,9 @@
 // limitations under the License.
 
 using System;
+#if NETSTANDARD2_0
 using System.Runtime.Serialization;
-
-using JetBrains.Annotations;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -89,7 +89,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         this code.
     ///     </para>
     /// </remarks>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public class Error : Exception
     {
         public Error()
@@ -106,9 +108,11 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
-        protected Error([NotNull] SerializationInfo info, StreamingContext context)
+#if NETSTANDARD2_0
+        protected Error(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
     }
 }

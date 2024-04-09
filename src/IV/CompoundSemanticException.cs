@@ -1,4 +1,4 @@
-﻿// Copyright 2019 by PeopleWare n.v..
+﻿// Copyright 2024 by PeopleWare n.v..
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -9,12 +9,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
+#if NETSTANDARD2_0
+using System;
+using System.Runtime.Serialization;
+#endif
 
 namespace PPWCode.Vernacular.Exceptions.IV
 {
@@ -35,7 +37,9 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         <see cref="IsEmpty" />.
     ///     </para>
     /// </remarks>
+#if NETSTANDARD2_0
     [Serializable]
+#endif
     public sealed class CompoundSemanticException : SemanticException
     {
         public CompoundSemanticException()
@@ -50,10 +54,12 @@ namespace PPWCode.Vernacular.Exceptions.IV
             Set = new HashSet<SemanticException>();
         }
 
+#if NETSTANDARD2_0
         private CompoundSemanticException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+#endif
 
         /// <summary>
         ///     The element exceptions of this compound exception.

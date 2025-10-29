@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\PPWCode.Util.Validation.IV\PPWCode.Util.Validation.IV.csproj"/>
+      <ProjectReference Include="..\V\PPWCode.Vernacular.Exceptions.V.csproj" />
     </ItemGroup>
 
 </Project>

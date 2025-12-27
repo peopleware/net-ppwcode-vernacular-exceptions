@@ -1,29 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+    <Import Project="..\common-tests.props"/>
+
     <PropertyGroup>
-        <!-- target frameworks -->
-        <TargetFrameworks>net60;net80</TargetFrameworks>
-
-        <!-- nuget package -->
-        <IsPackable>false</IsPackable>
-
-        <!-- Stylecop -->
-        <CodeAnalysisRuleSet>..\StyleCop-Tests.ruleset</CodeAnalysisRuleSet>
-
-        <IsTestProject>true</IsTestProject>
+        <!-- Target frameworks -->
+        <TargetFrameworks>net8.0;net9.0;net10.0;net462;net47;net471;net472;net48;net481</TargetFrameworks>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-        <PackageReference Include="NUnit" Version="4.1.0" />
-        <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-
-        <!-- logger for test report in junit format -->
-        <PackageReference Include="JUnitTestLogger" Version="1.1.0" />
-
-        <!-- logger for test report in nunit format -->
-        <PackageReference Include="NunitXml.TestLogger" Version="3.1.20" />
-    </ItemGroup>
+    <PropertyGroup Condition="'$(OS)' != 'Windows_NT' And $(ContinuousIntegrationBuild) == 'true' ">
+        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\IV\PPWCode.Vernacular.Exceptions.IV.csproj" />

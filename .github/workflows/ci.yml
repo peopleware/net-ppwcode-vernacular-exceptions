@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: [ "IV/next" ]
+  pull_request:
+    branches: [ "IV/next" ]
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    permissions:
+      checks: write
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            name-suffix: 'Linux'
+          - os: macos-latest
+            name-suffix: 'macOS'
+          - os: windows-latest
+            name-suffix: 'Windows'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Restore dependencies
+        shell: bash
+        # do not add ContinuousIntegrationBuild here
+        # since it will complain about the package lock file
+        # ContinuousIntegrationBuild=true excludes full-framework
+        # builds on Linux and macOS
+        run: |
+          dotnet restore PPWCode.Vernacular.Exceptions.sln \
+            -p:Configuration=Release
+
+      - name: Build
+        shell: bash
+        run: |
+          dotnet build PPWCode.Vernacular.Exceptions.sln \
+            --configuration Release \
+            --no-restore \
+            -p:ContinuousIntegrationBuild=true
+
+      - name: Test
+        shell: bash
+        run: |
+          dotnet test PPWCode.Vernacular.Exceptions.sln \
+            --configuration Release \
+            --no-build \
+            --verbosity normal \
+            --logger "trx;LogFileName=test-results.trx" \
+            --collect:"XPlat Code Coverage" \
+            --results-directory ./coverage \
+            -p:ContinuousIntegrationBuild=true
+
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Test Results (${{ matrix.name-suffix }})
+          path: '**/test-results.trx'
+          reporter: dotnet-trx
+          fail-on-error: true
+
+      - name: Generate Coverage Report
+        if: always()
+        shell: bash
+        run: |
+          dotnet tool install -g dotnet-reportgenerator-globaltool
+          reportgenerator \
+            -reports:"coverage/**/coverage.cobertura.xml" \
+            -targetdir:"coveragereport" \
+            -reporttypes:"Cobertura"
+
+      - name: Publish Coverage Report
+        uses: 5monkeys/cobertura-action@master
+        if: always()
+        with:
+          path: 'coveragereport/Cobertura.xml'
+          minimum_coverage: 0
+          fail_below_threshold: false
+          show_line: false
+          show_branch: false
+          report_name: Code Coverage (${{ matrix.name-suffix }})

@@ -1,0 +1,190 @@
+name: Publish to NuGet
+
+on:
+  push:
+    tags:
+      - 'IV/[0-9]+.[0-9]+.[0-9]+'
+      - 'IV/[0-9]+.[0-9]+.[0-9]+-*'
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    permissions:
+      checks: write
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            name-suffix: 'Linux'
+          - os: macos-latest
+            name-suffix: 'macOS'
+          - os: windows-latest
+            name-suffix: 'Windows'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Restore dependencies
+        shell: bash
+        # do not add ContinuousIntegrationBuild here
+        # since it will complain about the package lock file
+        # ContinuousIntegrationBuild=true excludes full-framework
+        # builds on Linux and macOS
+        run: |
+          dotnet restore PPWCode.Vernacular.Exceptions.sln \
+            -p:Configuration=Release
+
+      - name: Build
+        shell: bash
+        run: |
+          dotnet build PPWCode.Vernacular.Exceptions.sln \
+            --configuration Release \
+            --no-restore \
+            -p:ContinuousIntegrationBuild=true
+
+      - name: Test
+        shell: bash
+        run: |
+          dotnet test PPWCode.Vernacular.Exceptions.sln \
+            --configuration Release \
+            --no-build \
+            --verbosity normal \
+            --logger "trx;LogFileName=test-results.trx" \
+            --collect:"XPlat Code Coverage" \
+            --results-directory ./coverage \
+            -p:ContinuousIntegrationBuild=true
+
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Test Results (${{ matrix.name-suffix }})
+          path: '**/test-results.trx'
+          reporter: dotnet-trx
+          fail-on-error: true
+
+      - name: Generate Coverage Report
+        if: always()
+        shell: bash
+        run: |
+          dotnet tool install -g dotnet-reportgenerator-globaltool
+          reportgenerator \
+            -reports:"coverage/**/coverage.cobertura.xml" \
+            -targetdir:"coveragereport" \
+            -reporttypes:"Cobertura"
+
+      - name: Publish Coverage Report
+        uses: 5monkeys/cobertura-action@master
+        if: always()
+        with:
+          path: 'coveragereport/Cobertura.xml'
+          minimum_coverage: 0
+          fail_below_threshold: false
+          show_line: false
+          show_branch: false
+          report_name: Code Coverage (${{ matrix.name-suffix }})
+
+  publish:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: get_version
+        run: |
+          # Extract full tag (e.g., I/1.2.3 or II/2.0.0-beta1)
+          FULL_TAG=${GITHUB_REF#refs/tags/}
+          
+          # Validate tag format with roman numeral prefix
+          if [[ ! $FULL_TAG =~ ^[IVX]+/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
+            echo "ERROR: Tag '$FULL_TAG' does not match format {ROMAN}/{VERSION}"
+            echo "Expected format: I/1.2.3 or II/2.0.0-beta1"
+            exit 1
+          fi
+          
+          # Extract version part (strip roman numeral prefix)
+          VERSION=${FULL_TAG#*/}
+          
+          # Extract commit hash (short)
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          
+          # Extract major version for AssemblyVersion (e.g., 1.2.3 -> 1.0.0.0)
+          if [[ $VERSION =~ ^([0-9]+) ]]; then
+            ASSEMBLY_VERSION="${BASH_REMATCH[1]}.0.0.0"
+          fi
+          
+          # InformationalVersion = semantic version + commit hash
+          INFORMATIONAL_VERSION="${VERSION}+${COMMIT_HASH}"
+          
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "assembly_version=$ASSEMBLY_VERSION" >> $GITHUB_OUTPUT
+          echo "informational_version=$INFORMATIONAL_VERSION" >> $GITHUB_OUTPUT
+          echo "Using tag: $FULL_TAG"
+          echo "Version: $VERSION"
+          echo "AssemblyVersion: $ASSEMBLY_VERSION"
+          echo "InformationalVersion: $INFORMATIONAL_VERSION"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Restore dependencies
+        shell: bash
+        # do not add ContinuousIntegrationBuild here
+        # since it will complain about the package lock file
+        # ContinuousIntegrationBuild=true excludes full-framework
+        # builds on Linux and macOS
+        run: |
+          dotnet restore PPWCode.Vernacular.Exceptions.sln \
+            -p:Configuration=Release
+
+      - name: Build
+        shell: bash
+        run: |
+          dotnet build PPWCode.Vernacular.Exceptions.sln \
+            --configuration Release \
+            --no-restore \
+            -p:ContinuousIntegrationBuild=true \
+            -p:Version=${{ steps.get_version.outputs.version }} \
+            -p:AssemblyVersion=${{ steps.get_version.outputs.assembly_version }} \
+            -p:InformationalVersion=${{ steps.get_version.outputs.informational_version }}
+
+      - name: Pack
+        shell: bash
+        run: |
+          dotnet pack PPWCode.Vernacular.Exceptions.sln \
+            --configuration Release \
+            --no-build \
+            --output ./artifacts \
+            -p:PackageVersion=${{ steps.get_version.outputs.version }}
+
+      - name: NuGet login (OIDC for temp api key)
+        uses: NuGet/login@v1
+        id: nuget_login
+        with:
+          user: ${{ secrets.PPWCODE_NUGET_USER }}
+
+      - name: Publish to NuGet
+        shell: bash
+        run: |
+          dotnet nuget push ./artifacts/*.nupkg \
+            --source https://api.nuget.org/v3/index.json \
+            --api-key "${{ steps.nuget_login.outputs.NUGET_API_KEY }}"

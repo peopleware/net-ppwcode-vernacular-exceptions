@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <!-- ... -->
+
+    <ItemGroup>
+        <!-- nuget package dependencies -->
+        <PackageReference Include="PPWCode.Vernacular.Exceptions.IV" Version="2.0.0" />
+    </ItemGroup>
+
+    <!-- ... -->
+</Project>

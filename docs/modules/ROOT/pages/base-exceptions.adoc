@@ -1,10 +1,10 @@
 = Base Exception Types
 
-The library provides a number of base exception classes that are intended to be used in a specific context.  Projects that use the `PPWCode` libraries typically introduce custom exceptions that derive from these base exceptions, or use the exceptions defined in this library directly.  Using these base exceptions types in the correct context has the benefit that other `PPWCode` libraries can also be used without requiring customisation.
+The library provides a number of base exception classes that are intended to be used in a specific context.  Projects that use the `PPWCode` libraries typically introduce custom exceptions that derive from these base exceptions, or use the exceptions defined in this library directly.  Using these base exception types in the correct context has the benefit that other `PPWCode` libraries can also be used without requiring customisation.
 
 [NOTE]
 ====
-As we will describe further on in the text, using the correct execption (base) types makes it easier to triage thrown exceptions.  It also makes it easier to have common code, for example to triage exceptions and translate them into an HTTP status code in an `Asp.NET Core` application.
+As we will describe further on in the text, using the correct exception (base) types makes it easier to triage thrown exceptions.  It also makes it easier to have common code, for example to triage exceptions and translate them into an HTTP status code in an `Asp.NET Core` application.
 ====
 
 The important base exception types are the following:
@@ -30,7 +30,7 @@ Note that exceptions of type `Error` always indicate a problem with the system a
 
 [TIP]
 ====
-Instead directly throwing `ProgrammingError` exceptions, one could use the library `PPWCode.Vernacular.Contracts.I` that contains helper code to express assumptions inside your code in a _Design By Contract_ style with preconditions, postconditions, invariants and assertions.  See *xref:ppwcode-vernacular-contracts-i:ROOT:index.adoc[PPWCode.Vernacular.Contracts.I].
+Instead of directly throwing `ProgrammingError` exceptions, you could use the library `PPWCode.Vernacular.Contracts.I` that contains helper code to express assumptions inside your code in a _Design By Contract_ style with preconditions, postconditions, invariants and assertions.  See xref:ppwcode-vernacular-contracts-i:ROOT:index.adoc[PPWCode.Vernacular.Contracts.I].
 ====
 
 === `ExternalError`
@@ -44,8 +44,8 @@ A typical example is the unavailability of a REST service required by the applic
 
 `SemanticException` is used for business exceptions.  These are typically used for (user) input that cannot be handled by the application.
 
-Exceptions of type `SemanticException` typically indicate a problem with the input and the target audience for these exceptions is the user base of the application.  Often a translaction mechanism must be implemented for these exceptions to present them in a human-readable form to the user.
+Exceptions of type `SemanticException` typically indicate a problem with the input and the target audience for these exceptions is the user base of the application.  Often a translation mechanism must be implemented for these exceptions to present them in a human-readable form to the user.
 
 === `CompoundSemanticException`
 
-`CompoundSemanticException` is a collection of `SemanticException` and is used to bundle all `SemanticException`s for a given input into one exception.
+`CompoundSemanticException` is a collection of `SemanticException` instances and is used to bundle all `SemanticException`s for a given input into one exception.

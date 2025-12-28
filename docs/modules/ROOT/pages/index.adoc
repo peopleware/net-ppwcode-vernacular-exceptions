@@ -4,7 +4,7 @@ The library `PPWCode.Vernacular.Exceptions.IV` is part of the .NET PPWCode proje
 
 `PPWCode.Vernacular.Exceptions.IV` is a helper library that defines a number of base `Exception` classes.  This is generation (or Mark) `IV` of the `PPWCode.Vernacular.Exceptions` library.
 
-The library supports both different versions of .NET full framework and more recent .NET SDKs.
+The library supports both different versions of .NET full framework and more recent (supported) .NET SDKs.
 
 
 == Development
@@ -16,7 +16,7 @@ Releases (both stable and pre-release) are published as https://www.nuget.org[Nu
 
 == License and Copyright
 
-Copyright 2022–2025 by *xref:ppwcode-net:ROOT:peopleware.adoc[PeopleWare].
+Copyright 2022–2025 by xref:ppwcode-net:ROOT:peopleware.adoc[PeopleWare].
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

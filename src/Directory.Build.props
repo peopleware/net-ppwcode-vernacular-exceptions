@@ -14,7 +14,7 @@
 
     <!-- nuget package -->
     <PropertyGroup>
-        <Description>The PPWCode Vernacular Exception library version IV.</Description>
+        <Description>The PPWCode Vernacular Exception library version V.</Description>
         <Product>PPWCode</Product>
         <Authors>dvdwouwe;rvdginste</Authors>
         <Company>Peopleware NV</Company>

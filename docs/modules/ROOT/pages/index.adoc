@@ -1,17 +1,19 @@
 = About
 
-The library `PPWCode.Vernacular.Exceptions.IV` is part of the .NET PPWCode project and encapsulates the _vernacular_ on exceptions.
+The library `PPWCode.Vernacular.Exceptions.V` is part of the .NET PPWCode project and encapsulates the _vernacular_ on exceptions.
 
-`PPWCode.Vernacular.Exceptions.IV` is a helper library that defines a number of base `Exception` classes.  This is generation `IV` of the `PPWCode.Vernacular.Exceptions` library.
+`PPWCode.Vernacular.Exceptions.V` is a helper library that defines a number of base `Exception` classes.  This is generation `V` of the `PPWCode.Vernacular.Exceptions` library.
 
-The library supports both different versions of .NET full framework and more recent (supported) .NET SDKs.
+The library supports only recent (supported) .NET SDKs.
+
+Generation `IV` can be used if support for .NET full framework is needed.
 
 
 == Development
 
-Development of the PPWCode is done on https://github.com/peopleware/net-ppwcode-vernacular-exceptions/tree/IV/next[GitHub].
+Development of the PPWCode is done on https://github.com/peopleware/net-ppwcode-vernacular-exceptions/tree/V/next[GitHub].
 
-Releases (both stable and pre-release) are published on https://www.nuget.org/packages/PPWCode.Vernacular.Exceptions.IV/[NuGet] by https://www.nuget.org/profiles/PeopleWare[PeopleWare].
+Releases (both stable and pre-release) are published on https://www.nuget.org/packages/PPWCode.Vernacular.Exceptions.V/[NuGet] by https://www.nuget.org/profiles/PeopleWare[PeopleWare].
 
 
 == License and Copyright

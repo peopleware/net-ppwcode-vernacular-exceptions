@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "IV/next" ]
+    branches: [ "V/next" ]
   pull_request:
-    branches: [ "IV/next" ]
+    branches: [ "V/next" ]
 
 jobs:
   build-and-test:
@@ -35,13 +35,10 @@ jobs:
 
       - name: Restore dependencies
         shell: bash
-        # do not add ContinuousIntegrationBuild here
-        # since it will complain about the package lock file
-        # ContinuousIntegrationBuild=true excludes full-framework
-        # builds on Linux and macOS
         run: |
           dotnet restore PPWCode.Vernacular.Exceptions.sln \
-            -p:Configuration=Release
+            -p:Configuration=Release \
+            -p:ContinuousIntegrationBuild=true
 
       - name: Build
         shell: bash

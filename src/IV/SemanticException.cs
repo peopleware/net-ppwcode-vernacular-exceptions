@@ -11,7 +11,7 @@
 
 using System;
 using System.Diagnostics.Contracts;
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
 using System.Runtime.Serialization;
 #endif
 
@@ -22,7 +22,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///     not be reached, because doing so under the given circumstances would violate semantics
     ///     (often type invariants).
     /// </summary>
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
     [Serializable]
 #endif
     public class SemanticException : ApplicationException
@@ -41,7 +41,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
         protected SemanticException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
 using System;
 using System.Runtime.Serialization;
 #endif
@@ -37,7 +37,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         <see cref="IsEmpty" />.
     ///     </para>
     /// </remarks>
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
     [Serializable]
 #endif
     public sealed class CompoundSemanticException : SemanticException
@@ -54,7 +54,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
             Set = new HashSet<SemanticException>();
         }
 
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
         private CompoundSemanticException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

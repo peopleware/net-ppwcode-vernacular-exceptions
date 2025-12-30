@@ -10,7 +10,7 @@
 // limitations under the License.
 
 using System;
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
 using System.Runtime.Serialization;
 #endif
 
@@ -42,7 +42,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         to the developers.
     ///     </para>
     /// </remarks>
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
     [Serializable]
 #endif
     public class ProgrammingError : Error
@@ -65,7 +65,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
         protected ProgrammingError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

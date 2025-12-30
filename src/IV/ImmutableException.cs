@@ -10,7 +10,7 @@
 // limitations under the License.
 
 using System;
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
 using System.Runtime.Serialization;
 #endif
 
@@ -23,7 +23,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
     /// <remarks>
     ///     MUDO This class is named wrong. Should be changed to Immutable_Error_. Create a new class, and deprecate this.
     /// </remarks>
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
     [Serializable]
 #endif
     [Obsolete("Use ImmutableError instead")]
@@ -44,7 +44,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
         protected ImmutableException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

@@ -10,7 +10,7 @@
 // limitations under the License.
 
 using System;
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
 using System.Runtime.Serialization;
 #endif
 
@@ -20,7 +20,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///     The method that throws this error is a mutating method, flagged not to be used, because the instance is flagged
     ///     as immutable.
     /// </summary>
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
     [Serializable]
 #endif
     public class ImmutableError : ProgrammingError
@@ -40,7 +40,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
         {
         }
 
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
         protected ImmutableError(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

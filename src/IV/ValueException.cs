@@ -11,7 +11,7 @@
 
 using System;
 using System.Diagnostics.Contracts;
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
 using System.Runtime.Serialization;
 #endif
 
@@ -43,7 +43,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         original value then.
     ///     </para>
     /// </remarks>
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
     [Serializable]
 #endif
     public class ValueException : PropertyException
@@ -74,7 +74,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
             NewValue = newValue;
         }
 
-#if NETSTANDARD2_0
+#if NETSTANDARD2_0 || NET462_OR_GREATER
         protected ValueException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

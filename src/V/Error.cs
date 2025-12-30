@@ -9,12 +9,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-#if NETSTANDARD2_0
-using System.Runtime.Serialization;
-#endif
-
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     An <c>Error</c> signals undefined behavior of code, and thus that the application is in an undefined state. The
@@ -23,8 +18,8 @@ namespace PPWCode.Vernacular.Exceptions.IV
     /// <remarks>
     ///     <para>
     ///         An error signals undefined behavior of code, and thus that the application is in an undefined state.
-    ///         From now on, none of the reasonings, proofs, or tests done to make sure any code behaves correctly is valid
-    ///         anymore, because all reasonings, proofs or tests started from a defined state. The execution context must
+    ///         From now on, none of the logic, proofs, or tests done to make sure any code behaves correctly is valid
+    ///         anymore, because all logic, proofs or tests started from a defined state. The execution context must
     ///         stop immediately to prevent further harm, and notify appropriate people.
     ///     </para>
     ///     <para>
@@ -89,30 +84,11 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         this code.
     ///     </para>
     /// </remarks>
-#if NETSTANDARD2_0
-    [Serializable]
-#endif
     public class Error : Exception
     {
-        public Error()
-        {
-        }
-
-        public Error(string message)
-            : base(message)
-        {
-        }
-
-        public Error(string message, Exception innerException)
+        public Error(string? message = null, Exception? innerException = null)
             : base(message, innerException)
         {
         }
-
-#if NETSTANDARD2_0
-        protected Error(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
     }
 }

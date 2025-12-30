@@ -9,46 +9,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-#if NETSTANDARD2_0
-using System.Runtime.Serialization;
-#endif
-
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     The method that throws this error is a mutating method, flagged not to be used, because the instance is flagged
     ///     as immutable.
     /// </summary>
-    /// <remarks>
-    ///     MUDO This class is named wrong. Should be changed to Immutable_Error_. Create a new class, and deprecate this.
-    /// </remarks>
-#if NETSTANDARD2_0
-    [Serializable]
-#endif
-    [Obsolete("Use ImmutableError instead")]
-    public class ImmutableException : ProgrammingError
+    public class ImmutableError : ProgrammingError
     {
-        public ImmutableException()
-            : base(UnspecifiedProgrammingErrorMessage)
-        {
-        }
-
-        public ImmutableException(string message)
-            : base(message ?? UnspecifiedProgrammingErrorMessage)
-        {
-        }
-
-        public ImmutableException(string message, Exception innerException)
+        public ImmutableError(string? message = null, Exception? innerException = null)
             : base(message ?? (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage), innerException)
         {
         }
-
-#if NETSTANDARD2_0
-        protected ImmutableException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
     }
 }

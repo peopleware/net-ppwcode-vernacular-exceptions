@@ -9,16 +9,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
 using System.Text;
-#if NETSTANDARD2_0
-using System;
-using System.Runtime.Serialization;
-#endif
 
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     Vehicle for communicating more than one <see cref="SemanticException" />
@@ -37,56 +31,23 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         <see cref="IsEmpty" />.
     ///     </para>
     /// </remarks>
-#if NETSTANDARD2_0
-    [Serializable]
-#endif
     public sealed class CompoundSemanticException : SemanticException
     {
-        public CompoundSemanticException()
-            : base(null, null)
-        {
-            Set = new HashSet<SemanticException>();
-        }
+        private readonly ISet<SemanticException> _set = new HashSet<SemanticException>();
 
-        public CompoundSemanticException(string message)
+        public CompoundSemanticException(string? message = null)
             : base(message)
         {
-            Set = new HashSet<SemanticException>();
-        }
-
-#if NETSTANDARD2_0
-        private CompoundSemanticException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
-
-        /// <summary>
-        ///     The element exceptions of this compound exception.
-        /// </summary>
-        /// <remarks>
-        ///     <para>
-        ///         <see cref="Count" /> provides a little expensive
-        ///         way to find out how many exceptions there are in the set.
-        ///         <see cref="IsEmpty" /> provides a little expensive
-        ///         way to find out if there are any elements in the
-        ///         set.
-        ///     </para>
-        /// </remarks>
-        private HashSet<SemanticException> Set
-        {
-            get => Data["Set"] as HashSet<SemanticException>;
-            set => Data["Set"] = value;
         }
 
         /// <summary>
         ///     There are no element exceptions in <see cref="Elements" />.
         /// </summary>
         public bool IsEmpty
-            => !Set.Any();
+            => !_set.Any();
 
         /// <summary>
-        ///     The element exceptions of this compound exception.
+        ///     The element exceptions to this compound exception.
         /// </summary>
         /// <remarks>
         ///     <para>
@@ -98,13 +59,13 @@ namespace PPWCode.Vernacular.Exceptions.IV
         ///     </para>
         /// </remarks>
         public ICollection<SemanticException> Elements
-            => Set.ToArray();
+            => _set.ToArray();
 
         /// <summary>
         ///     The number of <see cref="Elements">element exceptions</see>.
         /// </summary>
         public int Count
-            => Set.Count;
+            => _set.Count;
 
         /// <summary>
         ///     No more <see cref="Elements">element exceptions</see>
@@ -117,7 +78,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
         public bool Closed
         {
             get => (Data["Closed"] as bool?).GetValueOrDefault();
-            set => Data["Closed"] = value;
+            private set => Data["Closed"] = value;
         }
 
         /// <summary>
@@ -143,7 +104,19 @@ namespace PPWCode.Vernacular.Exceptions.IV
             }
             else
             {
-                Set.Add(exception);
+                _set.Add(exception);
+            }
+        }
+
+        /// <summary>
+        ///     Add all semantic exceptions given by, <paramref name="ces" />, to <see cref="Elements" />.
+        /// </summary>
+        /// <param name="ces">The exceptions that must be added.</param>
+        public void AddElements(IEnumerable<SemanticException> ces)
+        {
+            foreach (SemanticException ce in ces)
+            {
+                AddElement(ce);
             }
         }
 
@@ -159,7 +132,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
         [Pure]
         public bool ContainsElement(SemanticException exception)
         {
-            return Set.Any(x => x.Like(exception));
+            return _set.Any(x => x.Like(exception));
         }
 
         /// <summary>
@@ -172,25 +145,19 @@ namespace PPWCode.Vernacular.Exceptions.IV
         ///     A boolean indicating whether <see cref="CompoundSemanticException">this</see>
         ///     and <paramref name="other" /> are alike.
         /// </returns>
-        public override bool Like(SemanticException other)
-        {
-            if (!base.Like(other))
-            {
-                return false;
-            }
-
-            CompoundSemanticException ce = (CompoundSemanticException)other;
-            return (ce.Elements.Count == Elements.Count)
-                   && Elements.All(x => ce.Elements.Any(x.Like))
-                   && ce.Elements.All(x => Elements.Any(x.Like));
-        }
+        public override bool Like(SemanticException? other)
+            => base.Like(other)
+               && other is CompoundSemanticException e
+               && (e.Elements.Count == Elements.Count)
+               && Elements.All(x => e.Elements.Any(x.Like))
+               && e.Elements.All(x => Elements.Any(x.Like));
 
         public override string ToString()
         {
             try
             {
-                StringBuilder sb = new StringBuilder(1024);
-                foreach (SemanticException se in Set)
+                StringBuilder sb = new(1024);
+                foreach (SemanticException se in _set)
                 {
                     sb.AppendLine(se.ToString());
                 }

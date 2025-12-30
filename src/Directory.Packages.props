@@ -18,28 +18,12 @@
 
     <!-- package versions -->
     <ItemGroup>
-        <!-- jetbrains -->
-        <PackageVersion Include="JetBrains.Annotations" Version="2025.2.4" />
-
         <!-- nunit -->
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
         <PackageVersion Include="NUnit" Version="4.4.0" />
         <PackageVersion Include="NUnit3TestAdapter" Version="6.0.1" />
         <PackageVersion Include="JunitXml.TestLogger" Version="7.1.0" />
         <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-
-        <!-- .net full framework reference assemblies -->
-        <!-- these are explicitly added to avoid issues with cross-platform package lock files -->
-        <!-- https://github.com/NuGet/Home/issues/9195 -->
-        <!-- https://github.com/NuGet/Home/issues/10456 -->
-        <!-- https://github.com/dotnet/sdk/issues/26505 -->
-        <PackageVersion Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" />
-        <PackageVersion Include="Microsoft.NETFramework.ReferenceAssemblies.net462" Version="1.0.3" />
-        <PackageVersion Include="Microsoft.NETFramework.ReferenceAssemblies.net47" Version="1.0.3" />
-        <PackageVersion Include="Microsoft.NETFramework.ReferenceAssemblies.net471" Version="1.0.3" />
-        <PackageVersion Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.3" />
-        <PackageVersion Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" />
-        <PackageVersion Include="Microsoft.NETFramework.ReferenceAssemblies.net481" Version="1.0.3" />
 
         <!-- analyzers -->
         <PackageVersion Include="NUnit.Analyzers" Version="4.11.2" />

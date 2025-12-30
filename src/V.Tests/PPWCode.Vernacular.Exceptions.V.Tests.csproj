@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\common-tests.props"/>
+
+    <ItemGroup>
+      <ProjectReference Include="..\V\PPWCode.Vernacular.Exceptions.V.csproj" />
+    </ItemGroup>
+
+</Project>

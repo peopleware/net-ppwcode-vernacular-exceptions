@@ -9,13 +9,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
 using System.Diagnostics.Contracts;
-#if NETSTANDARD2_0
-using System.Runtime.Serialization;
-#endif
 
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     In many cases, a property exception is needed that reports the original value of the property.
@@ -43,84 +39,47 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         original value then.
     ///     </para>
     /// </remarks>
-#if NETSTANDARD2_0
-    [Serializable]
-#endif
     public class ValueException : PropertyException
     {
-        public ValueException()
-        {
-        }
-
-        public ValueException(string message)
-            : base(message)
-        {
-        }
-
-        public ValueException(string message, Exception innerException)
-            : base(message, innerException)
-        {
-        }
-
-        public ValueException(object sender, string propertyName, string message, Exception innerException)
-            : base(sender, propertyName, message, innerException)
-        {
-        }
-
-        public ValueException(object sender, string propertyName, object oldValue, object newValue, string message, Exception innerException)
+        public ValueException(
+            object sender,
+            string propertyName,
+            object? oldValue = null,
+            object? newValue = null,
+            string? message = null,
+            Exception? innerException = null)
             : base(sender, propertyName, message, innerException)
         {
             OldValue = oldValue;
             NewValue = newValue;
         }
 
-#if NETSTANDARD2_0
-        protected ValueException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
-
         /// <summary>
         ///     Contains the original value of the property.
         /// </summary>
-        public object OldValue
+        public object? OldValue
         {
             get => Data["OldValue"];
-            private set => Data["OldValue"] = value;
+            private init => Data["OldValue"] = value;
         }
 
         /// <summary>
         ///     Contains the value that could not be stored in the property.
         /// </summary>
-        public object NewValue
+        public object? NewValue
         {
             get => Data["NewValue"];
-            private set => Data["NewValue"] = value;
+            private init => Data["NewValue"] = value;
         }
 
         [Pure]
-        public override bool Like(SemanticException other)
-        {
-            if (!base.Like(other))
-            {
-                return false;
-            }
-
-            ValueException ve = (ValueException)other;
-            return Equals(ve.OldValue, OldValue) && Equals(ve.NewValue, NewValue);
-        }
+        public override bool Like(SemanticException? other)
+            => base.Like(other)
+               && other is ValueException ve
+               && Equals(ve.OldValue, OldValue)
+               && Equals(ve.NewValue, NewValue);
 
         public override string ToString()
-        {
-            try
-            {
-                return $"Fault {Message} for {PropertyName} old {OldValue} new {NewValue}.";
-            }
-            catch
-            {
-                return Message;
-            }
-        }
+            => $"Fault {Message} for {PropertyName} old {OldValue} new {NewValue}.";
     }
 }

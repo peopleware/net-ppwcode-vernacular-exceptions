@@ -9,44 +9,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
 using System.Diagnostics.Contracts;
-#if NETSTANDARD2_0
-using System.Runtime.Serialization;
-#endif
 
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     Super type for exceptions related to semantics: the nominal effect of a method could
     ///     not be reached, because doing so under the given circumstances would violate semantics
     ///     (often type invariants).
     /// </summary>
-#if NETSTANDARD2_0
-    [Serializable]
-#endif
     public class SemanticException : ApplicationException
     {
-        public SemanticException()
-        {
-        }
-
-        public SemanticException(string message)
-            : base(message)
-        {
-        }
-
-        public SemanticException(string message, Exception innerException)
+        public SemanticException(string? message = null, Exception? innerException = null)
             : base(message, innerException)
         {
         }
-
-#if NETSTANDARD2_0
-        protected SemanticException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
 
         /// <summary>
         ///     The <see cref="Exception.Message" /> can not be overridden
@@ -57,14 +34,6 @@ namespace PPWCode.Vernacular.Exceptions.IV
             => base.Message;
 
         /// <summary>
-        ///     Deprecated. Use <see cref="Message" /> instead.
-        /// </summary>
-        [Pure]
-        [Obsolete("ExceptionCode is deprecated. Use Message instead.")]
-        public virtual string ExceptionCode
-            => Message;
-
-        /// <summary>
         ///     This must be overridden and strengthened to include extra properties in subclasses.
         /// </summary>
         /// <param name="other">The <see cref="SemanticException" /> to compare against.</param>
@@ -73,7 +42,7 @@ namespace PPWCode.Vernacular.Exceptions.IV
         ///     and <paramref name="other" /> are alike.
         /// </returns>
         [Pure]
-        public virtual bool Like(SemanticException other)
+        public virtual bool Like(SemanticException? other)
         {
             if ((other == null) || (GetType() != other.GetType()))
             {

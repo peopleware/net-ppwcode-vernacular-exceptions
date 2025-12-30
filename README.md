@@ -8,8 +8,7 @@ For more information, see [PPWCode .NET Docs].
 ## PPWCode .NET
 
 Development of the PPWCode .NET libraries is done in [GitHub] repositories, and
-all releases (both stable and pre-release) are published as [NuGet] packages on
-the [NuGet Gallery].
+all releases (both stable and pre-release) are published on [NuGet].
 
 
 ## License and Copyright
@@ -34,7 +33,5 @@ limitations under the License.
 [PeopleWare]: http://www.peopleware.be
 
 [NuGet]: https://www.nuget.org
-
-[NuGet Gallery]: https://www.nuget.org/packages
 
 [PPWCode .NET Docs]: https://peopleware.github.io/net-ppwcode-docs

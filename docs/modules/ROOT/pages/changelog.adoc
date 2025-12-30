@@ -12,6 +12,16 @@ the link to the GitHub tag is only added once we are ready to release.
 :nuget: https://www.nuget.org/packages/PPWCode.Vernacular.Exceptions.IV/
 :ppwcode-docs: https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-iv/
 
+== `2.0.1`
+
+=== Release
+- link:{github}2.0.1[GitHub]
+- link:{nuget}2.0.1[NuGet]
+
+=== Fixes
+- Activate serializable for .net full framework builds (was only activated for `.NET standard 2.0` builds)
+
+
 == `2.0.0`
 
 === Release

@@ -13,7 +13,7 @@ all releases (both stable and pre-release) are published on [NuGet].
 
 ## License and Copyright
 
-Copyright 2022–2025 by [PeopleWare].
+Copyright 2014–2026 by [PeopleWare].
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

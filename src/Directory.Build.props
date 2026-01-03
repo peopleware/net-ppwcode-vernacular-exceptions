@@ -95,7 +95,7 @@ https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-iv/c
     <PropertyGroup>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <WarningLevel>4</WarningLevel>
-        <NoWarn>1591;1592;1573;1571;1570;1572;1701;1702;1705;</NoWarn>
+        <NoWarn>1591;1592;1573;1571;1570;1572;1701;1702;</NoWarn>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <ErrorReport>prompt</ErrorReport>
         <WarningsAsErrors/>

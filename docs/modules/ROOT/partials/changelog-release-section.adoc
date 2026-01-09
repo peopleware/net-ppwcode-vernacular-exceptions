@@ -1,0 +1,11 @@
+////
+Note: double empty lines at the end of the file is done on purpose!
+////
+
+=== Release
+
+* link:{github}{release}[GitHub]
+* link:{nuget}{release}[NuGet]
+
+
+// do not remove the preceding empty lines!

@@ -8,18 +8,19 @@ on:
 
 jobs:
   build-and-test:
+    name: Build & Test - ${{ matrix.name-suffix }}
     runs-on: ${{ matrix.os }}
     permissions:
       checks: write
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-2022]
         include:
           - os: ubuntu-latest
             name-suffix: 'Linux'
           - os: macos-latest
             name-suffix: 'macOS'
-          - os: windows-latest
+          - os: windows-2022
             name-suffix: 'Windows'
 
     steps:
@@ -58,17 +59,18 @@ jobs:
             --configuration Release \
             --no-build \
             --verbosity normal \
-            --logger "trx;LogFileName=test-results.trx" \
+            --logger "trx;LogFilePrefix=test-results" \
             --collect:"XPlat Code Coverage" \
             --results-directory ./coverage \
             -p:ContinuousIntegrationBuild=true
 
       - name: Publish Test Results
-        uses: dorny/test-reporter@v1
-        if: always()
+        uses: dorny/test-reporter@v2
+        if: ${{ !cancelled() }} # run this step even if previous step failed
         with:
-          name: Test Results (${{ matrix.name-suffix }})
-          path: '**/test-results.trx'
+          name: Test Results - ${{ matrix.name-suffix }}
+          report-title: Test Results - ${{ matrix.name-suffix }}
+          path: 'coverage/test-results_*_*.trx'
           reporter: dotnet-trx
           fail-on-error: true
 
@@ -78,27 +80,44 @@ jobs:
         run: |
           dotnet tool install -g dotnet-reportgenerator-globaltool
           reportgenerator \
-            -reports:"coverage/**/coverage.cobertura.xml" \
-            -targetdir:"coveragereport" \
-            -reporttypes:"Cobertura"
+            -reports:"coverage/*/coverage.cobertura.xml" \
+            -targetdir:"coveragereport-html" \
+            -reporttypes:"Html;MarkdownSummaryGithub" \
+            -title:"Coverage Report - ${{ matrix.name-suffix }}" \
+            -verbosity:Warning
 
-      - name: Publish Coverage Report
-        uses: 5monkeys/cobertura-action@master
+      - name: Add Coverage to Job Summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f coveragereport-html/SummaryGithub.md ]; then
+            # remove the "Summary -" prefix while we're at it
+            sed -e 's/^# Summary - \(.*\)$/# \1/' coveragereport-html/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload Coverage HTML Report
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          path: 'coveragereport/Cobertura.xml'
-          minimum_coverage: 0
-          fail_below_threshold: false
-          show_line: false
-          show_branch: false
-          report_name: Code Coverage (${{ matrix.name-suffix }})
+          name: coverage-report-html-${{ matrix.name-suffix }}
+          path: coveragereport-html/
+          retention-days: 30
+
+      - name: Upload Test and Coverage Raw Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-and-coverage-raw-${{ matrix.name-suffix }}
+          path: coverage/
+          retention-days: 30
 
   publish:
     needs: build-and-test
+    name: Release
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-      contents: read
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -108,35 +127,88 @@ jobs:
         run: |
           # Extract full tag (e.g., I/1.2.3 or II/2.0.0-beta1)
           FULL_TAG=${GITHUB_REF#refs/tags/}
-          
+
           # Validate tag format with roman numeral prefix
           if [[ ! $FULL_TAG =~ ^[IVX]+/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
             echo "ERROR: Tag '$FULL_TAG' does not match format {ROMAN}/{VERSION}"
             echo "Expected format: I/1.2.3 or II/2.0.0-beta1"
             exit 1
           fi
-          
+
           # Extract version part (strip roman numeral prefix)
           VERSION=${FULL_TAG#*/}
-          
+
           # Extract commit hash (short)
           COMMIT_HASH=$(git rev-parse --short HEAD)
-          
+
           # Extract major version for AssemblyVersion (e.g., 1.2.3 -> 1.0.0.0)
           if [[ $VERSION =~ ^([0-9]+) ]]; then
             ASSEMBLY_VERSION="${BASH_REMATCH[1]}.0.0.0"
           fi
-          
+
           # InformationalVersion = semantic version + commit hash
           INFORMATIONAL_VERSION="${VERSION}+${COMMIT_HASH}"
-          
+
+          # Detect if this is a pre-release version
+          if [[ $VERSION =~ - ]]; then
+            IS_PRERELEASE="true"
+          else
+            IS_PRERELEASE="false"
+          fi
+
+          # Extract major.minor.patch and create cleaned version string
+          if [[ $VERSION =~ ^([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+            MAJOR="${BASH_REMATCH[1]}"
+            MINOR="${BASH_REMATCH[2]}"
+            PATCH="${BASH_REMATCH[3]}"
+            VERSION_TRIMMED="${MAJOR}.${MINOR}.${PATCH}"
+            VERSION_CLEAN="_${MAJOR}_${MINOR}_${PATCH}"
+          else
+            VERSION_TRIMMED=""
+            VERSION_CLEAN=""
+          fi
+
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "version_trimmed=$VERSION_TRIMMED" >> $GITHUB_OUTPUT
           echo "assembly_version=$ASSEMBLY_VERSION" >> $GITHUB_OUTPUT
           echo "informational_version=$INFORMATIONAL_VERSION" >> $GITHUB_OUTPUT
+          echo "is_prerelease=$IS_PRERELEASE" >> $GITHUB_OUTPUT
+          echo "version_clean=$VERSION_CLEAN" >> $GITHUB_OUTPUT
           echo "Using tag: $FULL_TAG"
           echo "Version: $VERSION"
+          echo "Version trimmed: $VERSION_TRIMMED"
           echo "AssemblyVersion: $ASSEMBLY_VERSION"
           echo "InformationalVersion: $INFORMATIONAL_VERSION"
+          echo "Is pre-release: $IS_PRERELEASE"
+          echo "Version clean: $VERSION_CLEAN"
+
+      - name: Create release notes
+        id: create_release_notes
+        run: |
+          CHANGELOG_FILE="docs/modules/ROOT/partials/changelog-${{ steps.get_version.outputs.version_trimmed }}.adoc"
+          if [ ! -f "$CHANGELOG_FILE" ]; then
+            echo "ERROR: Changelog file '$CHANGELOG_FILE' not found."
+            exit 1
+          fi
+
+          # Convert AsciiDoc to Markdown using downdoc
+          npx downdoc "$CHANGELOG_FILE" -o release_notes.md
+
+          # Build the release body
+          {
+            cat release_notes.md
+            echo ""
+            echo ""
+            echo "<br />"
+            echo ""
+            echo "[View full changelog →](https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-iv/changelog.html#${{ steps.get_version.outputs.version_clean }})"
+          } > release_body.md
+
+      - name: Add Release Notes to Job Summary
+        run: |
+          if [ -f release_body.md ]; then
+            cat release_body.md >> $GITHUB_STEP_SUMMARY
+          fi
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -188,3 +260,39 @@ jobs:
           dotnet nuget push ./artifacts/*.nupkg \
             --source https://api.nuget.org/v3/index.json \
             --api-key "${{ steps.nuget_login.outputs.NUGET_API_KEY }}"
+
+      - name: Download all artifacts
+        if: steps.get_version.outputs.is_prerelease == 'false'
+        uses: actions/download-artifact@v4
+        with:
+          path: release-artifacts
+
+      - name: Create release ZIPs
+        if: steps.get_version.outputs.is_prerelease == 'false'
+        run: |
+          cd release-artifacts
+
+          # Zip test and coverage raw per OS
+          zip -r -9 PPWCode.Vernacular.Exceptions.IV-test-output-raw_Linux_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Linux/
+          zip -r -9 PPWCode.Vernacular.Exceptions.IV-test-output-raw_macOS_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-macOS/
+          zip -r -9 PPWCode.Vernacular.Exceptions.IV-test-output-raw_Windows_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Windows/
+
+          # Zip coverage HTML per OS
+          zip -r -9 PPWCode.Vernacular.Exceptions.IV-coverage-report-html_Linux_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Linux/
+          zip -r -9 PPWCode.Vernacular.Exceptions.IV-coverage-report-html_macOS_${{ steps.get_version.outputs.version }}.zip coverage-report-html-macOS/
+          zip -r -9 PPWCode.Vernacular.Exceptions.IV-coverage-report-html_Windows_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Windows/
+
+          # Zip all NuGet packages
+          cd ../artifacts
+          zip -r -9 ../release-artifacts/PPWCode.Vernacular.Exceptions.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip *.nupkg
+
+      - name: Create GitHub Release
+        if: steps.get_version.outputs.is_prerelease == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release-artifacts/*.zip
+          generate_release_notes: false
+          name: PPWCode.Vernacular.Exceptions.IV ${{ steps.get_version.outputs.version }}
+          body_path: release_body.md
+          fail_on_unmatched_files: true

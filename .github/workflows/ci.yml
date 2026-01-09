@@ -1,25 +1,26 @@
-name: CI
+name: Build & Test
 
 on:
   push:
-    branches: [ "IV/next" ]
+    branches: [ "IV/next", "IV/feature/*", "IV/bugfix/*" ]
   pull_request:
     branches: [ "IV/next" ]
 
 jobs:
   build-and-test:
+    name: Build & Test - ${{ matrix.name-suffix }}
     runs-on: ${{ matrix.os }}
     permissions:
       checks: write
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-2022]
         include:
           - os: ubuntu-latest
             name-suffix: 'Linux'
           - os: macos-latest
             name-suffix: 'macOS'
-          - os: windows-latest
+          - os: windows-2022
             name-suffix: 'Windows'
 
     steps:
@@ -58,17 +59,18 @@ jobs:
             --configuration Release \
             --no-build \
             --verbosity normal \
-            --logger "trx;LogFileName=test-results.trx" \
+            --logger "trx;LogFilePrefix=test-results" \
             --collect:"XPlat Code Coverage" \
             --results-directory ./coverage \
             -p:ContinuousIntegrationBuild=true
 
       - name: Publish Test Results
-        uses: dorny/test-reporter@v1
-        if: always()
+        uses: dorny/test-reporter@v2
+        if: ${{ !cancelled() }} # run this step even if previous step failed
         with:
-          name: Test Results (${{ matrix.name-suffix }})
-          path: '**/test-results.trx'
+          name: Test Results - ${{ matrix.name-suffix }}
+          report-title: Test Results - ${{ matrix.name-suffix }}
+          path: 'coverage/test-results_*_*.trx'
           reporter: dotnet-trx
           fail-on-error: true
 
@@ -78,17 +80,33 @@ jobs:
         run: |
           dotnet tool install -g dotnet-reportgenerator-globaltool
           reportgenerator \
-            -reports:"coverage/**/coverage.cobertura.xml" \
-            -targetdir:"coveragereport" \
-            -reporttypes:"Cobertura"
+            -reports:"coverage/*/coverage.cobertura.xml" \
+            -targetdir:"coveragereport-html" \
+            -reporttypes:"Html;MarkdownSummaryGithub" \
+            -title:"Coverage Report - ${{ matrix.name-suffix }}" \
+            -verbosity:Warning
 
-      - name: Publish Coverage Report
-        uses: 5monkeys/cobertura-action@master
+      - name: Add Coverage to Job Summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f coveragereport-html/SummaryGithub.md ]; then
+            # remove the "Summary -" prefix while we're at it
+            sed -e 's/^# Summary - \(.*\)$/# \1/' coveragereport-html/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload Coverage HTML Report
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          path: 'coveragereport/Cobertura.xml'
-          minimum_coverage: 0
-          fail_below_threshold: false
-          show_line: false
-          show_branch: false
-          report_name: Code Coverage (${{ matrix.name-suffix }})
+          name: coverage-report-html-${{ matrix.name-suffix }}
+          path: coveragereport-html/
+          retention-days: 30
+
+      - name: Upload Test and Coverage Raw Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-and-coverage-raw-${{ matrix.name-suffix }}
+          path: coverage/
+          retention-days: 30

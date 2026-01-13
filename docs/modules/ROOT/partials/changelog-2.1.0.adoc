@@ -1,0 +1,13 @@
+////
+The changelog for a specific release.
+Note that it is best to update the changelog as new code is developed.
+
+All attributes used, must be included in this file to keep it self-contained.
+
+This file is translated into markdown and used for the release notes in the GitHub release!
+////
+
+=== Features
+* Add refinements of `ProgrammingError` for use in backends that offer an external api
+** `InternalProgrammingError`, used for a programming error in the backend internally; in the context of an HTTP api this would result in response status code `500`
+** `ApiUsageError`, used for a programming error related to the usage of the external api; the api is called but the preconditions of the api call are not fullfilled; in the context of an HTTP api this would result in response status code `400`

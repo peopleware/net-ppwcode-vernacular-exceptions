@@ -34,6 +34,12 @@ jobs:
             9.0.x
             10.0.x
 
+      - name: Dotnet info
+        shell: bash
+        run: |
+          dotnet --version
+          dotnet --info
+
       - name: Restore dependencies
         shell: bash
         # do not add ContinuousIntegrationBuild here

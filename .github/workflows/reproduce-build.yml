@@ -1,0 +1,136 @@
+name: Reproduce Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'The existing tag of a release or pre-release (e.g., IV/2.0.0 or IV/2.0.0-beta1)'
+        required: true
+        type: string
+
+jobs:
+  # build on linux, just like a release build
+  build:
+    name: Reproduce release build
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+
+    steps:
+      - name: Checkout tag ${{ inputs.tag }}  
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+
+      - name: Extract version from tag
+        id: get_version
+        run: |
+          # Extract full tag (e.g., I/1.2.3 or II/2.0.0-beta1)
+          FULL_TAG=${{ inputs.tag }}
+
+          # Validate tag format with roman numeral prefix
+          if [[ ! $FULL_TAG =~ ^[IVX]+/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
+            echo "ERROR: Tag '$FULL_TAG' does not match format {ROMAN}/{VERSION}"
+            echo "Expected format: I/1.2.3 or II/2.0.0-beta1"
+            exit 1
+          fi
+
+          # Extract version part (strip roman numeral prefix)
+          VERSION=${FULL_TAG#*/}
+
+          # Extract commit hash (short)
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+
+          # Extract major version for AssemblyVersion (e.g., 1.2.3 -> 1.0.0.0)
+          if [[ $VERSION =~ ^([0-9]+) ]]; then
+            ASSEMBLY_VERSION="${BASH_REMATCH[1]}.0.0.0"
+          fi
+
+          # InformationalVersion = semantic version + commit hash
+          INFORMATIONAL_VERSION="${VERSION}+${COMMIT_HASH}"
+
+          # Detect if this is a pre-release version
+          if [[ $VERSION =~ - ]]; then
+            IS_PRERELEASE="true"
+          else
+            IS_PRERELEASE="false"
+          fi
+
+          # Extract major.minor.patch and create cleaned version string
+          if [[ $VERSION =~ ^([0-9]+)\.([0-9]+)\.([0-9]+) ]]; then
+            MAJOR="${BASH_REMATCH[1]}"
+            MINOR="${BASH_REMATCH[2]}"
+            PATCH="${BASH_REMATCH[3]}"
+            VERSION_TRIMMED="${MAJOR}.${MINOR}.${PATCH}"
+            VERSION_CLEAN="_${MAJOR}_${MINOR}_${PATCH}"
+          else
+            VERSION_TRIMMED=""
+            VERSION_CLEAN=""
+          fi
+
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "version_trimmed=$VERSION_TRIMMED" >> $GITHUB_OUTPUT
+          echo "assembly_version=$ASSEMBLY_VERSION" >> $GITHUB_OUTPUT
+          echo "informational_version=$INFORMATIONAL_VERSION" >> $GITHUB_OUTPUT
+          echo "is_prerelease=$IS_PRERELEASE" >> $GITHUB_OUTPUT
+          echo "version_clean=$VERSION_CLEAN" >> $GITHUB_OUTPUT
+          echo "Using tag: $FULL_TAG"
+          echo "Version: $VERSION"
+          echo "Version trimmed: $VERSION_TRIMMED"
+          echo "AssemblyVersion: $ASSEMBLY_VERSION"
+          echo "InformationalVersion: $INFORMATIONAL_VERSION"
+          echo "Is pre-release: $IS_PRERELEASE"
+          echo "Version clean: $VERSION_CLEAN"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Restore dependencies
+        shell: bash
+        # do not add ContinuousIntegrationBuild here
+        # since it will complain about the package lock file
+        # ContinuousIntegrationBuild=true excludes full-framework
+        # builds on Linux and macOS
+        run: |
+          dotnet restore PPWCode.Vernacular.Exceptions.sln \
+            -p:Configuration=Release
+
+      - name: Build
+        shell: bash
+        run: |
+          dotnet build PPWCode.Vernacular.Exceptions.sln \
+            --configuration Release \
+            --no-restore \
+            -p:ContinuousIntegrationBuild=true \
+            -p:Version=${{ steps.get_version.outputs.version }} \
+            -p:AssemblyVersion=${{ steps.get_version.outputs.assembly_version }} \
+            -p:InformationalVersion=${{ steps.get_version.outputs.informational_version }}
+
+      - name: Pack
+        shell: bash
+        run: |
+          dotnet pack PPWCode.Vernacular.Exceptions.sln \
+            --configuration Release \
+            --no-build \
+            --output ./artifacts \
+            -p:PackageVersion=${{ steps.get_version.outputs.version }}
+
+      - name: Create release ZIPs
+        run: |
+          mkdir release-artifacts
+
+          # Zip all NuGet packages
+          cd artifacts
+          zip -r -9 ../release-artifacts/PPWCode.Vernacular.Exceptions.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip *.nupkg
+
+      - name: Upload reproduced release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: PPWCode.Vernacular.Exceptions.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip
+          path: release-artifacts/PPWCode.Vernacular.Exceptions.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip
+          retention-days: 30

@@ -11,7 +11,7 @@ on:
 jobs:
   # build on linux, just like a release build
   build:
-    name: Reproduce release build
+    name: Reproduce release ${{ inputs.tag }}
     runs-on: ubuntu-latest
     permissions:
       checks: write

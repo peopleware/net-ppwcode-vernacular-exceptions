@@ -43,6 +43,7 @@ jobs:
         # builds on Linux and macOS
         run: |
           dotnet restore PPWCode.Vernacular.Exceptions.sln \
+            --locked-mode \
             -p:Configuration=Release
 
       - name: Build
@@ -228,6 +229,7 @@ jobs:
         # builds on Linux and macOS
         run: |
           dotnet restore PPWCode.Vernacular.Exceptions.sln \
+            --locked-mode \
             -p:Configuration=Release
 
       - name: Build

@@ -18,16 +18,7 @@ namespace PPWCode.Vernacular.Exceptions.V;
 /// </summary>
 public class InternalProgrammingError : ProgrammingError
 {
-    public InternalProgrammingError()
-    {
-    }
-
-    public InternalProgrammingError(string message)
-        : base(message)
-    {
-    }
-
-    public InternalProgrammingError(string message, Exception innerException)
+    public InternalProgrammingError(string? message = null, Exception? innerException = null)
         : base(message, innerException)
     {
     }

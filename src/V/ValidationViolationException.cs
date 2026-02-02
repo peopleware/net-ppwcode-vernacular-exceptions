@@ -25,12 +25,12 @@ public class ValidationViolationException : SemanticException
     public ValidationViolationException(IEnumerable<string> memberNames, string? errorMessage = null)
         : base(errorMessage)
     {
-        MemberNames = memberNames;
+        MemberNames = memberNames.ToArray();
     }
 
-    public IEnumerable<string> MemberNames
+    public string[] MemberNames
     {
-        get => (IEnumerable<string>)Data[MemberNameskey]!;
+        get => (string[])Data[MemberNameskey]!;
         init => Data[MemberNameskey] = value;
     }
 

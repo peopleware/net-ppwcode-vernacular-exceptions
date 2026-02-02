@@ -19,16 +19,7 @@ namespace PPWCode.Vernacular.Exceptions.V;
 /// </summary>
 public class ApiUsageError : ProgrammingError
 {
-    public ApiUsageError()
-    {
-    }
-
-    public ApiUsageError(string message)
-        : base(message)
-    {
-    }
-
-    public ApiUsageError(string message, Exception innerException)
+    public ApiUsageError(string? message = null, Exception? innerException = null)
         : base(message, innerException)
     {
     }

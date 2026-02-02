@@ -13,6 +13,11 @@ the link to the GitHub tag is only added once we are ready to release.
 :ppwcode-docs: https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/
 
 
+:release: 1.1.0
+== `{release}`
+include::partial$changelog-release-section.adoc[]
+include::partial$changelog-{release}.adoc[]
+
 
 :release: 1.0.0
 == `{release}`

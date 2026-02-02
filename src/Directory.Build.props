@@ -112,7 +112,7 @@ https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/ch
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <Optimize>false</Optimize>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <DefineConstants>DEBUG;TRACE;CONTRACTS_PRE;CONTRACTS_POST;CONTRACTS_INVARIANT;CONTRACTS_ASSERT</DefineConstants>
     </PropertyGroup>
 
     <!-- properties for release configuration -->
@@ -121,7 +121,7 @@ https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/ch
         <DebugSymbols>true</DebugSymbols>
         <DebugType>pdbonly</DebugType>
         <Optimize>true</Optimize>
-        <DefineConstants>TRACE</DefineConstants>
+        <DefineConstants>TRACE;CONTRACTS_PRE;CONTRACTS_POST;CONTRACTS_INVARIANT;CONTRACTS_ASSERT</DefineConstants>
     </PropertyGroup>
 
 </Project>

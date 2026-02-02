@@ -2,7 +2,7 @@
 
 == Add NuGet package
 
-This package is available on NuGet: https://www.nuget.org/packages/PPWCode.Vernacular.Exceptions.IV[PPWCode.Vernacular.Exceptions.IV].
+This package is available on NuGet: https://www.nuget.org/packages/PPWCode.Vernacular.Exceptions.V[PPWCode.Vernacular.Exceptions.V].
 
 You can use your IDE to add it as a dependency to your project, or manually add it in the `.csproj` file.  This would look similar to the following:
 
@@ -11,6 +11,6 @@ You can use your IDE to add it as a dependency to your project, or manually add 
 include::example$project.csproj[]
 ----
 
-After the package is added, you can use the exception classes from `PPWCode.Vernacular.Exceptions.IV` in your code.
+After the package is added, you can use the exception classes from `PPWCode.Vernacular.Exceptions.V` in your code.
 
 You could either use the exceptions as defined in the package directly, or create custom exceptions inside your code that derive from these exceptions.  See the section xref:base-exceptions.adoc[Base Exception Types] for more information about the base exceptions provided and their intended use.

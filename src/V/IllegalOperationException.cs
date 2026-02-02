@@ -9,41 +9,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-using System.Runtime.Serialization;
-#endif
-
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     Exception that signals a refusal to perform
     ///     the nominal effect by a method, because it is not allowed.
     /// </summary>
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-    [Serializable]
-#endif
     public class IllegalOperationException : SemanticException
     {
-        public IllegalOperationException()
-        {
-        }
-
-        public IllegalOperationException(string message)
-            : base(message)
-        {
-        }
-
-        public IllegalOperationException(string message, Exception innerException)
+        public IllegalOperationException(string? message = null, Exception? innerException = null)
             : base(message, innerException)
         {
         }
-
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-        protected IllegalOperationException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
     }
 }

@@ -9,42 +9,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-using System.Runtime.Serialization;
-#endif
-
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     Exception that signals a refusal to perform
     ///     the nominal effect by a method, because of
     ///     security reasons.
     /// </summary>
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-    [Serializable]
-#endif
     public class SecurityException : ApplicationException
     {
-        public SecurityException()
-        {
-        }
-
-        public SecurityException(string message)
-            : base(message)
-        {
-        }
-
-        public SecurityException(string message, Exception innerException)
+        public SecurityException(string? message = null, Exception? innerException = null)
             : base(message, innerException)
         {
         }
-
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-        protected SecurityException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
     }
 }

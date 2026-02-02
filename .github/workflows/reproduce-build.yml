@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'The existing tag of a release or pre-release (e.g., IV/2.0.0 or IV/2.0.0-beta1)'
+        description: 'The existing tag of a release or pre-release (e.g., V/2.0.0 or V/2.0.0-beta1)'
         required: true
         type: string
 
@@ -17,7 +17,7 @@ jobs:
       checks: write
 
     steps:
-      - name: Checkout tag ${{ inputs.tag }}  
+      - name: Checkout tag ${{ inputs.tag }}
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.tag }}
@@ -29,9 +29,9 @@ jobs:
           FULL_TAG=${{ inputs.tag }}
 
           # Validate tag format with roman numeral prefix
-          if [[ ! $FULL_TAG =~ ^[IVX]+/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
+          if [[ ! $FULL_TAG =~ ^V/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
             echo "ERROR: Tag '$FULL_TAG' does not match format {ROMAN}/{VERSION}"
-            echo "Expected format: I/1.2.3 or II/2.0.0-beta1"
+            echo "Expected format: V/1.2.3 or V/2.0.0-beta1"
             exit 1
           fi
 
@@ -128,11 +128,11 @@ jobs:
 
           # Zip all NuGet packages
           cd artifacts
-          zip -r -9 ../release-artifacts/PPWCode.Vernacular.Exceptions.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip *.nupkg
+          zip -r -9 ../release-artifacts/PPWCode.Vernacular.Exceptions.V-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip *.nupkg
 
       - name: Upload reproduced release artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: PPWCode.Vernacular.Exceptions.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip
-          path: release-artifacts/PPWCode.Vernacular.Exceptions.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip
+          name: PPWCode.Vernacular.Exceptions.V-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip
+          path: release-artifacts/PPWCode.Vernacular.Exceptions.V-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip
           retention-days: 30

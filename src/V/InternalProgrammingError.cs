@@ -9,42 +9,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-using System.Runtime.Serialization;
-#endif
-
-namespace PPWCode.Vernacular.Exceptions.IV;
+namespace PPWCode.Vernacular.Exceptions.V;
 
 /// <summary>
 ///     This subclass of <see cref="ProgrammingError" />
-///     indicates a programming error in the code that is calling the exposed REST api.
-///     This error typically means that the calling code is not following the contracts of
-///     the REST api and must be fixed.
+///     indicates a programming error inside this backend. This typically means that
+///     some internal code is breaking pre- or post-conditions, or invariants.
 /// </summary>
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-[Serializable]
-#endif
-public class ApiUsageError : ProgrammingError
+public class InternalProgrammingError : ProgrammingError
 {
-    public ApiUsageError()
+    public InternalProgrammingError()
     {
     }
 
-    public ApiUsageError(string message)
+    public InternalProgrammingError(string message)
         : base(message)
     {
     }
 
-    public ApiUsageError(string message, Exception innerException)
+    public InternalProgrammingError(string message, Exception innerException)
         : base(message, innerException)
     {
     }
-
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-    protected ApiUsageError(SerializationInfo info, StreamingContext context)
-        : base(info, context)
-    {
-    }
-#endif
 }

@@ -9,12 +9,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-using System.Runtime.Serialization;
-#endif
-
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     This error is thrown when a programming condition occurs, which we know can happen
@@ -42,34 +37,14 @@ namespace PPWCode.Vernacular.Exceptions.IV
     ///         to the developers.
     ///     </para>
     /// </remarks>
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-    [Serializable]
-#endif
     public class ProgrammingError : Error
     {
         protected const string ExceptionWithProgrammingCauseMessage = "An exception occured, which appears to be of a programming nature.";
         protected const string UnspecifiedProgrammingErrorMessage = "Could not continue due to an unspecified programming error.";
 
-        public ProgrammingError()
-            : base(UnspecifiedProgrammingErrorMessage)
-        {
-        }
-
-        public ProgrammingError(string message)
-            : base(message ?? UnspecifiedProgrammingErrorMessage)
-        {
-        }
-
-        public ProgrammingError(string message, Exception innerException)
+        public ProgrammingError(string? message = null, Exception? innerException = null)
             : base(message ?? (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage), innerException)
         {
         }
-
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-        protected ProgrammingError(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
     }
 }

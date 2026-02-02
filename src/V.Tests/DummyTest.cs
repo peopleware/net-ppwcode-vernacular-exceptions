@@ -11,7 +11,7 @@
 
 using NUnit.Framework;
 
-namespace PPWCode.Vernacular.Exceptions.IV.Tests
+namespace PPWCode.Vernacular.Exceptions.V.Tests
 {
     [TestFixture]
     public class DummyTest

@@ -8,5 +8,7 @@ This file is translated into markdown and used for the release notes in the GitH
 ////
 
 === Changes
-* Initial release of mark IV
-* Supported target: `.NET standard 2.0`
+* Initial release of mark V
+* Supported targets: `.NET 8.0`, `.NET 9.0`, `.NET 10.0`
+* Code built using nullable reference types
+* Use of Microsoft attributes for nullable static analysis

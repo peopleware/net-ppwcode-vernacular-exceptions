@@ -9,42 +9,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-using System.Runtime.Serialization;
-#endif
-
-namespace PPWCode.Vernacular.Exceptions.IV
+namespace PPWCode.Vernacular.Exceptions.V
 {
     /// <summary>
     ///     The method that throws this error is a mutating method, flagged not to be used, because the instance is flagged
     ///     as immutable.
     /// </summary>
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-    [Serializable]
-#endif
     public class ImmutableError : ProgrammingError
     {
-        public ImmutableError()
-            : base(UnspecifiedProgrammingErrorMessage)
-        {
-        }
-
-        public ImmutableError(string message)
-            : base(message ?? UnspecifiedProgrammingErrorMessage)
-        {
-        }
-
-        public ImmutableError(string message, Exception innerException)
+        public ImmutableError(string? message = null, Exception? innerException = null)
             : base(message ?? (innerException == null ? UnspecifiedProgrammingErrorMessage : ExceptionWithProgrammingCauseMessage), innerException)
         {
         }
-
-#if NETSTANDARD2_0 || NET462_OR_GREATER
-        protected ImmutableError(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
     }
 }

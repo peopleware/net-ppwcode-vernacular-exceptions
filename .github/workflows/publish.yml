@@ -3,8 +3,8 @@ name: Publish to NuGet
 on:
   push:
     tags:
-      - 'IV/[0-9]+.[0-9]+.[0-9]+'
-      - 'IV/[0-9]+.[0-9]+.[0-9]+-*'
+      - 'V/[0-9]+.[0-9]+.[0-9]+'
+      - 'V/[0-9]+.[0-9]+.[0-9]+-*'
 
 jobs:
   build-and-test:
@@ -37,10 +37,6 @@ jobs:
 
       - name: Restore dependencies
         shell: bash
-        # do not add ContinuousIntegrationBuild here
-        # since it will complain about the package lock file
-        # ContinuousIntegrationBuild=true excludes full-framework
-        # builds on Linux and macOS
         run: |
           dotnet restore PPWCode.Vernacular.Exceptions.sln \
             --locked-mode \
@@ -203,7 +199,7 @@ jobs:
             echo ""
             echo "<br />"
             echo ""
-            echo "[View full changelog →](https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-iv/changelog.html#${{ steps.get_version.outputs.version_clean }})"
+            echo "[View full changelog →](https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/changelog.html#${{ steps.get_version.outputs.version_clean }})"
           } > release_body.md
 
       - name: Add Release Notes to Job Summary
@@ -277,18 +273,18 @@ jobs:
           cd release-artifacts
 
           # Zip test and coverage raw per OS
-          zip -r -9 PPWCode.Vernacular.Exceptions.IV-test-output-raw_Linux_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Linux/
-          zip -r -9 PPWCode.Vernacular.Exceptions.IV-test-output-raw_macOS_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-macOS/
-          zip -r -9 PPWCode.Vernacular.Exceptions.IV-test-output-raw_Windows_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Windows/
+          zip -r -9 PPWCode.Vernacular.Exceptions.V-test-output-raw_Linux_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Linux/
+          zip -r -9 PPWCode.Vernacular.Exceptions.V-test-output-raw_macOS_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-macOS/
+          zip -r -9 PPWCode.Vernacular.Exceptions.V-test-output-raw_Windows_${{ steps.get_version.outputs.version }}.zip test-and-coverage-raw-Windows/
 
           # Zip coverage HTML per OS
-          zip -r -9 PPWCode.Vernacular.Exceptions.IV-coverage-report-html_Linux_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Linux/
-          zip -r -9 PPWCode.Vernacular.Exceptions.IV-coverage-report-html_macOS_${{ steps.get_version.outputs.version }}.zip coverage-report-html-macOS/
-          zip -r -9 PPWCode.Vernacular.Exceptions.IV-coverage-report-html_Windows_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Windows/
+          zip -r -9 PPWCode.Vernacular.Exceptions.V-coverage-report-html_Linux_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Linux/
+          zip -r -9 PPWCode.Vernacular.Exceptions.V-coverage-report-html_macOS_${{ steps.get_version.outputs.version }}.zip coverage-report-html-macOS/
+          zip -r -9 PPWCode.Vernacular.Exceptions.V-coverage-report-html_Windows_${{ steps.get_version.outputs.version }}.zip coverage-report-html-Windows/
 
           # Zip all NuGet packages
           cd ../artifacts
-          zip -r -9 ../release-artifacts/PPWCode.Vernacular.Exceptions.IV-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip *.nupkg
+          zip -r -9 ../release-artifacts/PPWCode.Vernacular.Exceptions.V-nuget-pkgs_${{ steps.get_version.outputs.version }}.zip *.nupkg
 
       - name: Create GitHub Release
         if: steps.get_version.outputs.is_prerelease == 'false'
@@ -297,6 +293,6 @@ jobs:
           files: |
             release-artifacts/*.zip
           generate_release_notes: false
-          name: PPWCode.Vernacular.Exceptions.IV ${{ steps.get_version.outputs.version }}
+          name: PPWCode.Vernacular.Exceptions.V ${{ steps.get_version.outputs.version }}
           body_path: release_body.md
           fail_on_unmatched_files: true

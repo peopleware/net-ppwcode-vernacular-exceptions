@@ -14,7 +14,7 @@
 
     <!-- nuget package -->
     <PropertyGroup>
-        <Description>The PPWCode Vernacular Exception library version IV.</Description>
+        <Description>The PPWCode Vernacular Exception library version V.</Description>
         <Product>PPWCode</Product>
         <Authors>dvdwouwe;rvdginste</Authors>
         <Company>Peopleware NV</Company>
@@ -32,7 +32,7 @@
 
         <PackageReleaseNotes>
 Changelog can be found in the documentation at:
-https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-iv/changelog.html
+https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/changelog.html
         </PackageReleaseNotes>
 
         <!-- SourceLink support -->
@@ -59,7 +59,7 @@ https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-iv/c
     <!-- build configuration -->
     <PropertyGroup>
         <!-- Target frameworks -->
-        <TargetFrameworks>netstandard2.0;net8.0;net9.0;net10.0;net462;net47;net471;net472;net48;net481</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
 
         <!-- Configurations -->
         <Configurations>Debug;Release</Configurations>
@@ -101,8 +101,9 @@ https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-iv/c
         <WarningsAsErrors/>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-        <LangVersion>12.0</LangVersion>
-        <Nullable>disable</Nullable>
+        <LangVersion>14.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>true</ImplicitUsings>
     </PropertyGroup>
 
     <!-- properties for debug configuration -->

@@ -7,16 +7,5 @@
         <CodeAnalysisRuleSet>..\Analyzer.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
-    <!-- for stable package lock files across OSes -->
-    <ItemGroup Condition="
-                     ('$(TargetFramework)' == 'net462')
-                     Or ('$(TargetFramework)' == 'net47')
-                     Or ('$(TargetFramework)' == 'net471')
-                     Or ('$(TargetFramework)' == 'net472')
-                     Or ('$(TargetFramework)' == 'net48')
-                     Or ('$(TargetFramework)' == 'net481') ">
-        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" />
-    </ItemGroup>
-
     <!-- common dependencies included using GlobalPackageReference -->
 </Project>

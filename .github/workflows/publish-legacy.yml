@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'The existing tag to create a release for (e.g., IV/2.0.0)'
+        description: 'The existing tag to create a release for (e.g., V/2.0.0)'
         required: true
         type: string
 
@@ -16,10 +16,10 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout IV/next branch
+      - name: Checkout V/next branch
         uses: actions/checkout@v4
         with:
-          ref: IV/next
+          ref: V/next
           fetch-depth: 0
           fetch-tags: true
 

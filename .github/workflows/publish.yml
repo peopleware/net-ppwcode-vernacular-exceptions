@@ -131,9 +131,9 @@ jobs:
           FULL_TAG=${GITHUB_REF#refs/tags/}
 
           # Validate tag format with roman numeral prefix
-          if [[ ! $FULL_TAG =~ ^[IVX]+/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
+          if [[ ! $FULL_TAG =~ ^IV/[0-9]+\.[0-9]+\.[0-9]+(-.*)?$ ]]; then
             echo "ERROR: Tag '$FULL_TAG' does not match format {ROMAN}/{VERSION}"
-            echo "Expected format: I/1.2.3 or II/2.0.0-beta1"
+            echo "Expected format: IV/1.2.3 or IV/2.0.0-beta1"
             exit 1
           fi
 

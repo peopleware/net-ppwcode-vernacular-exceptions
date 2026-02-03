@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-
 		src\Directory.Packages.props = src\Directory.Packages.props
 		src\common.props = src\common.props
 		src\common-tests.props = src\common-tests.props
+		global.json = global.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "package", "package", "{C999F0FB-DEF3-4A11-A697-4B92C436B14B}"

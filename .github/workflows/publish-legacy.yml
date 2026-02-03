@@ -84,6 +84,10 @@ jobs:
             exit 1
           fi
 
+          # Remove GitHub links as GitHub generates these automatically
+          # Example: link:{github-user}rvdginste[@rvdginste]
+          sed -i -E 's/link:\{github-[^}]+\}[^[]*\[([^]]+)\]/\1/g' "$CHANGELOG_FILE"
+
           # Convert AsciiDoc to Markdown using downdoc
           npx downdoc "$CHANGELOG_FILE" -o release_notes.md
 

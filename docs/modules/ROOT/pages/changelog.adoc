@@ -12,6 +12,9 @@ the link to the GitHub tag is only added once we are ready to release.
 :nuget: https://www.nuget.org/packages/PPWCode.Vernacular.Exceptions.V/
 :ppwcode-docs: https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/
 
+:github-user: https://github.com/
+:github-pr: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/pull/
+:github-issue: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/issues/
 
 :release: 1.1.0
 == `{release}`

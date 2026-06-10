@@ -1,0 +1,14 @@
+////
+The changelog for a specific release.
+Note that it is best to update the changelog as new code is developed.
+
+All attributes used, must be included in this file to keep it self-contained.
+
+This file is translated into markdown and used for the release notes in the GitHub release!
+////
+
+=== Changes
+* use portable pdbs
+** better debugging experience
+* Upgrade dotnet SDK to `10.0.301`
+* Upgrade dependencies

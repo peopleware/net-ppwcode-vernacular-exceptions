@@ -33,7 +33,6 @@
     <ItemGroup>
         <!-- included in each project, using PrivateAssets="All" -->
         <GlobalPackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
-        <GlobalPackageReference Include="Microsoft.SourceLink.GitHub" Version="10.*" />
     </ItemGroup>
 
 </Project>

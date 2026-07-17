@@ -110,7 +110,7 @@ https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/ch
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
+        <DebugType>portable</DebugType>
         <Optimize>false</Optimize>
         <DefineConstants>DEBUG;TRACE;CONTRACTS_PRE;CONTRACTS_POST;CONTRACTS_INVARIANT;CONTRACTS_ASSERT</DefineConstants>
     </PropertyGroup>
@@ -119,7 +119,7 @@ https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/ch
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
-        <DebugType>pdbonly</DebugType>
+        <DebugType>portable</DebugType>
         <Optimize>true</Optimize>
         <DefineConstants>TRACE;CONTRACTS_PRE;CONTRACTS_POST;CONTRACTS_INVARIANT;CONTRACTS_ASSERT</DefineConstants>
     </PropertyGroup>

@@ -16,11 +16,16 @@ the link to the GitHub tag is only added once we are ready to release.
 :github-pr: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/pull/
 :github-issue: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/issues/
 
-:release: 1.1.0
+
+:release: 1.2.0
 == `{release}`
 include::partial$changelog-release-section.adoc[]
 include::partial$changelog-{release}.adoc[]
 
+:release: 1.1.0
+== `{release}`
+include::partial$changelog-release-section.adoc[]
+include::partial$changelog-{release}.adoc[]
 
 :release: 1.0.0
 == `{release}`

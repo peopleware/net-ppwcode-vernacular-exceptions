@@ -1,0 +1,21 @@
+////
+The changelog for a specific release.
+Note that it is best to update the changelog as new code is developed.
+
+All attributes used, must be included in this file to keep it self-contained.
+
+This file is translated into markdown and used for the release notes in the GitHub release!
+////
+
+:github-user: https://github.com/
+:github-pr: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/pull/
+:github-issue: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/issues/
+
+
+=== Changes
+* Switched the solution file from `.sln` to `.slnx` format
+* Updated the .NET SDK version to `10.0.302`
+* Added `gen5` to the NuGet package tags
+* Generated portable debug symbols for both Debug and Release configurations
+* Changed test and analyzer package versions to floating versions
+* Updated test project dependencies to the latest available versions

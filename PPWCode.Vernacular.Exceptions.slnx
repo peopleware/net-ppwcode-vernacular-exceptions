@@ -6,6 +6,8 @@
   <Folder Name="/build-pipeline/">
     <File Path=".github/workflows/ci.yml" />
     <File Path=".github/workflows/publish.yml" />
+    <File Path=".github\workflows\publish-legacy.yml" />
+    <File Path=".github\workflows\reproduce-build.yml" />
   </Folder>
   <Folder Name="/package/">
     <File Path="assets/ppw-logo-2.png" />

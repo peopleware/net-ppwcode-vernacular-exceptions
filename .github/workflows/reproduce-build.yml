@@ -98,14 +98,14 @@ jobs:
         # ContinuousIntegrationBuild=true excludes full-framework
         # builds on Linux and macOS
         run: |
-          dotnet restore PPWCode.Vernacular.Exceptions.sln \
+          dotnet restore PPWCode.Vernacular.Exceptions.slnx \
             --locked-mode \
             -p:Configuration=Release
 
       - name: Build
         shell: bash
         run: |
-          dotnet build PPWCode.Vernacular.Exceptions.sln \
+          dotnet build PPWCode.Vernacular.Exceptions.slnx \
             --configuration Release \
             --no-restore \
             -p:ContinuousIntegrationBuild=true \
@@ -116,7 +116,7 @@ jobs:
       - name: Pack
         shell: bash
         run: |
-          dotnet pack PPWCode.Vernacular.Exceptions.sln \
+          dotnet pack PPWCode.Vernacular.Exceptions.slnx \
             --configuration Release \
             --no-build \
             --output ./artifacts \

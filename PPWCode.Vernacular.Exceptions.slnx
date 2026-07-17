@@ -1,0 +1,28 @@
+<Solution>
+  <Folder Name="/analyzers/">
+    <File Path="src/Analyzer-Tests.ruleset" />
+    <File Path="src/Analyzer.ruleset" />
+  </Folder>
+  <Folder Name="/build-pipeline/">
+    <File Path=".github/workflows/ci.yml" />
+    <File Path=".github/workflows/publish-legacy.yml" />
+    <File Path=".github/workflows/publish.yml" />
+    <File Path=".github/workflows/reproduce-build.yml" />
+  </Folder>
+  <Folder Name="/package/">
+    <File Path="assets/ppw-logo-2.png" />
+    <File Path="assets/ppw-logo.png" />
+    <File Path="LICENSE" />
+    <File Path="NOTICE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/solution-items/">
+    <File Path="global.json" />
+    <File Path="src/common-tests.props" />
+    <File Path="src/common.props" />
+    <File Path="src/Directory.Build.props" />
+    <File Path="src/Directory.Packages.props" />
+  </Folder>
+  <Project Path="src/V.Tests/PPWCode.Vernacular.Exceptions.V.Tests.csproj" />
+  <Project Path="src/V/PPWCode.Vernacular.Exceptions.V.csproj" />
+</Solution>

@@ -4,12 +4,16 @@ The library `PPWCode.Vernacular.Exceptions.V` is part of the .NET PPWCode projec
 
 `PPWCode.Vernacular.Exceptions.V` is a helper library that defines a number of base `Exception` classes.  This is generation `V` of the `PPWCode.Vernacular.Exceptions` library.
 
-This library is supported on .NET SDK versions that are currently supported by Microsoft as part of their official support lifecycle.
+This library targets .NET 8, .NET 9, .NET 10, and .NET 11.
+
+Releases follow semantic versioning: adding support for another .NET target framework while preserving existing targets and public API compatibility is a minor release. Breaking changes require a major release.
 
 
 == Development
 
 Development of the PPWCode is done on https://github.com/peopleware/net-ppwcode-vernacular-exceptions/tree/V/next[GitHub].
+
+Building the library requires .NET SDK `11.0.100`, as pinned in `global.json`. Running applications that consume the library requires the runtime matching their chosen target framework.
 
 Releases (both stable and pre-release) are published on https://www.nuget.org/packages/PPWCode.Vernacular.Exceptions.V/[NuGet] by https://www.nuget.org/profiles/PeopleWare[PeopleWare].
 

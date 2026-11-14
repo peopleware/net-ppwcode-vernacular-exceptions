@@ -1,0 +1,59 @@
+////
+The changelog for a specific release.
+All attributes used must be included in this file to keep it self-contained.
+This file is translated into Markdown for the GitHub release notes.
+////
+
+:github-user: https://github.com/
+:github-pr: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/pull/
+:github-issue: https://github.com/peopleware/net-ppwcode-vernacular-exceptions/issues/
+
+=== Changes
+
+* Added .NET 11 support while retaining .NET 8, .NET 9, and .NET 10 support.
+* Updated the development SDK from `10.0.302` to `11.0.100`.
+* Included .NET 11 in the GitHub Actions SDK setup for builds, tests, publishing, and build reproduction. Tests run for every target framework on Linux, macOS, and Windows.
+* Refreshed NuGet lock files for all four target frameworks, preserving floating package version ranges.
+
+=== Dependency changes
+
+These changes affect test and build tooling; no consumer runtime dependencies were added or removed. Versions below compare the release with `1.2.1` and apply across all existing target frameworks. The new .NET 11 target uses the same versions.
+
+==== Updated packages
+
+[cols="2,1,1",options="header"]
+|===
+|Package |Previous version |New version
+|Microsoft.NET.Test.Sdk |18.8.1 |18.12.0
+|NUnit |4.6.1 |5.0.0
+|NUnit3TestAdapter |6.2.0 |6.3.1
+|NUnit.Analyzers |4.14.0 |4.15.0
+|JunitXml.TestLogger |8.0.0 |8.1.0
+|coverlet.collector |10.0.1 |10.1.0
+|StyleCop.Analyzers |1.2.0-beta.556 |1.3.180
+|===
+
+The NUnit floating range changed from `4.*` to `5.*`. Other floating ranges were retained; StyleCop.Analyzers remains pinned to an explicit version.
+
+The following transitive test dependencies also changed:
+
+[cols="2,1,1",options="header"]
+|===
+|Package |Previous version |New version
+|Microsoft.CodeCoverage |18.8.1 |18.12.0
+|Microsoft.TestPlatform.ObjectModel |18.8.1 |18.12.0
+|Microsoft.TestPlatform.TestHost |18.8.1 |18.12.0
+|Microsoft.Testing.Extensions.Telemetry |2.1.0 |2.4.1
+|Microsoft.Testing.Extensions.TrxReport.Abstractions |2.1.0 |2.4.1
+|Microsoft.Testing.Extensions.VSTestBridge |2.1.0 |2.4.1
+|Microsoft.Testing.Platform |2.1.0 |2.4.1
+|Microsoft.Testing.Platform.MSBuild |2.1.0 |2.4.1
+|===
+
+==== Added packages
+
+* Added transitive test dependency `Microsoft.TestPlatform.AdapterUtilities` version `18.10.1`.
+
+==== Removed packages
+
+* Removed transitive build dependency `StyleCop.Analyzers.Unstable` version `1.2.0.556` following the StyleCop.Analyzers update.

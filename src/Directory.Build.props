@@ -59,7 +59,7 @@ https://peopleware.github.io/net-ppwcode-docs/ppwcode-vernacular-exceptions-v/ch
     <!-- build configuration -->
     <PropertyGroup>
         <!-- Target frameworks -->
-        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
 
         <!-- Configurations -->
         <Configurations>Debug;Release</Configurations>
